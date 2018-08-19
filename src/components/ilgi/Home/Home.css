@@ -1,0 +1,46 @@
+.grid-container {
+    padding: 0;
+    display: grid;
+    width: 100%;
+    /* background-color: #d7e1e5; */
+    grid-gap: 3px;
+    justify-content: center;
+    grid-template-columns: 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5%;
+  }
+  .grid-item {
+    padding: 0px;
+    background-color: white;
+  }
+  .grid-item-custom {
+    padding: 25px;
+    border-bottom: 3px solid #d7e1e5;
+  }
+  .daysIndicator {
+    padding: 14px;
+    border-bottom: 3px solid #d7e1e5;
+  }
+  .Home {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .Home_header {
+    position: relative;
+    top: 50px;
+  }
+ 
+  .Home_by {
+    margin-left: 10vw;
+    font-family: "Work Sans", sans-serif;
+  }
+  .Home_now {
+    margin: 25px;
+  }
+  .Home_containerBackground {
+    background-color: #d7e1e5;
+    width: 100%;
+    margin: 110px 0;
+    padding: 0;
+  }
+  
+  @import url("https://fonts.googleapis.com/css?family=Work+Sans:300");
