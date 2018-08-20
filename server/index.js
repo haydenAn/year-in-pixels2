@@ -10,7 +10,7 @@ const
 
 const
   { strat, logout, getUser } = require(`${__dirname}/controllers/authCtrl`),
-  { getOnePixelFullInfo } = require(`${__dirname}/controllers/pixelCtrl`);
+  { getOnePixelFullInfo,addPixel } = require(`${__dirname}/controllers/pixelCtrl`);
 const app = express();
 // const {
 //   addEvent,
@@ -89,13 +89,12 @@ app.get("/auth/me", getUser);
 
 // PIXEL
 app.get("/api/pixel/:date", getOnePixelFullInfo);
-// app.post("/api/pixel", addPixel);
+app.post("/api/pixel", addPixel);
 // app.get("/api/pixels", getAllPixels);
 // app.post("/api/pixel/:id", updatePixel);
 
 // color endpoints
 
-// app.post("/api/color", addColor);
 // app.post("/api/color/:id", updateColor);
 /////quote
 // app.get("/api/getRandom", getQuote);

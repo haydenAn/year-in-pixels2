@@ -1,0 +1,1 @@
+select id from pixels where owner_id=$1 and pixel_date=$2;

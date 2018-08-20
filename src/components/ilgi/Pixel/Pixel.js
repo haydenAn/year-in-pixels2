@@ -16,6 +16,7 @@ componentDidMount(){
     if getPixel returns false
     show edit page else just pixel
     */}
+  <Edit />
     </div>
   }
 }
