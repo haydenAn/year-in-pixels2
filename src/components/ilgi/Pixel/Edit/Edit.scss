@@ -1,0 +1,33 @@
+@import "../../../../sass/_media.scss";
+
+.Edit{
+    edit-textarea{
+       width: 65vw;
+       display: block;
+       margin: 10px auto;  
+       @include tablet {
+           width: 55vw;
+         }
+         @include desktop {
+           width: 35vw;
+         }
+         h3{
+            .edit_penicon{
+                margin: 0 10px 0 0;
+            }
+         }
+}
+.Edit_savebtn{
+    width: 65vw;
+    display: block;
+    padding:20px 0;
+    margin: 30px auto 100px;  
+    @include tablet {
+        width: 55vw;
+      }
+      @include desktop {
+        width: 35vw;
+      }
+}
+
+}

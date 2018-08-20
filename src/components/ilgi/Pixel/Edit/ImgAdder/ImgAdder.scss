@@ -1,0 +1,49 @@
+@import "../../../../../sass/_media.scss";
+
+.ImgAdder{ 
+    width:80vw;
+    margin: 20px auto;
+       search-results{
+        width:80vw;
+        display: block;
+        margin: 30px auto;  
+         @include tablet {
+            width: 60vw;
+          }
+          @include desktop {
+            width:50vw;
+          }
+      }
+        imgadder-buttons{
+            width:60vw;
+            display: block;
+            margin: 0 auto;  
+             @include tablet {
+                width: 45vw;
+              }
+              @include desktop {
+                width: 30vw;
+              }
+            .ImgAdder_button{
+                padding:15px 50px;
+                margin:5px 7px 0 7px;
+            }
+            .ImgAdder_search{
+              display: block;
+              margin : 10px auto;
+           
+            }
+        }
+        img{
+        width: 65vw;
+        display: block;
+        margin: 10px auto;  
+        @include tablet {
+            width: 55vw;
+          }
+          @include desktop {
+            width: 35vw;
+          }
+        }
+
+}

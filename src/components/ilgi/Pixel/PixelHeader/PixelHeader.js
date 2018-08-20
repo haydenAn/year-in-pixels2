@@ -7,12 +7,13 @@ const PixelHeader = (props) => {
   {color,opacity} = props,
   styles = {
       button:{
-         color: opacity<0.5 ?'rgba(0, 0, 0, 0.87)':'white' 
+         color: opacity<0.7 ?'rgba(0, 0, 0, 0.87)':'white' 
       },
     appBar:{
         backgroundColor:color,
         opacity:opacity,
-        height:'60px'
+        height:'60px',
+        width:'100vw'
     }
   },
   moodObj = colors.filter((el,i)=>Object.values(el)[0]===color),

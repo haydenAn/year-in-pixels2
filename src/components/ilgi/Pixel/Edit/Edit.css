@@ -1,0 +1,24 @@
+.Edit edit-textarea {
+  width: 65vw;
+  display: block;
+  margin: 10px auto; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .Edit edit-textarea {
+      width: 55vw; } }
+  @media (min-width: 1024px) {
+    .Edit edit-textarea {
+      width: 35vw; } }
+  .Edit edit-textarea h3 .edit_penicon {
+    margin: 0 10px 0 0; }
+
+.Edit .Edit_savebtn {
+  width: 65vw;
+  display: block;
+  padding: 20px 0;
+  margin: 30px auto 100px; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .Edit .Edit_savebtn {
+      width: 55vw; } }
+  @media (min-width: 1024px) {
+    .Edit .Edit_savebtn {
+      width: 35vw; } }

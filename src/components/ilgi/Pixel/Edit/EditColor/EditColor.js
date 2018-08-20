@@ -31,10 +31,11 @@ const EditColor = props => {
   return (
     <div className="EditColor">
       <editColor-colors>{colorBoxes}</editColor-colors>
+       <h3><i className="far fa-smile edit_smileicon"></i>How intense is your feeling?</h3>
       <Slider
         style={styles.slider}
         value={opacity}
-        min={0}
+        min={0.3}
         max={1}
         onChange={changeOpacity}
       />

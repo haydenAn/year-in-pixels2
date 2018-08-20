@@ -10,7 +10,18 @@
   @include desktop {
     width: 40%;
   }
+  h3{
+    text-align: left;
+    margin-left:10%;
+    .edit_smileicon{
+      margin: 0 10px 0 0;
+
+    }
+
+  }
   editColor-colors {
+    display: block;
+    text-align: center;
     div {
       opacity: 0.5;
       display: inline-block;

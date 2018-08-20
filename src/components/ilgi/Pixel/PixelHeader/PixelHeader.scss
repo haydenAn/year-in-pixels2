@@ -5,13 +5,13 @@
     left: auto;
     right: 0;
     position: fixed;
-    width: 100%;
+    width: 100vw;
     transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     z-index: 1100;
     pixelHeader-info{
         position: relative;
         top:-50px;
-        left:-10vw;
+        left:70px;
         span{
             color:white;
             font-weight: bold;
@@ -22,7 +22,7 @@
     button{
         position:relative;
         top:-55px;
-        right: -10vw;
+        right: -120px;
         @include regular-button;
     }
 }

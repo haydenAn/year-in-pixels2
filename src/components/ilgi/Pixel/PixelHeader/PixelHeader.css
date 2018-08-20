@@ -3,13 +3,13 @@
   left: auto;
   right: 0;
   position: fixed;
-  width: 100%;
+  width: 100vw;
   transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   z-index: 1100; }
   .PixelHeader pixelHeader-info {
     position: relative;
     top: -50px;
-    left: -10vw; }
+    left: 70px; }
     .PixelHeader pixelHeader-info span {
       color: white;
       font-weight: bold;
@@ -18,7 +18,7 @@
   .PixelHeader button {
     position: relative;
     top: -55px;
-    right: -10vw;
+    right: -120px;
     color: rgba(0, 0, 0, 0.87);
     margin: 8px;
     border: 0;

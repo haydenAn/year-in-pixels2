@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { addPixel } from "../../../../ducks/pixel";
 import PixelHeader from "../PixelHeader/PixelHeader";
 import EditColor from "./EditColor/EditColor";
-
+import ImgAdder from "./ImgAdder/ImgAdder"
+import "./Edit.css";
 ///material_ui imports
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -46,22 +47,21 @@ class Edit extends Component {
           changeColor={this.changeColor}
           changeOpacity={this.changeOpacity}
         />
-        <edit-imgAdder>
-          <div className="Edit_imgContainer">
-            <img alt="default img" />
-          </div>
-        </edit-imgAdder>
+        <ImgAdder />
+         
         <edit-textarea>
-          <h2>through out the day...</h2>
+          <h3><i className="fas fa-pen edit_penicon"></i>Through out the day...</h3>
           <TextField
-            label="Multiline"
+            label="write down anything you want"
             multiline
-            rows="4"
-            defaultValue="Default Value"
+            rows="7"
+            placeholder="I had a really good taco today"
             fullWidth
           />
         </edit-textarea>
-        <Button onClick={() => this.addPixel()}>add pixel</Button>
+        <Button className="Edit_savebtn" variant="contained" color="primary" onClick={()=>this.addPixel()}>
+        Save changes
+      </Button>
       </div>
     );
   }

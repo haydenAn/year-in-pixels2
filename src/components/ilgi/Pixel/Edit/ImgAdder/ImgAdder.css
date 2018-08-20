@@ -1,0 +1,39 @@
+.ImgAdder {
+  width: 80vw;
+  margin: 20px auto; }
+  .ImgAdder search-results {
+    width: 80vw;
+    display: block;
+    margin: 30px auto; }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .ImgAdder search-results {
+        width: 60vw; } }
+    @media (min-width: 1024px) {
+      .ImgAdder search-results {
+        width: 50vw; } }
+  .ImgAdder imgadder-buttons {
+    width: 60vw;
+    display: block;
+    margin: 0 auto; }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .ImgAdder imgadder-buttons {
+        width: 45vw; } }
+    @media (min-width: 1024px) {
+      .ImgAdder imgadder-buttons {
+        width: 30vw; } }
+    .ImgAdder imgadder-buttons .ImgAdder_button {
+      padding: 15px 50px;
+      margin: 5px 7px 0 7px; }
+    .ImgAdder imgadder-buttons .ImgAdder_search {
+      display: block;
+      margin: 10px auto; }
+  .ImgAdder img {
+    width: 65vw;
+    display: block;
+    margin: 10px auto; }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .ImgAdder img {
+        width: 55vw; } }
+    @media (min-width: 1024px) {
+      .ImgAdder img {
+        width: 35vw; } }
