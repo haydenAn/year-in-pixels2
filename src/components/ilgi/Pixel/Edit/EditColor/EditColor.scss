@@ -1,4 +1,31 @@
-.EditColor{
-    editColor-colors{
+@import "../../../../../sass/_media.scss";
+@import "../../../../../sass/_mixin.scss";
+.EditColor {
+  margin: 10px auto;
+  width: 80%;
+  @include tablet {
+    width: 60%;
+  }
+  @include desktop {
+    width: 40%;
+  }
+  editColor-colors {
+    div {
+      opacity: 0.5;
+      display: inline-block;
+      width: 20vw;
+      height: 20vw;
+      margin: 1vw;
+      @include boxshadow-hover-effect;
+
+      @include tablet {
+        width: 17vw;
+        height: 17vw;
+      }
+      @include desktop {
+        width: 10vw;
+        height: 10vw;
+      }
     }
+  }
 }

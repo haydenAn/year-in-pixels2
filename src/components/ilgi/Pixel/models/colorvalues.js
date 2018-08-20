@@ -3,11 +3,11 @@ const colorvalues = [
     "#009688",
     "#3F51B5",
     "#2196F3",
-    "#C62828",
+    "#BDBDBD",
     "#FFC107",
     "#673ab7",
     "#E91E63",
-    "#BDBDBD"
+    "#C62828"
   ];
   export default colorvalues
   

@@ -1,0 +1,21 @@
+@import "../../../../sass/_mixin.scss";
+
+.PixelHeader{
+    pixelHeader-info{
+        position: relative;
+        top:-50px;
+        left:-10vw;
+        span{
+            color:white;
+            font-weight: bold;
+            font-size: 1.8em;
+            margin:0 10px;
+        }
+    }
+    button{
+        position:relative;
+        top:-55px;
+        right: -10vw;
+        @include regular-button;
+    }
+}

@@ -1,19 +1,29 @@
 import React from "react";
 import Slider from "@material-ui/lab/Slider";
 import colorvalues from "../../models/colorvalues";
+import "./EditColor.css";
 const EditColor = props => {
-  const { opacity, changeOpacity } = props,
+  const { opacity, changeOpacity, changeColor,color } = props,
+    styles = {
+      slider: {
+        width: "80%",
+        margin: "10px auto"
+      }
+    },
     colorBoxes = colorvalues.map((el, i) => {
       return (
         <div
           key={i}
-          style={{
-            backgroundColor: el,
-            width: "20vw",
-            height: "20vw",
-            display: "inline-block",
-            margin: "2vw"
-          }}
+          style={
+            color === el
+              ? {
+                  backgroundColor: el,
+                  opacity:1,
+                  transition:'0.2s'
+                }
+              : { backgroundColor: el }
+          }
+          onClick={(e)=>changeColor(e,el)}
         />
       );
     });
@@ -21,7 +31,13 @@ const EditColor = props => {
   return (
     <div className="EditColor">
       <editColor-colors>{colorBoxes}</editColor-colors>
-      <Slider value={opacity} min={0} max={1} onChange={changeOpacity} />
+      <Slider
+        style={styles.slider}
+        value={opacity}
+        min={0}
+        max={1}
+        onChange={changeOpacity}
+      />
     </div>
   );
 };
