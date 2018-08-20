@@ -1,6 +1,13 @@
 @import "../../../../sass/_mixin.scss";
 
 .PixelHeader{
+    top: 0;
+    left: auto;
+    right: 0;
+    position: fixed;
+    width: 100%;
+    transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    z-index: 1100;
     pixelHeader-info{
         position: relative;
         top:-50px;

@@ -1,7 +1,8 @@
 @import "../../../../../sass/_media.scss";
 @import "../../../../../sass/_mixin.scss";
 .EditColor {
-  margin: 10px auto;
+  margin-top:80px !important;
+  margin: 20px auto;
   width: 80%;
   @include tablet {
     width: 60%;
