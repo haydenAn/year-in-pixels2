@@ -1,16 +1,9 @@
 .ImgAdder {
   width: 80vw;
   margin: 20px auto; }
-  .ImgAdder search-results {
-    width: 80vw;
-    display: block;
-    margin: 30px auto; }
-    @media (min-width: 768px) and (max-width: 1023px) {
-      .ImgAdder search-results {
-        width: 60vw; } }
-    @media (min-width: 1024px) {
-      .ImgAdder search-results {
-        width: 50vw; } }
+  .ImgAdder search-results .ImgAdder_showSearch .ImgAdder_search-results {
+    height: 80vh;
+    overflow: scroll; }
   .ImgAdder imgadder-buttons {
     width: 60vw;
     display: block;

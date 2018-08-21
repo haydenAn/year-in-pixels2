@@ -6,7 +6,7 @@ import {withRouter} from "react-router-dom"
 class Pixel extends Component {
 componentDidMount(){
     const {getPixel,match} = this.props
-    getPixel(match.params.date);
+    // getPixel(match.params.date);
 }
   render() {
     return <div className="Pixel">

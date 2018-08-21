@@ -4,14 +4,20 @@ import { addPixel } from "../../../../ducks/pixel";
 import PixelHeader from "../PixelHeader/PixelHeader";
 import EditColor from "./EditColor/EditColor";
 import ImgAdder from "./ImgAdder/ImgAdder"
+import defaultImg from "../../../../sass/images/default.jpg"
+import {withRouter} from "react-router-dom"
 import "./Edit.css";
+import colorBool from "../models/positive"
+
 ///material_ui imports
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 class Edit extends Component {
   state = {
     opacity: 0.8,
-    colorvalue: "#BDBDBD"
+    colorvalue: "#BDBDBD",
+    img_url: defaultImg,
+    text:''
   };
   changeColor = (e, value) => {
     this.setState(() => ({ colorvalue: value }));
@@ -19,27 +25,35 @@ class Edit extends Component {
   changeOpacity = (e, value) => {
     this.setState(() => ({ opacity: value }));
   };
-  addPixel() {
-    const { addPixel } = this.props,
+  changeImg = (url) =>{
+    this.setState(()=>({img_url:url}))
+  }
+  addPixel=()=>{
+    const { addPixel,match } = this.props,
+    {colorvalue,opacity,text,img_url} = this.state,
+    boolObj=colorBool.filter(el=>Object.keys(el)[0]===colorvalue),
+    positive= Object.values(boolObj[0])[0],
+    color_data=(opacity*10)*(positive?1:-1),
       body = {
-        date: "10-08-2018",
-        colorvalue: "#ffffff",
-        opacity: 0.8,
-        positive: true,
-        color_data: 8,
-        text: "text for test pixel",
-        img_url: "this is img_url "
+        date: match.params.date,
+        colorvalue,
+        opacity,
+        positive,
+        color_data,
+        text,
+        img_url
       };
-    addPixel(body);
+      console.log(body);
+    // addPixel(body);
   }
   render() {
-    const { opacity, colorvalue } = this.state;
-    console.log(opacity,colorvalue);
+    const { opacity, colorvalue ,img_url} = this.state;
     return (
       <div className="Edit">
         <PixelHeader 
         opacity={opacity}
         color={colorvalue}
+        addPixel={this.addPixel}
         />
         <EditColor
           opacity={opacity}
@@ -47,7 +61,10 @@ class Edit extends Component {
           changeColor={this.changeColor}
           changeOpacity={this.changeOpacity}
         />
-        <ImgAdder />
+        <ImgAdder
+        imgUrl={img_url}
+        changeImg={this.changeImg}
+        />
          
         <edit-textarea>
           <h3><i className="fas fa-pen edit_penicon"></i>Through out the day...</h3>
@@ -57,9 +74,10 @@ class Edit extends Component {
             rows="7"
             placeholder="I had a really good taco today"
             fullWidth
-          />
+            onChange={e=>this.setState({text:e.target.value})}  
+                />
         </edit-textarea>
-        <Button className="Edit_savebtn" variant="contained" color="primary" onClick={()=>this.addPixel()}>
+        <Button className="Edit_savebtn" variant="contained" color="primary" onClick={this.addPixel}>
         Save changes
       </Button>
       </div>
@@ -73,7 +91,7 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   { addPixel }
-)(Edit);
+)(Edit))

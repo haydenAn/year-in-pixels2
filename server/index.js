@@ -10,7 +10,8 @@ const
 
 const
   { strat, logout, getUser } = require(`${__dirname}/controllers/authCtrl`),
-  { getOnePixelFullInfo,addPixel } = require(`${__dirname}/controllers/pixelCtrl`);
+  { getOnePixelFullInfo,addPixel } = require(`${__dirname}/controllers/pixelCtrl`),
+  { searchPhoto,getRandomPhoto } = require(`${__dirname}/controllers/unsplashCtrl`);
 const app = express();
 // const {
 //   addEvent,
@@ -26,7 +27,6 @@ const app = express();
 //   getQuoteById,
 //   deleteQuote
 // } = require(`${__dirname}/controllers/quoteCtrl`);
-// const { searchPhoto } = require(`${__dirname}/controllers/unsplashCtrl`);
 
 massive(process.env.CONNECTION_STRING)
   .then(db => app.set("db", db))
@@ -103,7 +103,9 @@ app.post("/api/pixel", addPixel);
 // app.get("/api/quotes", getAllQuotes);
 // app.delete("/api/quote/:id", deleteQuote);
 
-// app.get("/api/photos/:id", searchPhoto);
+//UNSPLASH
+app.get("/api/photos/:keyword/:page", searchPhoto);
+app.get('/api/photo/random',getRandomPhoto)
 
 ///event endpoints
 // app.post("/api/event", addEvent);

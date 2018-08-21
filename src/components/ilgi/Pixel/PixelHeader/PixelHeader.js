@@ -4,7 +4,7 @@ import "./PixelHeader.css";
 import colors from "../models/colors"
 const PixelHeader = (props) => {
   const 
-  {color,opacity} = props,
+  {color,opacity,addPixel} = props,
   styles = {
       button:{
          color: opacity<0.7 ?'rgba(0, 0, 0, 0.87)':'white' 
@@ -28,7 +28,7 @@ const PixelHeader = (props) => {
       <span style={styles.button}>{color}</span>
       <span style={styles.button}>{mood}</span>
      </pixelHeader-info>
-      <button style={styles.button}>
+      <button style={styles.button} onClick={addPixel}>
         save
       </button>
     </div>

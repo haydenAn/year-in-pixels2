@@ -1,21 +1,81 @@
 import React from "react";
-import defaultImg from "../../../../../sass/images/default.jpg";
 import "./ImgAdder.css";
+import axios from "axios";
 //matrial ui
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import MobileStepper from "@material-ui/core/MobileStepper";
 class ImgAdder extends React.Component {
-  state={
-    searchSwitch:false
-  }
-  search = (e) => {
-    if (e.keyCode === 13) {
-      console.log("works");
-      this.setState(()=>({searchSwitch:true}))
-  }
+  state = {
+    searchSwitch: false,
+    activeStep: 0,
+    searchResults: [],
+    searchKeyword: ""
   };
+  handleNext = () => {
+    this.setState(state => ({
+      activeStep: state.activeStep + 1
+    }));
+    const { searchKeyword, activeStep } = this.state;
+    axios
+      .get(`/api/photos/${searchKeyword}/${activeStep + 1}`)
+      .then(res => this.setState(() => ({ searchResults: res.data.results })));
+  };
+
+  handleBack = () => {
+    this.setState(state => ({
+      activeStep: state.activeStep - 1
+    }));
+    const { searchKeyword, activeStep } = this.state;
+    axios
+      .get(`/api/photos/${searchKeyword}/${activeStep + 1}`)
+      .then(res => this.setState(() => ({ searchResults: res.data.results })));
+  };
+  search = e => {
+    const { activeStep } = this.state;
+    if (e.keyCode === 13) {
+      let keyword = e.target.value;
+      this.setState(() => ({ searchSwitch: true, searchKeyword: keyword }));
+      axios
+        .get(`/api/photos/${keyword}/${activeStep + 1}`)
+        .then(res =>
+          this.setState(() => ({ searchResults: res.data.results }))
+        );
+    }
+  };
+
+  random = () => {
+    const { changeImg } = this.props;
+    axios
+      .get("/api/photo/random")
+      .then(res => changeImg(res.data.urls.regular));
+  };
+  fileChangedHandler = e => {
+    const { changeImg } = this.props;
+    let reader = new FileReader();
+    reader.onload = e => {
+      changeImg(e.target.result);
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  };
+  selectPhoto(url) {
+    const { changeImg } = this.props;
+    changeImg(url);
+    this.setState(() => ({ searchSwitch: false }));
+  }
   render() {
-    const {searchSwitch} = this.state
+    const { searchSwitch, activeStep, searchResults } = this.state,
+      { imgUrl } = this.props,
+      searchResultsDisplay = searchResults.map((el, i) => {
+        return (
+          <img
+            key={i}
+            src={el.urls.regular}
+            width="400"
+            onClick={() => this.selectPhoto(el.urls.regular)}
+          />
+        );
+      });
     return (
       <div className="ImgAdder">
         <imgadder-buttons>
@@ -25,6 +85,7 @@ class ImgAdder extends React.Component {
             multiple
             type="file"
             style={{ display: "none" }}
+            onChange={this.fileChangedHandler}
           />
           <label htmlFor="outlined-button-file">
             <Button
@@ -35,7 +96,11 @@ class ImgAdder extends React.Component {
               Upload
             </Button>
           </label>
-          <Button variant="outlined" className="ImgAdder_button">
+          <Button
+            variant="outlined"
+            className="ImgAdder_button"
+            onClick={this.random}
+          >
             Random
           </Button>
           <TextField
@@ -45,16 +110,39 @@ class ImgAdder extends React.Component {
             onKeyDown={this.search}
           />
           <search-results>
-            {
-             searchSwitch?
-             <div className="ImgAdder_search-results">
-                search results
-             </div>
-             :null
-            }
+            {searchSwitch ? (
+              <div className="ImgAdder_showSearch">
+                <MobileStepper
+                  variant="dots"
+                  steps={6}
+                  position="static"
+                  className="ImgAdder_stepper"
+                  activeStep={activeStep}
+                  nextButton={
+                    <Button
+                      onClick={this.handleNext}
+                      disabled={activeStep === 5}
+                    >
+                      Next
+                    </Button>
+                  }
+                  backButton={
+                    <Button
+                      onClick={this.handleBack}
+                      disabled={activeStep === 0}
+                    >
+                      Back
+                    </Button>
+                  }
+                />
+                <div className="ImgAdder_search-results">
+                  {searchResultsDisplay}
+                </div>
+              </div>
+            ) : null}
           </search-results>
         </imgadder-buttons>
-        <img alt="default img" src={defaultImg} />
+        <img alt="default img" src={imgUrl} />
       </div>
     );
   }
