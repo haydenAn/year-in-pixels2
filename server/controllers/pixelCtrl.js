@@ -1,18 +1,19 @@
 const getOnePixelFullInfo = (req, res) => {
   console.log("Hit the get =>/api/pixel/:date ");
-  const 
-  { date } = req.params,
-  db =req.app.get("db").getPixelId(req.user.id,date)
-  .then(
-    pixel=>
-   db.getPixel([pixel[0].id])
-    .then(pixel => {
-      res.status(200).send(pixel);
-    })
-    .catch(() => {
-      res.status(500).send();
-    })
-  )
+  const { date } = req.params,
+    db = req.app.get("db");
+      db.getPixelId(req.user.id, date)
+      .then(pixel => {
+        if (pixel[0]) {
+          db.getPixel([pixel[0].id])
+            .then(pixel => {
+              res.status(200).send(pixel[0]);
+            })
+        }
+        else{
+          res.status(200).send(false)
+        }
+      })
 };
 const addPixel = (req, res) => {
   console.log("Hit the post => /api/pixel", req.body);
@@ -37,7 +38,9 @@ const addPixel = (req, res) => {
         text,
         img_url,
         date
-      ]).then(res=>console.log(res)).catch(console.error)
+      ])
+        .then(pixel => res.status(200).send(pixel))
+        .catch(console.error);
     })
     .catch(err => {
       // res.status(500).send(err);

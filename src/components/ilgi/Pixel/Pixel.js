@@ -1,22 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Edit from "./Edit/Edit";
 import {getPixel} from "../../../ducks/pixel"
 import {withRouter} from "react-router-dom"
+import Event from "../../Inbox/Event/Event"
 class Pixel extends Component {
 componentDidMount(){
-    const {getPixel,match} = this.props
-    // getPixel(match.params.date);
+    const {getPixel,match,history} = this.props,
+    date=match.params.date;
+    getPixel(date).then(res=>{
+      res.value===false?
+      history.push(`/edit/${date}`)
+      :null
+    })
 }
   render() {
+    const {pixel} = this.props;
+    console.log(pixel)
     return <div className="Pixel">
-    {/* 
-    1) check if there's pixel matches the date and user id 
-    ===> getPixel
-    if getPixel returns false
-    show edit page else just pixel
-    */}
-  <Edit />
+    <Event />
     </div>
   }
 }

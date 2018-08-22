@@ -2,7 +2,7 @@ require("dotenv").config();
 const 
   express = require("express"),
   path = require("path"),
-  { json } = require("body-parser"),
+  bodyParser = require("body-parser"),
   session = require("express-session"),
   massive = require("massive"),
   cors = require("cors"),
@@ -31,7 +31,8 @@ const app = express();
 massive(process.env.CONNECTION_STRING)
   .then(db => app.set("db", db))
   .catch(err => console.log(err));
-app.use(json());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(cors());
 app.use(
   session({

@@ -44,7 +44,7 @@ class Edit extends Component {
         img_url
       };
       console.log(body);
-    // addPixel(body);
+    addPixel(body);
   }
   render() {
     const { opacity, colorvalue ,img_url} = this.state;
