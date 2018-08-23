@@ -10,3 +10,13 @@
     .Todo {
       width: 60vw;
       padding: 50px 100px; } }
+  .Todo todo-add {
+    display: flex;
+    flex-direction: row; }
+    .Todo todo-add i {
+      font-size: 2em;
+      margin: 15px; }
+    .Todo todo-add .Todo_input {
+      width: 80%;
+      margin: 5px;
+      font-size: 2em; }

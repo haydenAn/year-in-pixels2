@@ -1,9 +1,10 @@
 const addTodo = (req, res) => {
   console.log("Hit the post => /api/todo");
-  const { checked, text, todo_date } = req.body;
+  const { title, todo_date } = req.body;
+  console.log(req.body);
   req.app
     .get("db")
-    .addTodo([req.user.id, checked, text, todo_date])
+    .addTodo([req.user.id, false, title, todo_date])
     .then(todos => {
       res.status(200).send(todos);
     })
