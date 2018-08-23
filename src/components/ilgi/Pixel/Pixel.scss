@@ -1,2 +1,52 @@
+@import "../../../sass/_media.scss";
+
 .Pixel{
+    pixel-top{
+        display: flex;
+        flex-direction: column;
+      @include tablet{
+          margin:80px auto 20px;
+          width:80vw;
+          flex-direction: row;
+      }
+      @include desktop{
+        margin:80px auto 20px;
+        flex-direction: row;
+        width:60vw;
+      }
+    }
+    pixel-bottom{
+        display: flex;
+        flex-direction: column;
+      @include tablet{
+        margin:20px auto;
+        width:80vw;
+          flex-direction: row;
+      }
+      @include desktop{
+        margin:20px auto;
+        width:60vw;
+        flex-direction: row;
+      }
+      .Pixel_img{
+          margin:20px auto;
+          width: 85vw;
+              @include tablet{
+                width:60%;
+              }
+              @include desktop{
+               width: 60%;
+              }
+      }
+      .Pixel_text{
+        margin:20px auto;
+        width: 85vw;
+        @include tablet{
+            width:40%;
+        }
+        @include desktop{
+            width: 40%;
+        }
+      }
+    }
 }

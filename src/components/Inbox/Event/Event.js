@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getEvent } from "../../../ducks/event";
 import moment from "moment";
+import "./Event.css"
 //material ui
 import AddIcon from "@material-ui/icons/Add";
 import {
@@ -42,7 +43,7 @@ class Event extends React.Component {
     const { editSwitch, anchorEl } = this.state,
       { event, isLoading, history, match } = this.props;
     return (
-      <Card>
+      <Card className="Event_Card">
         {editSwitch ? (
           <EditEvent title={event.title} location={event.location} text={event.text} handleEditSwitch={this.handleEditSwitch} />
         ) : (
