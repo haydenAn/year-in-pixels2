@@ -40,20 +40,18 @@ class Pixel extends Component {
         ) : (
           <div className="Pixel">
             <PixelHeader opacity={opacity} color={color} />
-            <pixel-top>
-              <Todo />
-              <Event />
-            </pixel-top>
-            <pixel-bottom>
               <div className="Pixel_img">
                 <img alt="pixel_img" src={pixel.img_url} width="500" />
               </div>
+              <Todo /> 
+            <pixel-bottom>
               <Card className="Pixel_text">
                 <CardContent>
                   <h1>{date}</h1>
                   {pixel.text}
                 </CardContent>
               </Card>
+              <Event />
             </pixel-bottom>
           </div>
         )}

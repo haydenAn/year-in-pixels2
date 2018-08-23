@@ -2,14 +2,13 @@
 
 .Todo{
     width: 85vw;
-    margin: 100px auto 20px;
-    padding:20px;
+    margin: 20px auto;
+    padding:50px 100px;
     @include tablet{
-      margin:20px;
-      width:50%;
+      width:80vw;
+
     }
     @include desktop{
-     width: 50%;
-     margin:20px;
+     width: 60vw;
     }
 }

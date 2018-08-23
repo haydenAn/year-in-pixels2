@@ -1,55 +1,43 @@
 @import "../../../sass/_media.scss";
 
 .Pixel {
-  pixel-top {
-    display: flex;
-    flex-direction: column;
-    @include tablet {
+    .Pixel_img {
       margin: 80px auto 20px;
-      width: 80vw;
-      flex-direction: row;
+      width: 100%;
+       @include tablet {
+           width: 80vw;
+        }
+        @include desktop {
+            width: 60vw;
+        }
+        img{
+          width: 100%;
+        }
     }
-    @include desktop {
-      margin: 80px auto 20px;
-      flex-direction: row;
-      width: 60vw;
-    }
-  }
   pixel-bottom {
     display: flex;
     flex-direction: column;
+    width: 85vw;
+    margin: 20px auto;
     @include tablet {
-      margin: 20px auto;
       width: 80vw;
       flex-direction: row;
     }
     @include desktop {
-      margin: 20px auto;
       width: 60vw;
       flex-direction: row;
     }
-    .Pixel_img {
-      margin: 20px auto;
-      width: 85vw;
-       @include tablet {
-          width: 53%;
-        }
-        @include desktop {
-          width: 50%;
-        }
-      img {
-     width: 100%;
-      }
-    }
+   
     .Pixel_text {
+     padding:20px;
       margin: 20px auto;
       overflow-y:scroll; 
       width: 85vw;
       @include tablet {
-        width: 40%;
+        width: 60%;
       }
       @include desktop {
-        width: 40%;
+        width: 60%;
       }
     }
   }

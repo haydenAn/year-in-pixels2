@@ -1,48 +1,36 @@
-.Pixel pixel-top {
-  display: flex;
-  flex-direction: column; }
+.Pixel .Pixel_img {
+  margin: 80px auto 20px;
+  width: 100%; }
   @media (min-width: 768px) and (max-width: 1023px) {
-    .Pixel pixel-top {
-      margin: 80px auto 20px;
-      width: 80vw;
-      flex-direction: row; } }
+    .Pixel .Pixel_img {
+      width: 80vw; } }
   @media (min-width: 1024px) {
-    .Pixel pixel-top {
-      margin: 80px auto 20px;
-      flex-direction: row;
+    .Pixel .Pixel_img {
       width: 60vw; } }
+  .Pixel .Pixel_img img {
+    width: 100%; }
 
 .Pixel pixel-bottom {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  width: 85vw;
+  margin: 20px auto; }
   @media (min-width: 768px) and (max-width: 1023px) {
     .Pixel pixel-bottom {
-      margin: 20px auto;
       width: 80vw;
       flex-direction: row; } }
   @media (min-width: 1024px) {
     .Pixel pixel-bottom {
-      margin: 20px auto;
       width: 60vw;
       flex-direction: row; } }
-  .Pixel pixel-bottom .Pixel_img {
-    margin: 20px auto;
-    width: 85vw; }
-    @media (min-width: 768px) and (max-width: 1023px) {
-      .Pixel pixel-bottom .Pixel_img {
-        width: 53%; } }
-    @media (min-width: 1024px) {
-      .Pixel pixel-bottom .Pixel_img {
-        width: 50%; } }
-    .Pixel pixel-bottom .Pixel_img img {
-      width: 100%; }
   .Pixel pixel-bottom .Pixel_text {
+    padding: 20px;
     margin: 20px auto;
     overflow-y: scroll;
     width: 85vw; }
     @media (min-width: 768px) and (max-width: 1023px) {
       .Pixel pixel-bottom .Pixel_text {
-        width: 40%; } }
+        width: 60%; } }
     @media (min-width: 1024px) {
       .Pixel pixel-bottom .Pixel_text {
-        width: 40%; } }
+        width: 60%; } }

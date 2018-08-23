@@ -2,7 +2,7 @@ import React from "react";
 import "./ImgAdder.css";
 import axios from "axios";
 //matrial ui
-import {TextField,Button,MobileStepper} from "@material-ui/core/TextField";
+import {TextField,Button,MobileStepper} from "@material-ui/core";
 class ImgAdder extends React.Component {
   state = {
     searchSwitch: false,
