@@ -4,11 +4,9 @@ import { withRouter } from "react-router-dom";
 import Event from "../../Inbox/Event/Event";
 import Todo from "../../Inbox/Todo/Todo";
 import { getPixel } from "../../../ducks/pixel";
-
+import "./Pixel.css"
 //material ui
-import LinearProgress from "@material-ui/core/LinearProgress";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
+import {LinearProgress,Card,CardContent} from "@material-ui/core";
 import PixelHeader from "./PixelHeader/PixelHeader";
 
 class Pixel extends Component {
@@ -32,15 +30,9 @@ class Pixel extends Component {
        }
     });
   }
-  // componentDidUpdate(prevProps) {
-  //   const {pixel} = this.props
-  //   if(prevProps.pixel!==pixel)
-     
-  // }
   render() {
     const { pixel, isLoading } = this.props,
       { opacity,color } = this.state;
-    console.log(pixel);
     return (
       <div>
         {isLoading ? (

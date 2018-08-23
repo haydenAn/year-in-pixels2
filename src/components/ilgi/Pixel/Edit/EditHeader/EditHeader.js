@@ -1,6 +1,6 @@
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
-import "../../PixelHeader/PixelHeader";
+import "./EditHeader.css";
 import colors from "../../models/colors"
 import  {withRouter} from "react-router-dom"
 const EditHeader = (props) => {
@@ -20,14 +20,14 @@ const EditHeader = (props) => {
   moodObj = colors.filter((el,i)=>Object.values(el)[0]===color),
   mood = Object.keys(moodObj[0])[0]
   return (
-      <div className="PixelHeader">
+      <div className="EditHeader">
       <AppBar position="static" style={styles.appBar}>
       <span style={{display:'none'}}>blank</span>
     </AppBar>
-     <pixelHeader-info >
+     <editHeader-info >
       <span style={styles.button}>{color}</span>
       <span style={styles.button}>{mood}</span>
-     </pixelHeader-info>
+     </editHeader-info>
       <button style={styles.button} onClick={addPixel}>
         save
       </button>

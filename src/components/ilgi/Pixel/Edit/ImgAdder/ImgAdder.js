@@ -2,9 +2,7 @@ import React from "react";
 import "./ImgAdder.css";
 import axios from "axios";
 //matrial ui
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import MobileStepper from "@material-ui/core/MobileStepper";
+import {TextField,Button,MobileStepper} from "@material-ui/core/TextField";
 class ImgAdder extends React.Component {
   state = {
     searchSwitch: false,
@@ -69,6 +67,7 @@ class ImgAdder extends React.Component {
       searchResultsDisplay = searchResults.map((el, i) => {
         return (
           <img
+          alt="searched_photo"
             key={i}
             src={el.urls.regular}
             width="400"

@@ -10,8 +10,7 @@ import "./Edit.css";
 import colorBool from "../models/positive"
 
 ///material_ui imports
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+import {Button,TextField} from "@material-ui/core";
 class Edit extends Component {
   state = {
     opacity: 0.8,

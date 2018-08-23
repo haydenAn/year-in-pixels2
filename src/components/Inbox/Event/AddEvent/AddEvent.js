@@ -6,9 +6,8 @@ import moment from "moment";
 
 //material ui
 import { DatePicker } from "material-ui-pickers";
-import { TextField, FormControlLabel, Checkbox } from "@material-ui/core";
+import { TextField, FormControlLabel, Checkbox,Input } from "@material-ui/core";
 import EventHeader from "./EventHeader";
-import { Input } from "@material-ui/core";
 import Favorite from "@material-ui/icons/Favorite";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 class AddEvent extends React.Component {
@@ -101,9 +100,10 @@ class AddEvent extends React.Component {
           />
           <TextField
             id="textarea"
-            label="With placeholder multiline"
-            placeholder="Placeholder"
+            label="type event's details"
+            placeholder="Going to have a family dinner at Mediano"
             multiline
+            rowsMax='5'
             margin="normal"
             onChange={e => this.setState({ text: e.target.value })}
           />
