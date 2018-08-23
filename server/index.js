@@ -1,6 +1,5 @@
 require("dotenv").config();
-const 
-  express = require("express"),
+const express = require("express"),
   path = require("path"),
   bodyParser = require("body-parser"),
   session = require("express-session"),
@@ -8,17 +7,18 @@ const
   cors = require("cors"),
   passport = require("passport");
 
-const
-  { strat, logout, getUser } = require(`${__dirname}/controllers/authCtrl`),
-  { getOnePixelFullInfo,addPixel } = require(`${__dirname}/controllers/pixelCtrl`),
-  { searchPhoto,getRandomPhoto } = require(`${__dirname}/controllers/unsplashCtrl`);
+const { strat, logout, getUser } = require(`${__dirname}/controllers/authCtrl`),
+  {
+    getOnePixelFullInfo,
+    addPixel
+  } = require(`${__dirname}/controllers/pixelCtrl`),
+  {
+    searchPhoto,
+    getRandomPhoto
+  } = require(`${__dirname}/controllers/unsplashCtrl`),
+  { addEvent,getEvent } = require(`${__dirname}/controllers/eventCtrl`);
+
 const app = express();
-// const {
-//   addEvent,
-//   updateEvent,
-//   getAllEvents,
-//   deleteEvent
-// } = require(`${__dirname}/controllers/eventCtrl`);
 // const { addColor, updateColor } = require(`${__dirname}/controllers/colorCtrl`);
 // const {
 //   getQuote,
@@ -31,8 +31,8 @@ const app = express();
 massive(process.env.CONNECTION_STRING)
   .then(db => app.set("db", db))
   .catch(err => console.log(err));
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(cors());
 app.use(
   session({
@@ -106,10 +106,11 @@ app.post("/api/pixel", addPixel);
 
 //UNSPLASH
 app.get("/api/photos/:keyword/:page", searchPhoto);
-app.get('/api/photo/random',getRandomPhoto)
+app.get("/api/photo/random", getRandomPhoto);
 
-///event endpoints
-// app.post("/api/event", addEvent);
+//EVENT
+app.post("/api/event", addEvent);
+app.get("/api/event/:date",getEvent)
 // app.put("/api/event/:id", updateEvent);
 // app.get("/api/events", getAllEvents);
 // app.delete("/api/event/:id", deleteEvent);

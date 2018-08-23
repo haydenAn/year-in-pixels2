@@ -5,38 +5,36 @@ const addEvent = (req, res) => {
       text,
       location,
       important,
-      formatDate,
-      pixel_unique
+      formattedDate
     } = req.body;
-    console.log(
-      req.session.ilgi.id,
-      title,
-      text,
-      location,
-      important,
-      formatDate,
-      pixel_unique
-    );
     req.app
       .get("db")
       .addEvent([
-        req.session.ilgi.id,
+        req.user.id,
         title,
         text,
         location,
         important,
-        formatDate,
-        pixel_unique
+        formattedDate
       ])
       .then(event => {
-        console.log(event);
-        res.status(200).json(event);
+        res.status(200).send(event[0]);
       })
       .catch(err => {
         res.status(500).send(err);
       });
   };
-  
+  const getEvent = (req,res) =>{
+    console.log('hit the get => /api/event/:date')
+    const {date} = req.params;
+    req.app.get('db')
+    .getEvent([req.user.id,date]).then(event=> {
+      res.status(200).send(event[0]);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    });
+  }
   const updateEvent = (req, res) => {
     console.log("Hit the put =>/api/event/:id");
     const { id } = req.params;
@@ -97,6 +95,7 @@ const addEvent = (req, res) => {
   
   module.exports = {
     addEvent,
+    getEvent,
     getAllEvents,
     deleteEvent,
     updateEvent

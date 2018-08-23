@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addPixel } from "../../../../ducks/pixel";
-import PixelHeader from "../PixelHeader/PixelHeader";
+import  EditHeader from "./EditHeader/EditHeader";
 import EditColor from "./EditColor/EditColor";
 import ImgAdder from "./ImgAdder/ImgAdder"
 import defaultImg from "../../../../sass/images/default.jpg"
@@ -50,7 +50,7 @@ class Edit extends Component {
     const { opacity, colorvalue ,img_url} = this.state;
     return (
       <div className="Edit">
-        <PixelHeader 
+        <EditHeader
         opacity={opacity}
         color={colorvalue}
         addPixel={this.addPixel}

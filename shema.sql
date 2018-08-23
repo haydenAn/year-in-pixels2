@@ -46,6 +46,6 @@ CREATE TABLE quotes(
     location VARCHAR(100),
     important boolean,
     event_date date,
-    pixel_id integer references pixels(id)
+    user_id integer references users(id)
 ); 
  

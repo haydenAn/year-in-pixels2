@@ -1,12 +1,14 @@
 import React from "react"
+import Card from '@material-ui/core/Card';
+
 class Todo extends React.Component{
     state={
     }
     render(){
         return(
-            <div className="Todo">
+            <Card className="Todo">
             dfd
-            </div>
+            </Card>
         )
     }
 }
