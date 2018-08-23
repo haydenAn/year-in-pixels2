@@ -45,7 +45,9 @@ class Pixel extends Component {
               <Event />
             </pixel-top>
             <pixel-bottom>
-                <img className="Pixel_img" alt="pixel_img" src={pixel.img_url} width="500" />
+              <div className="Pixel_img">
+                <img alt="pixel_img" src={pixel.img_url} width="500" />
+              </div>
               <Card className="Pixel_text">
                 <CardContent>
                   <h1>{date}</h1>

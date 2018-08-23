@@ -30,12 +30,15 @@
     width: 85vw; }
     @media (min-width: 768px) and (max-width: 1023px) {
       .Pixel pixel-bottom .Pixel_img {
-        width: 60%; } }
+        width: 53%; } }
     @media (min-width: 1024px) {
       .Pixel pixel-bottom .Pixel_img {
-        width: 60%; } }
+        width: 50%; } }
+    .Pixel pixel-bottom .Pixel_img img {
+      width: 100%; }
   .Pixel pixel-bottom .Pixel_text {
     margin: 20px auto;
+    overflow-y: scroll;
     width: 85vw; }
     @media (min-width: 768px) and (max-width: 1023px) {
       .Pixel pixel-bottom .Pixel_text {
