@@ -16,10 +16,10 @@ const { strat, logout, getUser } = require(`${__dirname}/controllers/authCtrl`),
     searchPhoto,
     getRandomPhoto
   } = require(`${__dirname}/controllers/unsplashCtrl`),
-  { addEvent,getEvent } = require(`${__dirname}/controllers/eventCtrl`);
+  { addEvent,getEvent } = require(`${__dirname}/controllers/eventCtrl`),
+   {addTodo, getTodos , updateTodo , deleteTodo} = require(`${__dirname}/controllers/todoCtrl`);
 
 const app = express();
-// const { addColor, updateColor } = require(`${__dirname}/controllers/colorCtrl`);
 // const {
 //   getQuote,
 //   addQuote,
@@ -94,9 +94,7 @@ app.post("/api/pixel", addPixel);
 // app.get("/api/pixels", getAllPixels);
 // app.post("/api/pixel/:id", updatePixel);
 
-// color endpoints
 
-// app.post("/api/color/:id", updateColor);
 /////quote
 // app.get("/api/getRandom", getQuote);
 // app.get("/api/quote/:id", getQuoteById);
@@ -107,7 +105,11 @@ app.post("/api/pixel", addPixel);
 //UNSPLASH
 app.get("/api/photos/:keyword/:page", searchPhoto);
 app.get("/api/photo/random", getRandomPhoto);
-
+//TODO
+app.get('/api/todo/:date',getTodos);
+app.post('/api/todo',addTodo);
+app.put('/api/todo/:id',updateTodo);
+app.delete('/api/todo/:id/:date',deleteTodo)
 //EVENT
 app.post("/api/event", addEvent);
 app.get("/api/event/:date",getEvent)

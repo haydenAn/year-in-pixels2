@@ -30,7 +30,8 @@ CREATE TABLE todos(
     id SERIAL PRIMARY KEY,
     checked boolean,
     text VARCHAR(150),
-    pixel_id integer references pixels(id)
+    todo_date date,
+    user_id integer references users(id)
 )
 CREATE TABLE quotes(
     id SERIAL PRIMARY KEY,

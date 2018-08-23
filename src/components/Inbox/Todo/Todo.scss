@@ -3,12 +3,15 @@
 .Todo{
     width: 85vw;
     margin: 20px auto;
-    padding:50px 100px;
+    padding:50px;
     @include tablet{
       width:80vw;
+      padding:50px 80px;
 
     }
     @include desktop{
      width: 60vw;
+     padding:50px 100px;
+
     }
 }

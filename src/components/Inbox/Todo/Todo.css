@@ -1,10 +1,12 @@
 .Todo {
   width: 85vw;
   margin: 20px auto;
-  padding: 50px 100px; }
+  padding: 50px; }
   @media (min-width: 768px) and (max-width: 1023px) {
     .Todo {
-      width: 80vw; } }
+      width: 80vw;
+      padding: 50px 80px; } }
   @media (min-width: 1024px) {
     .Todo {
-      width: 60vw; } }
+      width: 60vw;
+      padding: 50px 100px; } }
