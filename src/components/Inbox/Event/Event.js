@@ -68,7 +68,7 @@ class Event extends React.Component {
                       onClose={this.handleClose}
                     >
                       <MenuItem onClick={this.edit}>Edit</MenuItem>
-                      <MenuItem onClick={this.delete}>Delete</MenuItem>
+                      <MenuItem style={{color:'red'}} onClick={this.delete}>Delete</MenuItem>
                     </Menu>
                     <h1>{event.title}</h1>
                     <h3>{event.location}</h3>

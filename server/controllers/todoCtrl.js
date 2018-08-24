@@ -17,7 +17,7 @@ const getTodos = (req, res) => {
   const { date } = req.params;
   req.app
     .get("db")
-    .getTodo([req.user.id, date])
+    .getTodos([req.user.id, date])
     .then(todos => {
       res.status(200).send(todos);
     })
@@ -29,6 +29,7 @@ const updateTodo = (req, res) => {
   console.log("Hit the put =>/api/todo/:id");
   const { id } = req.params,
     { checked,date } = req.body;
+    console.log(req.body)
   req.app
     .get("db")
     .updateTodo([checked, id,req.user.id,date])
