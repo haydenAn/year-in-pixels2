@@ -48,11 +48,11 @@ const addPixel = (req, res) => {
     });
 };
 
-const getAllPixelsSimpleInfo = (req, res) => {
+const getPixels = (req, res) => {
   console.log("Hit the get => /api/pixels");
   req.app
     .get("db")
-    .getAllPixels(req.session.ilgi.id)
+    .getPixels(req.user.id)
     .then(pixels => {
       console.log(pixels);
       res.status(200).send(pixels);
@@ -61,6 +61,20 @@ const getAllPixelsSimpleInfo = (req, res) => {
       res.status(500).send();
     });
 };
+const getFullPixels = (req, res) => {
+  console.log("Hit the get => /api/pixels/feed");
+  req.app
+    .get("db")
+    .getFullPixels(req.user.id)
+    .then(pixels => {
+      console.log(pixels);
+      res.status(200).send(pixels);
+    })
+    .catch(() => {
+      res.status(500).send();
+    });
+};
+
 
 const updatePixel = (req, res) => {
   console.log("Hit the post =>/api/pixel");
@@ -81,7 +95,8 @@ const updatePixel = (req, res) => {
 };
 module.exports = {
   addPixel,
-  getAllPixelsSimpleInfo,
+  getFullPixels,
+  getPixels,
   getOnePixelFullInfo,
   updatePixel
 };

@@ -2,7 +2,9 @@ import axios from "axios";
 
 ///action types
 const GET_PIXEL = "GET_PIXEL",
-ADD_PIXEL ="ADD_PIXEL";
+ADD_PIXEL ="ADD_PIXEL",
+GET_PIXELS="GET_PIXELS",
+GET_FULL_PIXELS="GET_FULL_PIXELS"
 export function getPixel(date) {
   const data = axios.get(`/api/pixel/${date}`).then(res=> {return res.data})
   return {
@@ -17,9 +19,25 @@ export function addPixel(body){
     payload:data
   }
 }
+export function getPixels() {
+  const data = axios.get(`/api/pixels`).then(res=> {return res.data})
+  return {
+    type: GET_PIXELS,
+    payload:data
+  };
+}
+export function getFullPixels(){
+  const data = axios.get(`/api/pixels/feed`).then(res=> {return res.data})
+  return {
+    type: GET_FULL_PIXELS,
+    payload:data
+  };
+}
 
 const initialState = {
-  pixel: {}
+  pixel: {},
+  pixels:[],
+  pixelsForFeed:[]
 };
 
 export default function pixel(state = initialState, action) {
@@ -35,6 +53,23 @@ export default function pixel(state = initialState, action) {
         isLoading:false,
         pixel: action.payload
       };
+      case `${GET_PIXELS}_FULFILLED`:
+      return {
+        ...state,
+        isLoading:false,
+        pixels: action.payload
+      };
+      case `${GET_FULL_PIXELS}_PENDING`:
+      return {
+        ...state,
+        isLoading:true
+      };
+      case `${GET_FULL_PIXELS}_FULFILLED`:
+        return {
+          ...state,
+          isLoading:false,
+          pixelsForFeed: action.payload
+        };
       case `${ADD_PIXEL}_FULFILLED`:
       return {
         ...state,

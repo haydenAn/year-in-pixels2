@@ -1,34 +1,53 @@
 import React, { Component } from "react";
-import "./Home.css"
-import {connect} from "react-redux"
-import {getUser} from "../../../ducks/user"
+import "./Home.css";
+import { connect } from "react-redux";
+import { getUser } from "../../../ducks/user";
+import {getPixels} from "../../../ducks/pixel"
 import * as moment from "moment";
-import {withRouter} from "react-router-dom"
+import { withRouter } from "react-router-dom";
+import month from "./model/month";
 class Home extends Component {
   componentDidMount() {
-    const {getUser} =this.props;
+    const { getUser,getPixels } = this.props;
     getUser();
+    getPixels();
   }
   render() {
-    const 
-    {history} = this.props,
-    year_now = moment().year();
-
-    const 
-    test = month => {
+    const { history,pixels } = this.props,
+      year_now = moment().year(),
+      now=moment().format('MM-DD-YYYY'),
+    gridGenerator = month => {
       let tables = [];
       let howManyDays = moment(
-        `${year_now}-${month<10?`0`+month:month}`,
+        `${year_now}-${month < 10 ? `0` + month : month}`,
         "YYYY-MM"
       ).daysInMonth();
       for (let i = 1; i < howManyDays + 1; i++) {
-      const formattedDate =`${month<10?`0`+month:month}-${i<10?`0`+i:i}-${year_now}` 
+        const formattedDate = `${month < 10 ? `0` + month : month}-${
+          i < 10 ? `0` + i : i
+        }-${year_now}`,
+        index = pixels.findIndex(el =>el.pixel_date=== formattedDate),
+        pixelStyle = {
+          opacity: pixels[index] ? pixels[index].opacity : null,
+          backgroundColor: pixels[index]
+            ? pixels[index].colorvalue
+            : "transparent",
+          border:
+            formattedDate === now
+              ? "2px solid rgba(81, 203, 238, 1)"
+              : null,
+          boxShadow:
+            formattedDate === now
+              ? "0 0 7px rgba(81, 203, 238, 1)"
+              : null
+        };
         tables.push(
           <div
             key={i}
             className="grid-item-custom"
+            style={pixelStyle}
             onClick={() => {
-              history.push(`pixel/${formattedDate}`)
+              history.push(`pixel/${formattedDate}`);
             }}
           />
         );
@@ -47,53 +66,23 @@ class Home extends Component {
       }
       return tables;
     };
-
+    const gridDisplayAll = month.map((el, i) => {
+      return (
+        <div className="grid-item" key={i}>
+          <span className="grid_month">{el}</span> {gridGenerator(i + 1)}
+        </div>
+      );
+    });
     return (
       <div className="Home">
-        <div className="Home_header">
-        </div>
+        <div className="Home_header" />
         <div className="Home_containerBackground">
           <div className="grid-container">
             <div className="grid-item">
               <span className="grid_month">.. </span>
               {daysforIndicate()}
             </div>
-            <div className="grid-item">
-              <span className="grid_month">JAN</span> {test(1)}
-            </div>
-            <div className="grid-item">
-              <span className="grid_month">FEB</span> {test(2)}
-            </div>
-            <div className="grid-item">
-              <span className="grid_month">MAR</span> {test(3)}
-            </div>
-            <div className="grid-item">
-              <span className="grid_month">APR</span> {test(4)}
-            </div>
-            <div className="grid-item">
-              <span className="grid_month">MAY</span> {test(5)}
-            </div>
-            <div className="grid-item">
-              <span className="grid_month">JUN</span> {test(6)}
-            </div>
-            <div className="grid-item">
-              <span className="grid_month">JUL</span> {test(7)}
-            </div>
-            <div className="grid-item">
-              <span className="grid_month">AUG</span> {test(8)}
-            </div>
-            <div className="grid-item">
-              <span className="grid_month">SEP</span> {test(9)}
-            </div>
-            <div className="grid-item">
-              <span className="grid_month">OCT</span> {test(10)}
-            </div>
-            <div className="grid-item">
-              <span className="grid_month">NOV</span> {test(11)}
-            </div>
-            <div className="grid-item">
-              <span className="grid_month">DEC</span> {test(12)}
-            </div>
+           {gridDisplayAll}
           </div>
         </div>
       </div>
@@ -102,7 +91,13 @@ class Home extends Component {
 }
 function mapStateToProps(state) {
   return {
-   ...state.user
+    ...state.user,
+    pixels:state.pixel.pixels
   };
 }
-export default withRouter(connect(mapStateToProps,{getUser})(Home))
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getUser,getPixels }
+  )(Home)
+);

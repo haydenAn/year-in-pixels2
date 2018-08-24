@@ -10,7 +10,9 @@ const express = require("express"),
 const { strat, logout, getUser } = require(`${__dirname}/controllers/authCtrl`),
   {
     getOnePixelFullInfo,
-    addPixel
+    addPixel,
+    getPixels,
+    getFullPixels
   } = require(`${__dirname}/controllers/pixelCtrl`),
   {
     searchPhoto,
@@ -91,7 +93,8 @@ app.get("/auth/me", getUser);
 // PIXEL
 app.get("/api/pixel/:date", getOnePixelFullInfo);
 app.post("/api/pixel", addPixel);
-// app.get("/api/pixels", getAllPixels);
+app.get("/api/pixels", getPixels);
+app.get('/api/pixels/feed',getFullPixels)
 // app.post("/api/pixel/:id", updatePixel);
 
 
