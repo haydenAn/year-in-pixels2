@@ -37,8 +37,7 @@ CREATE TABLE quotes(
     id SERIAL PRIMARY KEY,
     text VARCHAR(300),
     author VARCHAR(100),
-    tags VARCHAR(50),
-    saved_date date
+    user_id integer references users(id)
 )
  CREATE TABLE events (
     id SERIAL PRIMARY KEY,

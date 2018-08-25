@@ -19,16 +19,14 @@ const { strat, logout, getUser } = require(`${__dirname}/controllers/authCtrl`),
     getRandomPhoto
   } = require(`${__dirname}/controllers/unsplashCtrl`),
   { addEvent,getEvent } = require(`${__dirname}/controllers/eventCtrl`),
-   {addTodo, getTodos , updateTodo , deleteTodo} = require(`${__dirname}/controllers/todoCtrl`);
-
+   {addTodo, getTodos , updateTodo , deleteTodo} = require(`${__dirname}/controllers/todoCtrl`),
+     {getRandomQuote,
+     addQuote, 
+     getQuote,
+     deleteQuote,
+     updateQuote
+   } = require(`${__dirname}/controllers/quoteCtrl`);
 const app = express();
-// const {
-//   getQuote,
-//   addQuote,
-//   getAllQuotes,
-//   getQuoteById,
-//   deleteQuote
-// } = require(`${__dirname}/controllers/quoteCtrl`);
 
 massive(process.env.CONNECTION_STRING)
   .then(db => app.set("db", db))
@@ -98,12 +96,12 @@ app.get('/api/pixels/feed',getFullPixels)
 // app.post("/api/pixel/:id", updatePixel);
 
 
-/////quote
-// app.get("/api/getRandom", getQuote);
-// app.get("/api/quote/:id", getQuoteById);
-// app.post("/api/quote", addQuote);
-// app.get("/api/quotes", getAllQuotes);
-// app.delete("/api/quote/:id", deleteQuote);
+///quote
+app.get("/api/quote/random", getRandomQuote);
+app.get("/api/quote", getQuote);
+app.post("/api/quote", addQuote);
+app.put('/api/quote',updateQuote)
+app.delete("/api/quote/:id", deleteQuote);
 
 //UNSPLASH
 app.get("/api/photos/:keyword/:page", searchPhoto);

@@ -27,7 +27,6 @@ class Feed extends React.Component {
         />
          <CardMedia
          component="img"
-         height="500"
           image={el.img_url}
         />
         <CardContent>{el.text}</CardContent>

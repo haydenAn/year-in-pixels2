@@ -1,0 +1,1 @@
+select * from quotes where user_id=$1;
