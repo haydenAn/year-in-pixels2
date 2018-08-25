@@ -46,7 +46,17 @@ const getRandomQuote = (req, res) => {
     .catch(res => res.status(500).json(res));
 };
 const updateQuote = (req,res) =>{
-  
+  console.log("Hit the update=>/api/quote");
+  const { id } = req.params,{text,author} = req.body;
+  req.app
+    .get("db")
+    .updateQuote([text,author,id])
+    .then(quote => {
+      res.status(200).send(quote);
+    })
+    .catch(() => {
+      res.status(500).send();
+    });
 }
 module.exports = {
   addQuote,
