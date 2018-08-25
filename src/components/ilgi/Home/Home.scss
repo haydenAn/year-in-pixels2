@@ -1,0 +1,42 @@
+@import "../../../sass/_media.scss";
+
+.Home{
+  .Home_containerBackground{
+    background-color: #d7e1e5;
+    width: 700px;
+    margin: 300px 15px;
+    padding: 0;
+    @include tablet {
+        width: 80vw;
+        margin: 300px auto 50px;
+     }
+     @include desktop {
+         width: 60vw;
+         margin: 300px auto 50px;
+     }
+      .grid-container{
+        padding: 0;
+        display: grid;
+        width: 100%;
+        grid-gap: 3px;
+        justify-content: center;
+        grid-template-columns: 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5%;
+          .grid-item{
+            background-color: white;
+            text-align: center;
+            .daysIndicator {
+                padding: 14px;
+                border-bottom: 3px solid #d7e1e5;
+              }
+              .grid_month{
+
+              }
+              .grid-item-custom{
+                padding: 25px;
+                cursor: pointer;
+                border-bottom: 3px solid #d7e1e5;
+              }
+          }
+      }
+  }
+}

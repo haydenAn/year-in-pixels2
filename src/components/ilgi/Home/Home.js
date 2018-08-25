@@ -34,7 +34,7 @@ class Home extends Component {
             : "transparent",
           border:
             formattedDate === now
-              ? "2px solid rgba(81, 203, 238, 1)"
+              ? "1.5px solid rgba(81, 203, 238, 1)"
               : null,
           boxShadow:
             formattedDate === now
