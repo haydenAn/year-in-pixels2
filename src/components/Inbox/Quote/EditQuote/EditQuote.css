@@ -1,0 +1,19 @@
+.EditQuote {
+  text-align: right;
+  width: 85vw;
+  margin: 0 auto;
+  padding: 50px 30px; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .EditQuote {
+      width: 60vw;
+      padding: 100px 50px; } }
+  @media (min-width: 1024px) {
+    .EditQuote {
+      width: 40vw;
+      padding: 100px 80px; } }
+  .EditQuote form .EditQuote_author {
+    margin: 30px 0 50px; }
+    .EditQuote form .EditQuote_author input {
+      margin-left: 10px; }
+  .EditQuote form button {
+    margin: 5px; }

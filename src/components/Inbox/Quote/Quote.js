@@ -3,6 +3,7 @@ import "./Quote.css"
 import {connect} from "react-redux"
 import {getQuote,addQuote} from "../../../ducks/quote";
 import {Button} from "@material-ui/core";
+import EditQuote from './EditQuote/EditQuote';
 class Quote extends React.Component{
     state={
         editSwitch:false,
@@ -21,7 +22,7 @@ class Quote extends React.Component{
             <div className="Quote">
             {
                 editSwitch?
-                <div />
+                <EditQuote toggleEditSwitch={this.toggleEditSwitch}/>
                 :
                 quote?
                 <quote-display>
