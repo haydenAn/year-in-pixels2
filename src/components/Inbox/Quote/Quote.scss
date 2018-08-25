@@ -1,20 +1,30 @@
 @import "../../../sass/_media.scss";
-.Quote{  
-    width: 100%;
+.Quote {
     margin-top:50px;
-   position: relative;
-   quote-addPanel{
-       text-align: center;
-       h3{
-         display: inline-table;
-         white-space: pre-wrap;
-       }
-    position: -webkit-sticky;
-    position: sticky;
-    left:50%;
-        @include tablet{
-        }
-        @include desktop{
+  width: 100vw;
+  text-align: center;
+
+  quote-addPanel {
+    margin-left:40px;
+    width:90%;
+    button{
+        margin-left:45px; 
+    }
+    @include tablet{
+        margin-left:0;
+        button{
+            margin-left:0; 
         }
     }
+    @include desktop {
+        margin-left:0;
+        button{
+            margin-left:0; 
+        }  
+  }
+    h3 {
+      display: inline-table;
+      white-space: pre-wrap;
+    }
+  }
 }

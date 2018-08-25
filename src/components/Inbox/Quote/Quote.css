@@ -1,12 +1,22 @@
 .Quote {
-  width: 100%;
   margin-top: 50px;
-  position: relative; }
+  width: 100vw;
+  text-align: center; }
   .Quote quote-addPanel {
-    text-align: center;
-    position: -webkit-sticky;
-    position: sticky;
-    left: 50%; }
+    margin-left: 40px;
+    width: 90%; }
+    .Quote quote-addPanel button {
+      margin-left: 45px; }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .Quote quote-addPanel {
+        margin-left: 0; }
+        .Quote quote-addPanel button {
+          margin-left: 0; } }
+    @media (min-width: 1024px) {
+      .Quote quote-addPanel {
+        margin-left: 0; }
+        .Quote quote-addPanel button {
+          margin-left: 0; } }
     .Quote quote-addPanel h3 {
       display: inline-table;
       white-space: pre-wrap; }
