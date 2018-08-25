@@ -2,41 +2,70 @@
 
 .Home{
   .Home_containerBackground{
-    background-color: #d7e1e5;
-    width: 700px;
-    margin: 300px 15px;
+    width:100vw;
+    margin:50px 15px;
     padding: 0;
     @include tablet {
         width: 80vw;
-        margin: 300px auto 50px;
+        margin: 50px auto;
      }
      @include desktop {
          width: 60vw;
-         margin: 300px auto 50px;
+         margin: 50px auto;
      }
       .grid-container{
         padding: 0;
         display: grid;
         width: 100%;
-        grid-gap: 3px;
         justify-content: center;
-        grid-template-columns: 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5% 7.5%;
-          .grid-item{
-            background-color: white;
-            text-align: center;
-            .daysIndicator {
-                padding: 14px;
-                border-bottom: 3px solid #d7e1e5;
-              }
-              .grid_month{
-
-              }
-              .grid-item-custom{
-                padding: 25px;
-                cursor: pointer;
-                border-bottom: 3px solid #d7e1e5;
-              }
+        font-size: 0.6em;
+        grid-template-columns: 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw;
+        @include tablet {
+          font-size: 1em;
+          grid-template-columns: 8% 8% 8% 8% 8% 8% 8% 8% 8% 8% 8% 8% 8%;
+       }
+       @include desktop {
+        font-size: 1em;
+        grid-template-columns: 8% 8% 8% 8% 8% 8% 8% 8% 8% 8% 8% 8% 8%;
+     }
+        .grid-item{
+          text-align: center;
+          .daysIndicator {
+            height: 8vw;
+            border-bottom: 1px solid #d7e1e5;
+            border-right: 1px solid #d7e1e5;
+            padding-top: 2vw;
+            @include tablet{
+            height: 60px;
+           }
+           @include desktop{
+            height: 57px;
+           }
           }
+          .grid-item-custom{
+              height: 8vw;
+                cursor: pointer;
+                border-bottom: 1px solid #d7e1e5;
+                border-right: 1px solid #d7e1e5;
+                @include tablet{
+                  height: 60px;
+                 }
+                 @include desktop{
+                  height: 57px;
+                 }
+              } 
+              .grid-item-disabled{
+            background-color: #d7e1e5;
+            height: 8vw;
+            @include tablet{
+              height: 60px;
+             }
+             @include desktop{
+              height: 57px;
+             }
+          }
+          }
+         
       }
   }
 }

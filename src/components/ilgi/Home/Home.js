@@ -6,6 +6,7 @@ import {getPixels} from "../../../ducks/pixel"
 import * as moment from "moment";
 import { withRouter } from "react-router-dom";
 import month from "./model/month";
+import Quote from "../../Inbox/Quote/Quote"
 class Home extends Component {
   componentDidMount() {
     const { getUser,getPixels } = this.props;
@@ -22,7 +23,7 @@ class Home extends Component {
         `${year_now}-${month < 10 ? `0` + month : month}`,
         "YYYY-MM"
       ).daysInMonth();
-      for (let i = 1; i < howManyDays + 1; i++) {
+      for (let i = 1; i <32; i++) {
         const formattedDate = `${month < 10 ? `0` + month : month}-${
           i < 10 ? `0` + i : i
         }-${year_now}`,
@@ -41,7 +42,11 @@ class Home extends Component {
               ? "0 0 7px rgba(81, 203, 238, 1)"
               : null
         };
-        tables.push(
+        if(i>howManyDays){
+          tables.push(<div key={i} className="grid-item-disabled"/>)
+        }
+        else{
+          tables.push(
           <div
             key={i}
             className="grid-item-custom"
@@ -51,6 +56,8 @@ class Home extends Component {
             }}
           />
         );
+        }
+        
       }
       return tables;
     };
@@ -75,7 +82,7 @@ class Home extends Component {
     });
     return (
       <div className="Home">
-        <div className="Home_header" />
+      <Quote />
         <div className="Home_containerBackground">
           <div className="grid-container">
             <div className="grid-item">

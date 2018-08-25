@@ -6,7 +6,7 @@ const addQuote = (req, res) => {
     .get("db")
     .addQuote([text, author,req.user.id])
     .then(quote => {
-      res.status(200).json(quote);
+      res.status(200).json(quote[0]);
     })
     .catch(err => {
       res.status(500).send(err);
@@ -17,7 +17,7 @@ const getQuote = (req, res) => {
     .get("db")
     .getQuote(req.user.id)
     .then(quote => {
-      res.status(200).send(quote);
+      res.status(200).send(quote[0]);
     })
     .catch(() => {
       res.status(500).send();
@@ -31,7 +31,7 @@ const deleteQuote = (req, res) => {
     .get("db")
     .deleteQuote([id])
     .then(quote => {
-      res.status(200).send(quote);
+      res.status(200).send(quote[0]);
     })
     .catch(() => {
       res.status(500).send();

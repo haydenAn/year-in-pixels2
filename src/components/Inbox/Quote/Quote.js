@@ -1,25 +1,43 @@
 import React from 'react'
 import "./Quote.css"
 import {connect} from "react-redux"
-import {getQuote} from "../../../ducks/quote" 
+import {getQuote,addQuote} from "../../../ducks/quote";
+import {Button} from "@material-ui/core";
 class Quote extends React.Component{
+    state={
+        editSwitch:false,
+    }
     componentDidMount(){
         this.props.getQuote()
     }
+    toggleEditSwitch=()=>{
+          this.setState({editSwitch:!this.state.editSwitch})
+    }
     render(){
-        const {quote} = this.props;
+        const {quote} = this.props,
+        {editSwitch} = this.state;
+        console.log(quote)
         return(
             <div className="Quote">
             {
+                editSwitch?
+                <div />
+                :
                 quote?
-                <div className="displayQuote">
+                <quote-display>
                 <h1>{quote.text}</h1>
                 <p>{quote.author}</p>
-                </div>
+                </quote-display>
                 :
-                <div>
-                    do you want to add a quote?
-                    </div>
+                <quote-addPanel>
+                    <h3>
+                    I can't find your quote :(
+                        {"\n"}
+                    Do you want to add one?
+                    </h3>
+                            <br />
+                    <Button color="secondary" onClick={this.toggleEditSwitch}>yes, let's Customize it ❤</Button>
+                    </quote-addPanel>
             }
             </div>
         )
@@ -31,4 +49,4 @@ const mapStateToProps= state=>{
         ...state.quote
     }
 }
-export default connect(mapStateToProps,{getQuote})(Quote);
+export default connect(mapStateToProps,{getQuote,addQuote})(Quote);

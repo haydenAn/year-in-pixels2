@@ -1,0 +1,12 @@
+.Quote {
+  width: 100%;
+  margin-top: 50px;
+  position: relative; }
+  .Quote quote-addPanel {
+    text-align: center;
+    position: -webkit-sticky;
+    position: sticky;
+    left: 50%; }
+    .Quote quote-addPanel h3 {
+      display: inline-table;
+      white-space: pre-wrap; }
