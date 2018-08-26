@@ -42,7 +42,6 @@ class Quote extends React.Component {
   render() {
     const { quote} = this.props,
       { editSwitch, allowAddNew, anchorEl } = this.state;
-    console.log(quote);
     return (
       <div className="Quote">
         {editSwitch ? (

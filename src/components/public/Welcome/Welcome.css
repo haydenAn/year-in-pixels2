@@ -13,48 +13,57 @@
   -webkit-animation: Gradient 15s ease infinite;
   -moz-animation: Gradient 15s ease infinite;
   animation: Gradient 15s ease infinite; }
-  
-  @-webkit-keyframes Gradient {
-    0% {
-      background-position: 0% 50%; }
-      50% {
-        background-position: 100% 50%; }
-        100% {
-          background-position: 0% 50%; } }
-          
-          @-moz-keyframes Gradient {
-            0% {
-              background-position: 0% 50%; }
-              50% {
+  .welcome .welcome_content {
+    position: relative;
+    top: 15vh; }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .welcome .welcome_content {
+        top: 20vh; } }
+    .welcome .welcome_content .welcome_btn {
+      color: white;
+      border: white 0.5px solid; }
+    .welcome .welcome_content h1 {
+      font-family: "LLPixel";
+      font-size: 150px;
+      margin: 0 0 30px 0;
+      padding: 0; }
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .welcome .welcome_content h1 {
+          font-size: 200px; } }
+      @media (min-width: 1024px) {
+        .welcome .welcome_content h1 {
+          font-size: 250px; } }
+    .welcome .welcome_content span {
+      display: inline;
+      padding-right: 5px; }
+    .welcome .welcome_content p {
+      padding: 10px;
+      margin: 80px auto 20px;
+      width: 50%; }
+      .welcome .welcome_content p span {
+        font-family: "LLPixel";
+        font-size: 2em; }
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%; }
+  50% {
     background-position: 100% 50%; }
-    100% {
-      background-position: 0% 50%; } }
-      
-      @keyframes Gradient {
-        0% {
-          background-position: 0% 50%; }
-          50% {
-            background-position: 100% 50%; }
-            100% {
-              background-position: 0% 50%; } }
-              
-              .welcome_content {
-                padding-top: 5%;
-                font-size: 32px; }
-                
-                .welcome_Ilgi {
-                  font-family: "LLPixel";
-                  font-size: 240px;
-                  margin: 0 0 10% 0;
-  padding: 0; }
+  100% {
+    background-position: 0% 50%; } }
 
-.welcome p {
-  padding: 10px;
-  margin: 3% auto;
-  width: 50%; 
-  font-family: "LLPixel";
-}
+@-moz-keyframes Gradient {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
 
-.welcome_letter {
-  display: inline;
-  padding-right: 5px; }
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
