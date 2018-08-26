@@ -25,7 +25,8 @@ const { strat, logout, getUser } = require(`${__dirname}/controllers/authCtrl`),
      getQuote,
      deleteQuote,
      updateQuote
-   } = require(`${__dirname}/controllers/quoteCtrl`);
+   } = require(`${__dirname}/controllers/quoteCtrl`),
+   {getPixelsByColor, getPixelsByDate} = require(`${__dirname}/controllers/filteredPixelCtrl`)
 const app = express();
 
 massive(process.env.CONNECTION_STRING)
@@ -93,8 +94,11 @@ app.get("/api/pixel/:date", getOnePixelFullInfo);
 app.post("/api/pixel", addPixel);
 app.get("/api/pixels", getPixels);
 app.get('/api/pixels/feed',getFullPixels)
-// app.post("/api/pixel/:id", updatePixel);
+// app.put("/api/pixel/:id", updatePixel);
 
+//FILTERED PIXELS
+app.get('/api/pixels/byDate/:date',getPixelsByDate);
+app.get('/api/pixels/byColor/:color',getPixelsByColor);
 
 ///quote
 app.get("/api/quote/random", getRandomQuote);
