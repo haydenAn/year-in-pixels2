@@ -54,7 +54,8 @@ export function getPixelsByDate(date){
 const initialState = {
   pixel: {},
   pixels:[],
-  pixelsForFeed:[]
+  pixelsForFeed:[],
+  isLoading:false
 };
 
 export default function pixel(state = initialState, action) {
@@ -87,14 +88,25 @@ export default function pixel(state = initialState, action) {
           isLoading:false,
           pixelsForFeed: action.payload
         };
+        case `${GET_PIXELS_BYCOLOR}_PENDING`:
+        return {
+          ...state,
+          isLoading:true
+        };
         case `${GET_PIXELS_BYCOLOR}_FULFILLED`:
         return {
           ...state,
+          isLoading:false,
           pixelsForFeed: action.payload
+        };  case `${GET_PIXELS_BYDATE}_PENDING`:
+        return {
+          ...state,
+          isLoading:true
         };
         case `${GET_PIXELS_BYDATE}_FULFILLED`:
         return {
           ...state,
+          isLoading:false,
           pixelsForFeed: action.payload
         };
         case `${ADD_PIXEL}_FULFILLED`:

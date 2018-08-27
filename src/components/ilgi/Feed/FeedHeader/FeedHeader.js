@@ -34,7 +34,6 @@ class FeedHeader extends React.Component {
   };
   render() {
     const { selection, color, month } = this.state,
-      { getFullPixels} = this.props,
       colorBoxes = colorvalues.map((el, i) => {
         return (
           <div

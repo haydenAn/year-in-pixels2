@@ -6,6 +6,7 @@ import Pixel from "../components/ilgi/Pixel/Pixel"
 import Edit from "../components/ilgi/Pixel/Edit/Edit";
 import AddEvent from "../components/Inbox/Event/AddEvent/AddEvent";
 import Feed from "../components/ilgi/Feed/Feed";
+import Graph from "../components/myaccount/Graph/Graph"
 export default (
   <Switch>
     <Route exact path="/" component={()=><Welcome/>} />
@@ -14,5 +15,6 @@ export default (
     <Route path="/edit/:date" component={()=><Edit/>} />
     <Route path="/addevent/:date" component={()=><AddEvent/>} />
     <Route path="/myFeed" component={()=><Feed/>} />
+    <Route path="/graph" component={()=><Graph/>} />
      </Switch>
 );

@@ -38,3 +38,13 @@
         @media (min-width: 768px) and (max-width: 1023px) {
           .Feed .Feed_card .Feed_content h1 {
             font-size: 2em; } }
+  .Feed feed-footer {
+    height: 65px;
+    position: relative;
+    bottom: 0;
+    width: 100vw;
+    display: block; }
+  .Feed feed-nopixel {
+    margin: 150px auto;
+    font-family: "Neucha", cursive;
+    font-size: 1.4em; }

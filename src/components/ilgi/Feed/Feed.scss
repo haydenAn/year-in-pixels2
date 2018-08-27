@@ -52,4 +52,16 @@ $dense: 0.5 !default;
       }
     }
   }
+  feed-footer{
+    height: 65px;
+    position: relative;
+    bottom: 0;
+    width: 100vw;
+    display: block;
+  }
+  feed-nopixel{
+    margin: 150px auto;
+    font-family:$hand-writing;
+    font-size:1.4em;
+  }
 }

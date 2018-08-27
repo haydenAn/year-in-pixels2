@@ -28,7 +28,20 @@ const getPixelsByColor = (req, res) => {
       });
   };
 
+  const getPixelsForGraph = (req,res)=>{
+    console.log("Hit the get => /api/forGraph/pixels");
+    req.app.get('db').getPixelsForGraph(req.user.id)
+    .then(pixels=>{
+      console.log(pixels);
+      res.status(200).send(pixels);
+    })
+    .catch(() => {
+      res.status(500).send();
+    });
+
+  }
 module.exports={
     getPixelsByColor,
-    getPixelsByDate
+    getPixelsByDate,
+    getPixelsForGraph
 }
