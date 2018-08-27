@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import {getFullPixels} from "../../../ducks/pixel"
 import {Card,CardContent,CardHeader,CardMedia,IconButton} from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import colors from "../Pixel/models/colors"
+import colors from "../Pixel/models/colors";
+import FeedHeader from "./FeedHeader/FeedHeader"
 class Feed extends React.Component {
     componentDidMount(){
         this.props.getFullPixels()
@@ -40,6 +41,7 @@ class Feed extends React.Component {
      
     })
     return <div className="Feed">
+    <FeedHeader/>
     {fullPixelDisplay}
     </div>
   }

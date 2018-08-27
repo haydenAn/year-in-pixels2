@@ -1,0 +1,42 @@
+.FeedHeader {
+  width: 100vw; }
+  .FeedHeader .FH_form {
+    display: block;
+    margin: 30px 0 30px 30px; }
+    .FeedHeader .FH_form label {
+      font-size: 1.5em; }
+  .FeedHeader feedheader-color {
+    display: block;
+    text-align: center; }
+    .FeedHeader feedheader-color div {
+      opacity: 0.5;
+      display: inline-block;
+      width: 7.5vw;
+      height: 7.5vw;
+      margin: 1vw;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+      border-radius: 5px;
+      position: relative;
+      cursor: pointer; }
+      .FeedHeader feedheader-color div::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0;
+        border-radius: 5px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: opacity 0.3s ease-in-out; }
+      .FeedHeader feedheader-color div:hover::after {
+        opacity: 1; }
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .FeedHeader feedheader-color div {
+          width: 6vw;
+          height: 6vw; } }
+      @media (min-width: 1024px) {
+        .FeedHeader feedheader-color div {
+          width: 4.5vw;
+          height: 4.5vw; } }

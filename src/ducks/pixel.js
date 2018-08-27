@@ -4,7 +4,9 @@ import axios from "axios";
 const GET_PIXEL = "GET_PIXEL",
 ADD_PIXEL ="ADD_PIXEL",
 GET_PIXELS="GET_PIXELS",
-GET_FULL_PIXELS="GET_FULL_PIXELS"
+GET_FULL_PIXELS="GET_FULL_PIXELS",
+GET_PIXELS_BYCOLOR ="GET_PIXELS_BYCOLOR",
+GET_PIXELS_BYDATE ="GET_PIXELS_BYDATE";
 export function getPixel(date) {
   const data = axios.get(`/api/pixel/${date}`).then(res=> {return res.data})
   return {
@@ -30,6 +32,20 @@ export function getFullPixels(){
   const data = axios.get(`/api/pixels/feed`).then(res=> {return res.data})
   return {
     type: GET_FULL_PIXELS,
+    payload:data
+  };
+}
+export function getPixelsByColor(color){
+  const data = axios.get(`/api/pixels/byColor/${color}`).then(res=> {return res.data})
+  return {
+    type: GET_PIXELS_BYCOLOR,
+    payload:data
+  };
+}
+export function getPixelsByDate(date){
+  const data = axios.get(`/api/pixels/byDate/${date}`).then(res=> {return res.data})
+  return {
+    type: GET_PIXELS_BYDATE,
     payload:data
   };
 }
@@ -70,7 +86,17 @@ export default function pixel(state = initialState, action) {
           isLoading:false,
           pixelsForFeed: action.payload
         };
-      case `${ADD_PIXEL}_FULFILLED`:
+        case `${GET_PIXELS_BYCOLOR}_FULFILLED`:
+        return {
+          ...state,
+          pixelsForFeed: action.payload
+        };
+        case `${GET_PIXELS_BYDATE}_FULFILLED`:
+        return {
+          ...state,
+          pixelsForFeed: action.payload
+        };
+        case `${ADD_PIXEL}_FULFILLED`:
       return {
         ...state,
         pixel: action.payload
