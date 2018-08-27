@@ -3,7 +3,7 @@ const getPixelsByColor = (req, res) => {
     const {color} = req.params;
     req.app
       .get("db")
-      .getPixelsByColor(req.user.id,color)
+      .getPixelsByColor([req.user.id,`#${color}`])
       .then(pixels => {
         console.log(pixels);
         res.status(200).send(pixels);
@@ -18,7 +18,7 @@ const getPixelsByColor = (req, res) => {
     const {date} = req.params;
     req.app
       .get("db")
-      .getPixelsByDate(req.user.id,date)
+      .getPixelsByDate([req.user.id,date])
       .then(pixels => {
         console.log(pixels);
         res.status(200).send(pixels);

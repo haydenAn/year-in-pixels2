@@ -36,14 +36,15 @@ export function getFullPixels(){
   };
 }
 export function getPixelsByColor(color){
-  const data = axios.get(`/api/pixels/byColor/${color}`).then(res=> {return res.data})
+  console.log(color)
+  const data = axios.get(`/api/byColor/pixels/${color}`).then(res=> {return res.data})
   return {
     type: GET_PIXELS_BYCOLOR,
     payload:data
   };
 }
 export function getPixelsByDate(date){
-  const data = axios.get(`/api/pixels/byDate/${date}`).then(res=> {return res.data})
+  const data = axios.get(`/api/byDate/pixels/${date}`).then(res=> {return res.data})
   return {
     type: GET_PIXELS_BYDATE,
     payload:data

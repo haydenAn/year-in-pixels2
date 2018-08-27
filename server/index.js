@@ -97,8 +97,8 @@ app.get('/api/pixels/feed',getFullPixels)
 // app.put("/api/pixel/:id", updatePixel);
 
 //FILTERED PIXELS
-app.get('/api/pixels/byDate/:date',getPixelsByDate);
-app.get('/api/pixels/byColor/:color',getPixelsByColor);
+app.get('/api/byDate/pixels/:date',getPixelsByDate);
+app.get('/api/byColor/pixels/:color',getPixelsByColor);
 
 ///quote
 app.get("/api/quote/random", getRandomQuote);
