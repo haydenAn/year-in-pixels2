@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Welcome from './components/public/Welcome/Welcome';
 import routes from  "./routes/routes"
-import {withRouter} from "react-router-dom"
+import {withRouter} from "react-router-dom";
+import Nav from "./components/public/Nav/Nav"
 class App extends Component {
   render() {
     return (
@@ -11,7 +12,7 @@ class App extends Component {
         <Welcome />
       ) : (
         <div className="Main">
-           {/* add nav hear */}
+           <Nav />
           {routes}
         </div>
       )}
