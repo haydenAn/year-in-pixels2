@@ -21,6 +21,7 @@
     "passport-auth0": "^1.0.0",
     "react": "^16.4.2",
     "react-chartjs-2": "^2.7.4",
+    "react-countup": "^4.0.0-alpha.6",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
