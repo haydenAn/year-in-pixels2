@@ -82,7 +82,6 @@ const updatePixel = (req, res) => {
   console.log(req.body);
   const { id } = req.params;
   const { text, img, quote_id } = req.body;
-
   req.app
     .get("db")
     .updatePixel([Number(id), text, img, req.session.ilgi.id, quote_id])
@@ -93,10 +92,22 @@ const updatePixel = (req, res) => {
       console.log(err);
     });
 };
+const countPixels = (req,res)=>{
+  req.app
+  .get("db")
+  .countAllPixels(req.user.id)
+  .then(count => {
+    res.status(200).send(count);
+  })
+  .catch(err => {
+    console.log(err);
+  });
+}
 module.exports = {
   addPixel,
   getFullPixels,
   getPixels,
   getOnePixelFullInfo,
-  updatePixel
+  updatePixel,
+  countPixels
 };

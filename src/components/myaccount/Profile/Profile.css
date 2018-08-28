@@ -34,7 +34,8 @@
   margin: 20px auto;
   padding: 20px;
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  justify-content: space-evenly; }
   @media (min-width: 768px) and (max-width: 1023px) {
     .Profile .Profile_card {
       width: 60vw;
@@ -46,6 +47,8 @@
   .Profile .Profile_card profile-userInfo {
     text-align: center;
     font-family: "Neucha", cursive; }
-  .Profile .Profile_card .MuiCardMedia-media-30 {
+  .Profile .Profile_card .Profile_img {
+    margin-left: 20px;
     width: 50%;
+    max-width: 50%;
     height: 50%; }
