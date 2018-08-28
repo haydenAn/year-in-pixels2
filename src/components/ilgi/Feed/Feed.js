@@ -39,7 +39,7 @@ class Feed extends React.Component {
       </Card>
       )
      
-    }) : <feed-nopixel>No pixels found for this search 😕</feed-nopixel>
+    }) : <feed-nopixel>No pixels found for this search <span role="img" aria-label="confused-emoji-feed">😕</span></feed-nopixel>
     return <div className="Feed">
     <FeedHeader/>
     {isLoading? <CircularProgress style={{display:'block',margin:'0 auto'}}/> :fullPixelDisplay}

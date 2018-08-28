@@ -9,11 +9,11 @@ class EditQuote extends React.Component {
     text: "",
     author: ""
   };
-  componentDidMount(){
-      const {allowAddNew,quote} = this.props;
-      allowAddNew?
-      null:
-      this.setState({text:quote.text,author:quote.author})
+  componentDidMount() {
+    const { allowAddNew, quote } = this.props;
+    !allowAddNew
+      ? this.setState({ text: quote.text, author: quote.author })
+      : null;
   }
   save = () => {
     const { text, author } = this.state,

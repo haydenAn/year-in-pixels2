@@ -12,10 +12,18 @@ const Welcome = () => {
         <span>日记</span>
         <span>ダイアリー</span>
         <p>
-          color your year in<br />
+          color your year in
+          <br />
           <span>PIXELS</span>
         </p>
-        <Button className="welcome_btn" variant="outlined" href={process.env.REACT_APP_LOGIN}>❤️  GET STARTED  ❤️</Button>
+        <Button
+          className="welcome_btn"
+          variant="outlined"
+          href={process.env.REACT_APP_LOGIN}
+        >
+          <span role="img" aria-label="heart-emoji-welcome">❤️</span>
+          GET STARTED <span role="img" aria-label="heart-emoji-welcome">❤️</span>
+        </Button>
       </div>
     </div>
   );

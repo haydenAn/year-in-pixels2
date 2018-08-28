@@ -2,7 +2,6 @@ import React from "react";
 import "./GraphHeader.css";
 import { connect } from "react-redux";
 import { FormControl, InputLabel, Select } from "@material-ui/core";
-import moment from "moment";
 
 class GraphHeader extends React.Component {
   render() {
