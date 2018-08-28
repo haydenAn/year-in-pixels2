@@ -5,20 +5,8 @@ import { FormControl, InputLabel, Select } from "@material-ui/core";
 import moment from "moment";
 
 class GraphHeader extends React.Component {
-  state = {
-    month: moment().format("M")
-  };
-  changeColor = colorvalue => {
-    this.setState({ color: colorvalue });
-    // this.props.getPixelsByColor(colorvalue.slice(1));
-  };
-  changeMonth = month => {
-    this.setState({ month: month });
-    // this.props.getPixelsByDate(month);
-  };
   render() {
-    const { month } = this.state,
-    {selection,handleSelection} = this.props,
+    const {selection,handleSelection,month,changeMonth} = this.props,
       monthBoxes = () => {
         let arr = [];
         for (let i = 1; i < 13; i++) {
@@ -26,7 +14,7 @@ class GraphHeader extends React.Component {
             <div
               key={i}
               style={month === i ? { opacity: 1, transition: "0.2s" } : null}
-              onClick={() => this.changeMonth(i)}
+              onClick={() => changeMonth(i)}
             >
               {moment()
                 .month(i - 1)

@@ -1,32 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
-import {Pie} from 'react-chartjs-2';
+import { Pie } from "react-chartjs-2";
+import moods from "./models/moods";
+import colorvalues from "./models/colorvalues";
 class PieChart extends React.Component {
+  componentDidMount() {
+  }
+
   render() {
-    const data = {
-      labels: [
-        'Red',
-        'Green',
-        'Yellow'
-      ],
-      datasets: [{
-        data: [300, 50, 100],
-        backgroundColor: [
-        '#FF6384',
-        '#36A2EB',
-        '#FFCE56'
-        ],
-        hoverBackgroundColor: [
-        '#FF6384',
-        '#36A2EB',
-        '#FFCE56'
+    const { colorRatio } = this.props,
+      data = {
+        labels: moods,
+        datasets: [
+          {
+            data: colorRatio,
+            backgroundColor: colorvalues
+          }
         ]
-      }]
-    };
-    
+      };
     return (
       <div className="Pie">
-         <h2>Pie Example</h2>
+        <h2>Pie Example</h2>
         <Pie data={data} />
       </div>
     );
@@ -34,9 +28,9 @@ class PieChart extends React.Component {
 }
 const mapStateToProps = state => {
   return {
-    pixels: state.graph.pixelsForGraph
+    colorRatio: state.graph.colorRatio
   };
 };
 export default connect(
-  mapStateToProps
+  mapStateToProps,
 )(PieChart);

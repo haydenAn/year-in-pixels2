@@ -18,15 +18,27 @@ const { strat, logout, getUser } = require(`${__dirname}/controllers/authCtrl`),
     searchPhoto,
     getRandomPhoto
   } = require(`${__dirname}/controllers/unsplashCtrl`),
-  { addEvent,getEvent } = require(`${__dirname}/controllers/eventCtrl`),
-   {addTodo, getTodos , updateTodo , deleteTodo} = require(`${__dirname}/controllers/todoCtrl`),
-     {getRandomQuote,
-     addQuote, 
-     getQuote,
-     deleteQuote,
-     updateQuote
-   } = require(`${__dirname}/controllers/quoteCtrl`),
-   {getPixelsByColor, getPixelsByDate,getPixelsForGraph} = require(`${__dirname}/controllers/filteredPixelCtrl`)
+  { addEvent, getEvent } = require(`${__dirname}/controllers/eventCtrl`),
+  {
+    addTodo,
+    getTodos,
+    updateTodo,
+    deleteTodo
+  } = require(`${__dirname}/controllers/todoCtrl`),
+  {
+    getRandomQuote,
+    addQuote,
+    getQuote,
+    deleteQuote,
+    updateQuote
+  } = require(`${__dirname}/controllers/quoteCtrl`),
+  {
+    getPixelsByColor,
+    getPixelsByDate,
+    getPixelsForGraph,
+    getColorRatio,
+    getColorRatioByMonth
+  } = require(`${__dirname}/controllers/filteredPixelCtrl`);
 const app = express();
 
 massive(process.env.CONNECTION_STRING)
@@ -93,32 +105,34 @@ app.get("/auth/me", getUser);
 app.get("/api/pixel/:date", getOnePixelFullInfo);
 app.post("/api/pixel", addPixel);
 app.get("/api/pixels", getPixels);
-app.get('/api/pixels/feed',getFullPixels)
+app.get("/api/pixels/feed", getFullPixels);
 // app.put("/api/pixel/:id", updatePixel);
 
 //FILTERED PIXELS
-app.get('/api/forGraph/pixels',getPixelsForGraph)
-app.get('/api/byDate/pixels/:date',getPixelsByDate);
-app.get('/api/byColor/pixels/:color',getPixelsByColor);
+app.get("/api/forGraph/pixels", getPixelsForGraph);
+app.get("/api/colorRatio", getColorRatio);
+app.get("/api/colorRatio/byMonth/:month", getColorRatioByMonth);
+app.get("/api/byDate/pixels/:date", getPixelsByDate);
+app.get("/api/byColor/pixels/:color", getPixelsByColor);
 
 ///quote
 app.get("/api/quote/random", getRandomQuote);
 app.get("/api/quote", getQuote);
 app.post("/api/quote", addQuote);
-app.put('/api/quote',updateQuote)
+app.put("/api/quote", updateQuote);
 app.delete("/api/quote/:id", deleteQuote);
 
 //UNSPLASH
 app.get("/api/photos/:keyword/:page", searchPhoto);
 app.get("/api/photo/random", getRandomPhoto);
 //TODO
-app.get('/api/todo/:date',getTodos);
-app.post('/api/todo',addTodo);
-app.put('/api/todo/:id',updateTodo);
-app.delete('/api/todo/:id/:date',deleteTodo)
+app.get("/api/todo/:date", getTodos);
+app.post("/api/todo", addTodo);
+app.put("/api/todo/:id", updateTodo);
+app.delete("/api/todo/:id/:date", deleteTodo);
 //EVENT
 app.post("/api/event", addEvent);
-app.get("/api/event/:date",getEvent)
+app.get("/api/event/:date", getEvent);
 // app.put("/api/event/:id", updateEvent);
 // app.get("/api/events", getAllEvents);
 // app.delete("/api/event/:id", deleteEvent);
