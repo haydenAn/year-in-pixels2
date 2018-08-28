@@ -41,6 +41,20 @@ const getPixelsForGraph = (req, res) => {
       res.status(500).send();
     });
 };
+const getPixelsForGraphByMonth = (req, res) => {
+  console.log("Hit the get => /api/forGraph/pixels/:month");
+  const {month} = req.params;
+  req.app
+    .get("db")
+    .getAvgByMonth([req.user.id,month])
+    .then(pixels => {
+      console.log(pixels);
+      res.status(200).send(pixels);
+    })
+    .catch(() => {
+      res.status(500).send();
+    });
+};
 const getColorRatio = (req, res) => {
   console.log("Hit the get => /api/colorRatio");
   req.app
@@ -74,5 +88,6 @@ module.exports = {
   getPixelsByDate,
   getPixelsForGraph,
   getColorRatio,
-  getColorRatioByMonth
+  getColorRatioByMonth,
+  getPixelsForGraphByMonth
 };

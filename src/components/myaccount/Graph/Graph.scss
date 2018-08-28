@@ -1,0 +1,30 @@
+@import "../../../sass/_media.scss";
+.Graph {
+  graph-body {
+    width: 95vw;
+    display: block;
+    margin: 0 auto;
+    @include tablet {
+      width: 80vw;
+    }
+    @include desktop {
+      width: 50vw;
+    }
+  }
+  .Graph_nav {
+    margin-top: 20px;
+    button {
+      span {
+        span {
+          font-size: 1.4em;
+          @include tablet {
+            font-size: 1.8em;
+          }
+          @include desktop {
+            font-size: 2.2em;
+          }
+        }
+      }
+    }
+  }
+}

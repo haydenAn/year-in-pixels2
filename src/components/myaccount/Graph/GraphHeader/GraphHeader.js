@@ -16,9 +16,6 @@ class GraphHeader extends React.Component {
               style={month === i ? { opacity: 1, transition: "0.2s" } : null}
               onClick={() => changeMonth(i)}
             >
-              {moment()
-                .month(i - 1)
-                .format("MMM")}
               <span>{i}</span>
             </div>
           );

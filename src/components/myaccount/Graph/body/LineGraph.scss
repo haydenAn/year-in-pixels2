@@ -1,0 +1,12 @@
+@import "../../../../sass/_media.scss";
+
+.LineGraph{
+    width:95vw;
+    margin:0 auto;
+    @include tablet{
+        width:70vw;
+    }
+    @include desktop{
+        width:60vw;
+    }
+}

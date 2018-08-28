@@ -1,15 +1,33 @@
 import axios from "axios";
 import colorvalues from "../components/myaccount/Graph/body/models/colorvalues";
+import months from "../components/myaccount/Graph/body/models/months";
+import month_num from "../components/myaccount/Graph/body/models/month_num";
+
 ///action types
 const
 GET_PIXELS_GRAPH="GET_PIXELS_GRAPH",
+GET_AVG_MONTH="GET_AVG_MONTH",
 GET_COLOR_RATIO="GET_COLOR_RATIO",
 GET_COLOR_RATIO_MONTH="GET_COLOR_RATIO_MONTH";
 
-// GET_PIXELS_BYDATE ="GET_PIXELS_BYDATE";
+// GET_PIXELS_BYDATE ="GET_PIXhgggfhELS_BYDATE";
 
 export function getPixelsGraph() {
-  const data = axios.get('/api/forGraph/pixels').then(res=> {return res.data})
+  const data = axios.get('/api/forGraph/pixels').then(res=> {
+    let iniData = [];
+    res.data.forEach(el=>{
+      let index = month_num.indexOf(el.month);
+      iniData[index] = el.color_avg;
+    })
+    return iniData
+  })
+  return {
+    type: GET_PIXELS_GRAPH,
+    payload:data
+  };
+}
+export function getAvgMonth(month) {
+  const data = axios.get(`/api/forGraph/${month}`).then(res=> {return res.data})
   return {
     type: GET_PIXELS_GRAPH,
     payload:data

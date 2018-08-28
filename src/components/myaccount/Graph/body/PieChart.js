@@ -1,12 +1,10 @@
 import React from "react";
+import "./PieChart.css"
 import { connect } from "react-redux";
 import { Pie } from "react-chartjs-2";
 import moods from "./models/moods";
 import colorvalues from "./models/colorvalues";
 class PieChart extends React.Component {
-  componentDidMount() {
-  }
-
   render() {
     const { colorRatio } = this.props,
       data = {
@@ -20,7 +18,6 @@ class PieChart extends React.Component {
       };
     return (
       <div className="Pie">
-        <h2>Pie Example</h2>
         <Pie data={data} />
       </div>
     );

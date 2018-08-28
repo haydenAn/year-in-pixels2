@@ -11,7 +11,6 @@ import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
 import PieChart from "./body/PieChart";
 import LineGraph from "./body/LineGraph";
 import moment from "moment";
-import colorvalues from "./body/models/colorvalues";
 
 class Graph extends React.Component {
   state = {
@@ -67,7 +66,7 @@ class Graph extends React.Component {
             />
           )}
         </graph-body>
-        <BottomNavigation value={naviValue} onChange={this.navigate} showLabels>
+        <BottomNavigation className="Graph_nav" value={naviValue} onChange={this.navigate} showLabels>
           <BottomNavigationAction label="line graph" />
           <BottomNavigationAction label="color chart" />
         </BottomNavigation>

@@ -37,7 +37,8 @@ const { strat, logout, getUser } = require(`${__dirname}/controllers/authCtrl`),
     getPixelsByDate,
     getPixelsForGraph,
     getColorRatio,
-    getColorRatioByMonth
+    getColorRatioByMonth,
+    getPixelsForGraphByMonth
   } = require(`${__dirname}/controllers/filteredPixelCtrl`);
 const app = express();
 
@@ -110,6 +111,7 @@ app.get("/api/pixels/feed", getFullPixels);
 
 //FILTERED PIXELS
 app.get("/api/forGraph/pixels", getPixelsForGraph);
+app.get("/api/forGraph/:month", getPixelsForGraphByMonth);
 app.get("/api/colorRatio", getColorRatio);
 app.get("/api/colorRatio/byMonth/:month", getColorRatioByMonth);
 app.get("/api/byDate/pixels/:date", getPixelsByDate);

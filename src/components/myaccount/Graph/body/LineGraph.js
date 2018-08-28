@@ -1,28 +1,29 @@
 import React from "react";
 import { connect } from "react-redux";
 import {Line} from 'react-chartjs-2';
-
+import "./LineGraph.css";
+import months from "./models/months"
 class LineGraph extends React.Component {
   render() {
     const data = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: months,
         datasets: [
           {
-            label: 'My First dataset',
+            label: 'your mood data in this year',
             fill: false,
             lineTension: 0.1,
-            backgroundColor: 'rgba(75,192,192,0.4)',
-            borderColor: 'rgba(75,192,192,1)',
+            backgroundColor: '#3f51b5',
+            borderColor: '#3f51b5',
             borderCapStyle: 'butt',
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            pointBorderColor: 'rgba(75,192,192,1)',
+            pointBorderColor: '#3f51b5',
             pointBackgroundColor: '#fff',
             pointBorderWidth: 1,
             pointHoverRadius: 5,
-            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-            pointHoverBorderColor: 'rgba(220,220,220,1)',
+            pointHoverBackgroundColor: '#3f51b5',
+            pointHoverBorderColor: '#3f51b5',
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
@@ -32,7 +33,6 @@ class LineGraph extends React.Component {
       };
     return (
       <div className="LineGraph">
-        <h2>Line Example</h2>
         <Line data={data} />
       </div>
     );

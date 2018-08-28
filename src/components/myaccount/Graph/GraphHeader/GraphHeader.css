@@ -5,15 +5,21 @@
     margin: 30px 0 30px 30px; }
     .GraphHeader .GH_form label {
       font-size: 1.7em; }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .GraphHeader .GH_form {
+        margin: 50px 0 30px 15vw; } }
+    @media (min-width: 1024px) {
+      .GraphHeader .GH_form {
+        margin: 50px 0 30px 18vw; } }
   .GraphHeader graphHeader-month {
     display: block;
     text-align: center; }
     .GraphHeader graphHeader-month div {
-      background-color: #CFD8DC;
+      background-color: #cfd8dc;
       opacity: 0.5;
       display: inline-block;
-      width: 13vw;
-      height: 13vw;
+      width: 6vw;
+      height: 6vw;
       margin: 1vw;
       box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
       border-radius: 5px;
@@ -35,23 +41,19 @@
         opacity: 1; }
       @media (min-width: 768px) and (max-width: 1023px) {
         .GraphHeader graphHeader-month div {
-          width: 9vw;
-          height: 9vw; } }
+          width: 5vw;
+          height: 5vw; } }
       @media (min-width: 1024px) {
         .GraphHeader graphHeader-month div {
-          width: 6vw;
-          height: 6vw; } }
+          width: 4vw;
+          height: 4vw; } }
       .GraphHeader graphHeader-month div span {
-        display: none; }
-        @media (min-width: 400px) and (max-width: 767px) {
-          .GraphHeader graphHeader-month div span {
-            font-size: 1.3em;
-            display: block; } }
+        display: block; }
         @media (min-width: 768px) and (max-width: 1023px) {
           .GraphHeader graphHeader-month div span {
-            font-size: 1.3em;
-            display: block; } }
+            margin-top: 5px;
+            font-size: 1.3em; } }
         @media (min-width: 1024px) {
           .GraphHeader graphHeader-month div span {
-            display: block;
+            margin-top: 5px;
             font-size: 1.8em; } }
