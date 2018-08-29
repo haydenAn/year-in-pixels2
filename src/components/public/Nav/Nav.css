@@ -1,0 +1,8 @@
+.Nav{
+    display: inherit;
+    z-index: 100;
+
+}
+a{
+    text-decoration: none;
+}

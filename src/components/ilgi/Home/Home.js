@@ -6,7 +6,8 @@ import {getPixels} from "../../../ducks/pixel"
 import * as moment from "moment";
 import { withRouter } from "react-router-dom";
 import month from "./model/month";
-import Quote from "../../Inbox/Quote/Quote"
+import Quote from "../../Inbox/Quote/Quote";
+import Header from "../../public/Header/Header"
 class Home extends Component {
   componentDidMount() {
     const { getUser,getPixels } = this.props;
@@ -82,6 +83,7 @@ class Home extends Component {
     });
     return (
       <div className="Home">
+      <Header/>
       <Quote />
         <div className="Home_containerBackground">
           <div className="grid-container">

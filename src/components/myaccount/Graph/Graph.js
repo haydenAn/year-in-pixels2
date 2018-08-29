@@ -11,6 +11,7 @@ import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
 import PieChart from "./body/PieChart";
 import LineGraph from "./body/LineGraph";
 import moment from "moment";
+import Header from "../../public/Header/Header"
 
 class Graph extends React.Component {
   state = {
@@ -52,6 +53,7 @@ class Graph extends React.Component {
     const { selection, naviValue, month} = this.state;
     return (
       <div className="Graph">
+      <Header/>
         <GraphHeader
           selection={selection}
           handleSelection={this.handleSelection}

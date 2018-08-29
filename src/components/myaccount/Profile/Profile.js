@@ -6,6 +6,7 @@ import CountUp from "react-countup";
 import axios from "axios";
 import {connect} from "react-redux";
 import moment from "moment";
+import Header from "../../public/Header/Header"
 
 class Profile extends React.Component {
   state = {
@@ -20,6 +21,8 @@ class Profile extends React.Component {
     const { num} = this.state,
     {user} = this.props;
     return (
+      <div>
+      <Header/>
       <div className="Profile">
         <div>
           <CountUp
@@ -42,6 +45,7 @@ class Profile extends React.Component {
             title="Live from space album cover"
           />
         </Card>
+      </div>
       </div>
     );
   }

@@ -6,6 +6,7 @@ import {Card,CardContent,CardHeader,CardMedia,IconButton,CircularProgress} from 
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import colors from "../Pixel/models/colors";
 import FeedHeader from "./FeedHeader/FeedHeader";
+import Header from "../../public/Header/Header"
 class Feed extends React.Component {
     componentDidMount(){
         this.props.getFullPixels()
@@ -41,6 +42,7 @@ class Feed extends React.Component {
      
     }) : <feed-nopixel>No pixels found for this search <span role="img" aria-label="confused-emoji-feed">😕</span></feed-nopixel>
     return <div className="Feed">
+    <Header />
     <FeedHeader/>
     {isLoading? <CircularProgress style={{display:'block',margin:'0 auto'}}/> :fullPixelDisplay}
     <feed-footer/>

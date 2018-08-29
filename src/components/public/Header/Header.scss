@@ -1,0 +1,35 @@
+@import "../../../sass/_media.scss";
+@font-face {
+  font-family: "LLPixel";
+  font-style: normal;
+  font-weight: normal;
+  src: local("LLPixel"), url("../../../sass/LLPIXEL_.woff") format("woff");
+}
+bar-logo h1 {
+  font-family: "LLPixel";
+  font-size: 2em;
+  letter-spacing: 1.7px;
+  margin: 0 0 4px 10px;
+  padding: 0;
+}
+.AppBar_tool {
+  width: 100vw;
+  margin: 0 auto;
+  @include tablet {
+    width: 75vw;
+  }
+  @include desktop {
+    width: 60vw;
+  }
+  .Header_home {
+    position: relative;
+    right: -50vw;
+    text-decoration: none;
+    @include tablet{
+        right: -45vw;
+    }
+    @include desktop{
+        right: -40vw;
+    }
+  }
+}
