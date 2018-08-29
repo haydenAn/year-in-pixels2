@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import Event from "../../Inbox/Event/Event";
 import Todo from "../../Inbox/Todo/Todo";
-import { getPixel } from "../../../ducks/pixel";
+import { getPixel, pushPixelToEdit } from "../../../ducks/pixel";
 import "./Pixel.css";
 import moment from "moment";
 //material ui
-import { LinearProgress, Card, CardContent } from "@material-ui/core";
+import { LinearProgress, Card, CardContent, Button } from "@material-ui/core";
 import PixelHeader from "./PixelHeader/PixelHeader";
 
 class Pixel extends Component {
@@ -22,17 +22,23 @@ class Pixel extends Component {
       if (res.value === false) {
         history.push(`/edit/${date}`);
       } else {
-        const pixel = res.value,
-          opacity = pixel.opacity,
-          color = pixel.colorvalue;
-        this.setState(() => ({ opacity: opacity, color: color }));
+        const p = res.value,
+          opacity = p.opacity,
+          color = p.colorvalue;
+        this.setState(() => ({ opacity, color }));
       }
     });
   }
+  pushPixelToEdit = () => {
+    const { pushPixelToEdit, history, match,pixel } = this.props;
+    pushPixelToEdit(pixel);
+    history.push(`/edit/${match.params.date}`);
+  };
   render() {
     const { pixel, isLoading, match } = this.props,
       { opacity, color } = this.state,
       date = moment(match.params.date).format("MMM Do YY");
+    console.log(pixel);
     return (
       <div>
         {isLoading ? (
@@ -40,10 +46,10 @@ class Pixel extends Component {
         ) : (
           <div className="Pixel">
             <PixelHeader opacity={opacity} color={color} />
-              <div className="Pixel_img">
-                <img alt="pixel_img" src={pixel.img_url} width="500" />
-              </div>
-              <Todo /> 
+            <div className="Pixel_img">
+              <img alt="pixel_img" src={pixel.img_url} width="500" />
+            </div>
+            <Todo />
             <pixel-bottom>
               <Card className="Pixel_text">
                 <CardContent>
@@ -53,6 +59,13 @@ class Pixel extends Component {
               </Card>
               <Event />
             </pixel-bottom>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.pushPixelToEdit}
+            >
+              Edit
+            </Button>
           </div>
         )}
       </div>
@@ -69,6 +82,6 @@ function mapStateToProps(state) {
 export default withRouter(
   connect(
     mapStateToProps,
-    { getPixel }
+    { getPixel, pushPixelToEdit }
   )(Pixel)
 );

@@ -74,7 +74,6 @@ class Todo extends React.Component {
           </ListItemSecondaryAction>
         </ListItem>
       ]);
-    console.log(title);
     return (
       <Card className="Todo">
         <todo-add>
