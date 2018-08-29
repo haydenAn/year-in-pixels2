@@ -1,8 +1,8 @@
 .EditQuote {
   text-align: right;
-  width: 85vw;
+  width: 88vw;
   margin: 0 auto;
-  padding: 50px 30px; }
+  padding: 20px; }
   @media (min-width: 768px) and (max-width: 1023px) {
     .EditQuote {
       width: 60vw;

@@ -52,16 +52,19 @@ class Quote extends React.Component {
           />
         ) : quote ? (
           <quote-display>
-              <span className="Quote_dq">"</span>
+              <span className="Quote_dq"><i className="fas fa-quote-left"></i>
+
+</span>
             <Button
-              aria-owns={anchorEl ? "simple-menu" : null}
+              aria-owns={anchorEl ? "simple-menu-quote" : null}
               aria-haspopup="true"
+              className="quote_menu"
               onClick={this.openMenus}
             >
               <MoreVertIcon/>
             </Button>
             <Menu
-              id="simple-menu"
+              id="simple-menu-quote"
               anchorEl={anchorEl}
               open={Boolean(anchorEl)}
               onClose={this.closeMenus}

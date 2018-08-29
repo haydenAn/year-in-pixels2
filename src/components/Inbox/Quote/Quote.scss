@@ -1,27 +1,79 @@
 @import "../../../sass/_media.scss";
+@import "../../../sass/_var.scss";
+
 .Quote {
-    margin-top:50px;
+  margin-top: 50px;
   width: 100vw;
   text-align: center;
-
-  quote-addPanel {
-    margin-left:40px;
-    width:90%;
-    button{
-        margin-left:45px; 
+  quote-display {
+    font-family: $hand-writing;
+    h1 {
+      margin: 10px auto;
+      width: 80vw;
+      font-style: italic;
+      font-weight: lighter;
+      opacity: 0.6;
+      font-size: 1.2em;
+      @include tablet {
+          font-size: 1.6em;
+          width: 50vw;
+      }
+      @include desktop {
+        font-size: 1.8em;
+        width: 35vw;
     }
-    @include tablet{
-        margin-left:0;
-        button{
-            margin-left:0; 
-        }
+    }
+    p {
+      color: #3f51b5;
+      opacity: 0.8;
+    }
+    .quote_menu {
+      position: relative;
+      right: -34vw;
+      @include tablet {
+        right: -25vw;
+      }
+      @include desktop {
+        right: -17vw;
+      }
+    }
+    .Quote_dq {
+      font-size: 30px;
+      color: #3f51b5;
+      position: relative;
+      left: -27vw;
+      @include tablet {
+        left: -23vw;
+        font-size: 37px;
+      }
+      @include desktop {
+        left: -15vw;
+        font-size: 40px;
+      }
+    }
+  }
+  quote-addPanel {
+    margin-left: 40px;
+    width: 90%;
+    letter-spacing: 1px;
+    font-family: $hand-writing;
+    button {
+      letter-spacing: 1px;
+      margin-left: 45px;
+      font-family: $hand-writing;
+    }
+    @include tablet {
+      margin-left: 0;
+      button {
+        margin-left: 0;
+      }
     }
     @include desktop {
-        margin-left:0;
-        button{
-            margin-left:0; 
-        }  
-  }
+      margin-left: 0;
+      button {
+        margin-left: 0;
+      }
+    }
     h3 {
       display: inline-table;
       white-space: pre-wrap;
