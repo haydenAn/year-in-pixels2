@@ -1,0 +1,10 @@
+.EditEvent{
+    display: flex;
+    flex-direction: column;
+}
+.EditEvent > div{
+    margin-bottom: 20px;
+}
+.EditEvent .EditEvent_title{
+    font-size:2em;
+}

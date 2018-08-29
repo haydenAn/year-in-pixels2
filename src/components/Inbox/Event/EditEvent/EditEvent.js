@@ -1,6 +1,6 @@
 import React from "react"
 import { TextField,Input, Button } from "@material-ui/core";
-
+import "./EditEvent.css";
 class EditEvent extends React.Component{
     state={
         title: "",
@@ -27,10 +27,12 @@ class EditEvent extends React.Component{
         return(
             <div className="EditEvent">
             <Input
+            label="Event title"
             placeholder="Event title"
             inputProps={{
               "aria-label": "Description"
             }}
+            className="EditEvent_title"
             value={title}
             onChange={e => this.setState({ title: e.target.value })}
           />
@@ -49,7 +51,7 @@ class EditEvent extends React.Component{
             margin="normal"
             onChange={e => this.setState({ text: e.target.value })}
           />
-          <Button>SAVE</Button>
+          <Button variant="contained" color="primary" >SAVE</Button>
             </div>
         )
     }
