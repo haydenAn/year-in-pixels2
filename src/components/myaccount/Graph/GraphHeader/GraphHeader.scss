@@ -2,6 +2,7 @@
 @import "../../../../sass/_media.scss";
 .GraphHeader {
   width: 100vw;
+  margin-top:80px;
   .GH_form {
     display: block;
     margin: 30px 0 30px 30px;
@@ -13,7 +14,7 @@
       margin : 50px 0 30px 15vw;
     }
     @include desktop {
-      margin : 50px 0 30px 18vw;
+      margin : 50px 0 30px 25vw;
     }
   }
 

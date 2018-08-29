@@ -70,10 +70,12 @@ class Event extends React.Component {
                       <MenuItem onClick={this.edit}>Edit</MenuItem>
                       <MenuItem style={{color:'red'}} onClick={this.delete}>Delete</MenuItem>
                     </Menu>
+                    <div className="Event_content">
                     <h1>{event.title}</h1>
                     <h3>{event.location}</h3>
                     <h3>{moment(event.event_date).format("MM-DD-YYYY")}</h3>
                     <article>{event.text}</article>
+                    </div>
                   </div>
                 )}
               </event-outer>

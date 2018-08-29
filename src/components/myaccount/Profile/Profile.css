@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Neucha");
 .Profile div {
   width: 85vw;
-  margin: 20px auto;
+  margin: 80px auto 20px;
   padding: 20px; }
   @media (min-width: 768px) and (max-width: 1023px) {
     .Profile div {

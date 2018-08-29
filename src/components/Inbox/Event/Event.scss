@@ -1,9 +1,10 @@
 @import "../../../sass/_media.scss";
+@import "../../../sass/_var.scss";
 
 .Event_Card{
     width: 85vw;
     margin: 20px auto;
-    padding: 20px;
+    padding: 60px;
     @include tablet{
       width:50%;
       margin:20px;
@@ -11,5 +12,17 @@
     @include desktop{
      width: 50%;
      margin:20px;
+    }
+    .Event_content{
+      text-align:center;
+      h1{
+        margin-top:0;
+        color:#3F51B5;
+        text-transform: uppercase;
+        font-family: $hand-writing;
+      }
+      h3{
+        font-weight: lighter;
+      }
     }
 }

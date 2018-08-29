@@ -1,4 +1,5 @@
 .FeedHeader {
+  margin-top: 80px;
   width: 100vw; }
   .FeedHeader .FH_form {
     display: block;
@@ -44,7 +45,7 @@
     display: block;
     text-align: center; }
     .FeedHeader feedheader-month div {
-      background-color: #CFD8DC;
+      background-color: #cfd8dc;
       opacity: 0.5;
       display: inline-block;
       width: 13vw;

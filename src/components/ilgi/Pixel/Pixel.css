@@ -1,5 +1,6 @@
+@import url("https://fonts.googleapis.com/css?family=Neucha");
 .Pixel .Pixel_img {
-  margin: 80px auto 20px;
+  margin: 80px auto 40px;
   width: 100%; }
   @media (min-width: 768px) and (max-width: 1023px) {
     .Pixel .Pixel_img {
@@ -24,7 +25,8 @@
       width: 60vw;
       flex-direction: row; } }
   .Pixel pixel-bottom .Pixel_text {
-    padding: 20px;
+    font-family: "Neucha", cursive;
+    padding: 40px;
     margin: 20px auto;
     overflow-y: scroll;
     width: 85vw; }

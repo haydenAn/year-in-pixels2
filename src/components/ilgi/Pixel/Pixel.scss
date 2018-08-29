@@ -1,8 +1,9 @@
 @import "../../../sass/_media.scss";
+@import "../../../sass/_var.scss";
 
 .Pixel {
     .Pixel_img {
-      margin: 80px auto 20px;
+      margin: 80px auto 40px;
       width: 100%;
        @include tablet {
            width: 80vw;
@@ -29,7 +30,8 @@
     }
    
     .Pixel_text {
-     padding:20px;
+      font-family: $hand-writing;
+     padding:40px;
       margin: 20px auto;
       overflow-y:scroll; 
       width: 85vw;
