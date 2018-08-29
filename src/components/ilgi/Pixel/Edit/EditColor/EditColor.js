@@ -34,7 +34,7 @@ const EditColor = props => {
        <h3><i className="far fa-smile edit_smileicon"></i>How intense is your feeling?</h3>
       <Slider
         style={styles.slider}
-        value={opacity}
+        value={Number(opacity)}
         min={0.3}
         max={1}
         onChange={changeOpacity}

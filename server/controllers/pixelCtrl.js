@@ -77,16 +77,14 @@ const getFullPixels = (req, res) => {
 
 
 const updatePixel = (req, res) => {
-  console.log("Hit the post =>/api/pixel");
-  console.log(req.params);
-  console.log(req.body);
+  console.log("Hit the put =>/api/pixel");
   const { id } = req.params;
-  const { text, img, quote_id } = req.body;
+  const { text, img_url, positive,opacity,colorvalue,color_data } = req.body;
   req.app
     .get("db")
-    .updatePixel([Number(id), text, img, req.session.ilgi.id, quote_id])
-    .then(pixels => {
-      res.status(200).send(pixels);
+    .updatePixel([id,text,img_url, positive,opacity,colorvalue,color_data])
+    .then(pixel => {
+      res.status(200).send(pixel);
     })
     .catch(err => {
       console.log(err);

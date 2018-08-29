@@ -17,7 +17,8 @@ class Edit extends Component {
     colorvalue: "#BDBDBD",
     img_url: defaultImg,
     text: "",
-    updateMode: false
+    updateMode: false,
+    id:0
   };
   componentDidMount() {
     const { p } = this.props;
@@ -27,7 +28,8 @@ class Edit extends Component {
           colorvalue: p.colorvalue,
           img_url: p.img_url,
           text: p.text,
-          updateMode: true
+          updateMode: true,
+          id:p.pixel_id
         }))
       : null;
   }
@@ -41,13 +43,14 @@ class Edit extends Component {
     this.setState(() => ({ img_url: url }));
   };
   addPixel = () => {
-    const { addPixel, match,updatePixel } = this.props,
-      { colorvalue, opacity, text, img_url,updateMode } = this.state,
+    const { addPixel, match,updatePixel,history} = this.props,
+      { colorvalue, opacity, text, img_url,updateMode,id } = this.state,
       boolObj = colorBool.filter(el => Object.keys(el)[0] === colorvalue),
       positive = Object.values(boolObj[0])[0],
       color_data = opacity * 10 * (positive ? 1 : -1),
+      date=match.params.date,
       body = {
-        date: match.params.date,
+        date,
         colorvalue,
         opacity,
         positive,
@@ -57,8 +60,8 @@ class Edit extends Component {
       };
     console.log(body);
     updateMode?
-    updatePixel(body):
-    addPixel(body);
+    updatePixel(body,id).then(()=> history.push(`/pixel/${date}`)):
+    addPixel(body).then(()=> history.push(`/pixel/${date}`));
   };
  
   render() {

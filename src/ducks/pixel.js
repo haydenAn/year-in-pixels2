@@ -7,7 +7,8 @@ const GET_PIXEL = "GET_PIXEL",
   GET_FULL_PIXELS = "GET_FULL_PIXELS",
   GET_PIXELS_BYCOLOR = "GET_PIXELS_BYCOLOR",
   GET_PIXELS_BYDATE = "GET_PIXELS_BYDATE",
-  PUSH_PIXEL_EDIT = "PUSH_PIXEL_EDIT";
+  PUSH_PIXEL_EDIT = "PUSH_PIXEL_EDIT",
+  UPDATE_PIXEL="UPDATE_PIXEL";
 export function getPixel(date) {
   const data = axios.get(`/api/pixel/${date}`).then(res => {
     return res.data;
@@ -26,12 +27,12 @@ export function addPixel(body) {
     payload: data
   };
 }
-export function updatePixel(body) {
-  const data = axios.post(`/api/pixel`, body).then(res => {
+export function updatePixel(body,id) {
+  const data = axios.put(`/api/pixel/${id}`, body).then(res => {
     return res.data;
   });
   return {
-    type: ADD_PIXEL,
+    type: UPDATE_PIXEL,
     payload: data
   };
 }
@@ -140,6 +141,11 @@ export default function pixel(state = initialState, action) {
         pixelsForFeed: action.payload
       };
     case `${ADD_PIXEL}_FULFILLED`:
+      return {
+        ...state,
+        pixel: action.payload
+      };
+    case `${UPDATE_PIXEL}_FULFILLED`:
       return {
         ...state,
         pixel: action.payload

@@ -13,7 +13,8 @@ const { strat, logout, getUser } = require(`${__dirname}/controllers/authCtrl`),
     addPixel,
     getPixels,
     getFullPixels,
-    countPixels
+    countPixels,
+    updatePixel
   } = require(`${__dirname}/controllers/pixelCtrl`),
   {
     searchPhoto,
@@ -109,7 +110,7 @@ app.post("/api/pixel", addPixel);
 app.get("/api/pixels", getPixels);
 app.get("/api/pixels/feed", getFullPixels);
 app.get('/api/count/pixels',countPixels);
-// app.put("/api/pixel/:id", updatePixel);
+app.put("/api/pixel/:id", updatePixel);
 
 //FILTERED PIXELS
 app.get("/api/forGraph/pixels", getPixelsForGraph);
