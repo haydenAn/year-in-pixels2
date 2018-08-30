@@ -13,8 +13,6 @@ import {
   CardMedia,
   IconButton,
   CircularProgress,
-  Menu,
-  MenuItem,
   Button
 } from "@material-ui/core";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
@@ -24,16 +22,13 @@ import Header from "../../public/Header/Header";
 import { withRouter } from "react-router-dom";
 class Feed extends React.Component {
   state = {
-    anchorEl: null
+    open: false
   };
   componentDidMount() {
     this.props.getFullPixels();
   }
-  openMenus = event => {
-    this.setState({ anchorEl: event.currentTarget });
-  };
-  closeMenus = () => {
-    this.setState({ anchorEl: null });
+  toggle = () => {
+    this.setState(() => ({ open: !this.state.open }));
   };
   edit = body => {
     const { pushPixelToEdit, history } = this.props;
@@ -44,10 +39,12 @@ class Feed extends React.Component {
     console.log(id);
     this.props.deletePixel(id);
   };
+
   render() {
     console.log(this.props.pixels);
     const { pixels, isLoading } = this.props,
-      { anchorEl } = this.state,
+      { open } = this.state,
+      hexToRGBArray = hex => hex.match(/[A-Za-z0-9]{2}/g).map(v => parseInt(v, 16)).join(','),
       fullPixelDisplay = pixels[0] ? (
         pixels.map((el, i) => {
           const moodObj = colors.filter(
@@ -57,19 +54,21 @@ class Feed extends React.Component {
             <Card key={i} className="Feed_card">
               <CardHeader
                 className="Feed_header"
-                style={{ backgroundColor: el.colorvalue, opacity: el.opacity }}
+                style={{backgroundColor:`rgba(${hexToRGBArray(el.colorvalue)},${el.opacity})`}}
                 title={Object.keys(moodObj)[0]}
                 subheader={el.colorvalue}
                 action={
-                  <div>
-                  <MoreVertIcon />
-                  <div className="Feed_btn">
-                  <Button onClick={()=>this.edit(el)}>Edit</Button>
-                  <Button onClick={()=>this.delete(el.id)}>Delete</Button>
-                  </div>
+                  <div className="Feed_action">
+                    <IconButton onClick={this.toggle}>
+                      <MoreVertIcon />
+                    </IconButton>
+                    <div className={open?`Feed_btn`:'Feed_btn_hide'}>
+                      <Button onClick={() => this.edit(el)}>Edit</Button>
+                      <Button onClick={() => this.delete(el.id)}>Delete</Button>
+                    </div>
                   </div>
                 }
-              />
+                />
               <CardMedia component="img" image={el.img_url} />
               <CardContent className="Feed_content">
                 <h1>{el.pixel_date}</h1>
@@ -88,6 +87,7 @@ class Feed extends React.Component {
           </span>
         </feed-nopixel>
       );
+      console.log(hexToRGBArray('#E91E63'))
     return (
       <div className="Feed">
         <Header />

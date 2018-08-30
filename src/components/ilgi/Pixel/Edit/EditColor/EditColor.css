@@ -27,7 +27,7 @@
       position: relative;
       cursor: pointer; }
       .EditColor editColor-colors div::after {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
