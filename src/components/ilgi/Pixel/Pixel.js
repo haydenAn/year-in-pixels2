@@ -60,6 +60,7 @@ class Pixel extends Component {
               <Event />
             </pixel-bottom>
             <Button
+            className="Pixel_editBtn"
               variant="contained"
               color="primary"
               onClick={this.pushPixelToEdit}

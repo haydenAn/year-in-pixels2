@@ -2,24 +2,28 @@
 @import "../../../sass/_var.scss";
 
 .Pixel {
-    .Pixel_img {
-      margin: 80px auto 40px;
-      width: 100%;
-       @include tablet {
-           width: 80vw;
-        }
-        @include desktop {
-            width: 60vw;
-        }
-        img{
-          width: 100%;
-        }
+  .Pixel_img {
+    margin: 80px auto 40px;
+    width: 100%;
+    @include tablet {
+      width: 80vw;
     }
+    @include desktop {
+      width: 60vw;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  .Pixel_editBtn{
+    margin: 20px auto 50px;
+    display: block;
+  }
   pixel-bottom {
     display: flex;
     flex-direction: column;
     width: 85vw;
-    margin: 20px auto 100px;
+    margin: 20px auto;
     @include tablet {
       width: 80vw;
       flex-direction: row;
@@ -28,12 +32,12 @@
       width: 60vw;
       flex-direction: row;
     }
-   
+
     .Pixel_text {
       font-family: $hand-writing;
-     padding:40px;
+      padding: 40px;
       margin: 20px auto;
-      overflow-y:scroll; 
+      overflow-y: scroll;
       width: 85vw;
       @include tablet {
         width: 60%;

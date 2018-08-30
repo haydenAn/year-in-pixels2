@@ -11,11 +11,15 @@
   .Pixel .Pixel_img img {
     width: 100%; }
 
+.Pixel .Pixel_editBtn {
+  margin: 20px auto 50px;
+  display: block; }
+
 .Pixel pixel-bottom {
   display: flex;
   flex-direction: column;
   width: 85vw;
-  margin: 20px auto 100px; }
+  margin: 20px auto; }
   @media (min-width: 768px) and (max-width: 1023px) {
     .Pixel pixel-bottom {
       width: 80vw;
