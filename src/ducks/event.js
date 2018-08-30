@@ -3,7 +3,7 @@ import axios from "axios";
 ///action types
 const GET_EVENT = "GET_EVENT",
 ADD_EVENT ="ADD_EVENT",
-GET_ALL_EVENT="GET_ALL_EVENT",
+GET_ALL_EVENTS="GET_ALL_EVENTS",
 UPDATE_EVENT="UPDATE_EVENT",
 DELETE_EVENT="DELETE_EVENT";
 export function getEvent(date) {
@@ -21,10 +21,10 @@ export function addEvent(body){
     payload:data
   }
 }
-export function getAllEvent(){
+export function getAllEvents(){
   const data = axios.get(`/api/events`).then(res=> {return res.data})
   return {
-    type:GET_ALL_EVENT,
+    type:GET_ALL_EVENTS,
     payload:data
   }
 }
@@ -61,12 +61,12 @@ export default function Event(state = initialState, action) {
         isLoading:false,
         event: action.payload
       };
-    case `${GET_ALL_EVENT}_PENDING`:
+    case `${GET_ALL_EVENTS}_PENDING`:
     return {
       ...state,
       isLoading:true
     };
-    case `${GET_ALL_EVENT}_FULFILLED`:
+    case `${GET_ALL_EVENTS}_FULFILLED`:
       return {
         ...state,
         isLoading:false,
@@ -80,12 +80,12 @@ export default function Event(state = initialState, action) {
       case `${UPDATE_EVENT}_FULFILLED`:
       return {
         ...state,
-        event: action.payload
+        events: action.payload
       };
       case `${DELETE_EVENT}_FULFILLED`:
       return {
         ...state,
-        event: action.payload
+        events: action.payload
       };
     default:
       return state;

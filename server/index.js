@@ -21,7 +21,13 @@ const { strat, logout, getUser } = require(`${__dirname}/controllers/authCtrl`),
     searchPhoto,
     getRandomPhoto
   } = require(`${__dirname}/controllers/unsplashCtrl`),
-  { addEvent, getEvent } = require(`${__dirname}/controllers/eventCtrl`),
+  {
+    addEvent,
+    getEvent,
+    getAllEvents,
+    updateEvent,
+    deleteEvent
+  } = require(`${__dirname}/controllers/eventCtrl`),
   {
     addTodo,
     getTodos,
@@ -110,9 +116,9 @@ app.get("/api/pixel/:date", getOnePixelFullInfo);
 app.post("/api/pixel", addPixel);
 app.get("/api/pixels", getPixels);
 app.get("/api/pixels/feed", getFullPixels);
-app.get('/api/count/pixels',countPixels);
+app.get("/api/count/pixels", countPixels);
 app.put("/api/pixel/:id", updatePixel);
-app.delete('/api/pixel/:id',deletePixel);
+app.delete("/api/pixel/:id", deletePixel);
 
 //FILTERED PIXELS
 app.get("/api/forGraph/pixels", getPixelsForGraph);
@@ -140,9 +146,9 @@ app.delete("/api/todo/:id/:date", deleteTodo);
 //EVENT
 app.post("/api/event", addEvent);
 app.get("/api/event/:date", getEvent);
-// app.put("/api/event/:id", updateEvent);
-// app.get("/api/events", getAllEvents);
-// app.delete("/api/event/:id", deleteEvent);
+app.put("/api/event/:id", updateEvent);
+app.get("/api/events", getAllEvents);
+app.delete("/api/event/:id", deleteEvent);
 
 // app.get("*", (req, res, next) => {
 //   res.sendFile(path.join(__dirname, "/../build/index.html"));
