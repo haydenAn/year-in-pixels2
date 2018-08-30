@@ -126,7 +126,7 @@ app.get("/api/byColor/pixels/:color", getPixelsByColor);
 app.get("/api/quote/random", getRandomQuote);
 app.get("/api/quote", getQuote);
 app.post("/api/quote", addQuote);
-app.put("/api/quote", updateQuote);
+app.put("/api/quote/:id", updateQuote);
 app.delete("/api/quote/:id", deleteQuote);
 
 //UNSPLASH

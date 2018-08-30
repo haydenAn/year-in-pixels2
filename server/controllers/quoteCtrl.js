@@ -52,6 +52,7 @@ const updateQuote = (req,res) =>{
     .get("db")
     .updateQuote([text,author,id])
     .then(quote => {
+      console.log(quote)
       res.status(200).send(quote);
     })
     .catch(() => {

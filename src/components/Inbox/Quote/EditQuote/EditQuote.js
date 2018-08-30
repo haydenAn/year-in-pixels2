@@ -7,19 +7,21 @@ import axios from "axios";
 class EditQuote extends React.Component {
   state = {
     text: "",
-    author: ""
+    author: "",
+    id:''
   };
   componentDidMount() {
     const { allowAddNew, quote } = this.props;
+    console.log(quote)
     !allowAddNew
-      ? this.setState({ text: quote.text, author: quote.author })
+      ? this.setState({ text: quote.text, author: quote.author,id:quote.id })
       : null;
   }
   save = () => {
-    const { text, author } = this.state,
-      { addQuote, toggleEditSwitch, allowAddNew } = this.props,
+    const { text, author,id } = this.state,
+      { addQuote, toggleEditSwitch, allowAddNew,updateQuote } = this.props,
       body = { text, author };
-    allowAddNew ? addQuote(body) : updateQuote(body);
+    allowAddNew ? addQuote(body) : updateQuote(id,body);
     toggleEditSwitch();
   };
   getRandom = () => {
@@ -38,7 +40,6 @@ class EditQuote extends React.Component {
   };
 
   render() {
-    console.log(this.state);
     const { text, author } = this.state;
     return (
       <Card className="EditQuote">

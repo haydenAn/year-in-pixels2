@@ -5,6 +5,8 @@ import { getQuote,deleteQuote} from "../../../ducks/quote";
 import { Button,Menu,MenuItem } from "@material-ui/core";
 import EditQuote from "./EditQuote/EditQuote";
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 class Quote extends React.Component {
   state = {
@@ -14,6 +16,14 @@ class Quote extends React.Component {
   };
   componentDidMount() {
     this.props.getQuote();
+    AOS.init({
+      duration : 1500
+    })
+  }
+  componentDidUpdate(prevProps,prevState){
+    const {getQuote} = this.props,{editSwitch}=this.state;
+    prevState.editSwitch && prevState.editSwitch!==editSwitch?
+    getQuote():null
   }
   toggleEditSwitch = () => {
     this.setState({ editSwitch: !this.state.editSwitch });
@@ -52,7 +62,7 @@ class Quote extends React.Component {
           />
         ) : quote ? (
           <quote-display>
-              <span className="Quote_dq"><i className="fas fa-quote-left"></i>
+              <span data-aos="fade-up" className="Quote_dq"><i className="fas fa-quote-left"></i>
 
 </span>
             <Button
@@ -72,8 +82,8 @@ class Quote extends React.Component {
               <MenuItem onClick={this.updatebtnAction}>Edit</MenuItem>
               <MenuItem onClick={this.delete}>Delete</MenuItem>
             </Menu>
-            <h1>{quote.text}</h1>
-            <p>By - {quote.author}</p>
+            <h1 data-aos="fade-up">{quote.text}</h1>
+            <p data-aos="fade-up">By - {quote.author}</p>
           </quote-display>
         ) : (
           <quote-addPanel>
