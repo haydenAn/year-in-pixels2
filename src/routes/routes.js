@@ -8,6 +8,7 @@ import AddEvent from "../components/Inbox/Event/AddEvent/AddEvent";
 import Feed from "../components/ilgi/Feed/Feed";
 import Graph from "../components/myaccount/Graph/Graph";
 import Profile from "../components/myaccount/Profile/Profile"
+import EventFeed from "../components/Inbox/Event/EventFeed/EventFeed"
 export default (
   <Switch>
     <Route exact path="/" component={()=><Welcome/>} />
@@ -18,5 +19,6 @@ export default (
     <Route path="/myFeed" component={()=><Feed/>} />
     <Route path="/graph" component={()=><Graph/>} />
     <Route path="/profile" component={()=><Profile />}/>
+    <Route path="/eventFeed" component={()=><EventFeed />}/>
      </Switch>
 );
