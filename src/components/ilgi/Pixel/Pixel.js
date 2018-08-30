@@ -6,6 +6,8 @@ import Todo from "../../Inbox/Todo/Todo";
 import { getPixel, pushPixelToEdit } from "../../../ducks/pixel";
 import "./Pixel.css";
 import moment from "moment";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 //material ui
 import { LinearProgress, Card, CardContent, Button } from "@material-ui/core";
 import PixelHeader from "./PixelHeader/PixelHeader";
@@ -28,6 +30,9 @@ class Pixel extends Component {
         this.setState(() => ({ opacity, color }));
       }
     });
+    AOS.init({
+      duration : 1500
+    })
   }
   pushPixelToEdit = () => {
     const { pushPixelToEdit, history, match,pixel } = this.props;
@@ -46,7 +51,7 @@ class Pixel extends Component {
         ) : (
           <div className="Pixel">
             <PixelHeader opacity={opacity} color={color} />
-            <div className="Pixel_img">
+            <div data-aos="fade-down" className="Pixel_img">
               <img alt="pixel_img" src={pixel.img_url} width="500" />
             </div>
             <Todo />

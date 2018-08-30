@@ -36,12 +36,10 @@ class Feed extends React.Component {
     history.push(`/edit/${body.pixel_date}`);
   };
   delete = id => {
-    console.log(id);
     this.props.deletePixel(id);
   };
 
   render() {
-    console.log(this.props.pixels);
     const { pixels, isLoading } = this.props,
       { open } = this.state,
       hexToRGBArray = hex => hex.match(/[A-Za-z0-9]{2}/g).map(v => parseInt(v, 16)).join(','),
@@ -64,7 +62,7 @@ class Feed extends React.Component {
                     </IconButton>
                     <div className={open?`Feed_btn`:'Feed_btn_hide'}>
                       <Button onClick={() => this.edit(el)}>Edit</Button>
-                      <Button onClick={() => this.delete(el.id)}>Delete</Button>
+                      <Button className="Feed_btn-delete" onClick={() => this.delete(el.id)}>Delete</Button>
                     </div>
                   </div>
                 }
@@ -73,7 +71,6 @@ class Feed extends React.Component {
               <CardContent className="Feed_content">
                 <h1>{el.pixel_date}</h1>
                 {"   "}
-                {el.id}
                 {el.text}
               </CardContent>
             </Card>
@@ -87,7 +84,6 @@ class Feed extends React.Component {
           </span>
         </feed-nopixel>
       );
-      console.log(hexToRGBArray('#E91E63'))
     return (
       <div className="Feed">
         <Header />

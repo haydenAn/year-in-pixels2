@@ -1,11 +1,11 @@
 import React from "react";
-import AppBar from "@material-ui/core/AppBar";
+import {AppBar,Button} from "@material-ui/core";
 import "./EditHeader.css";
 import colors from "../../models/colors"
 import  {withRouter} from "react-router-dom"
 const EditHeader = (props) => {
   const 
-  {color,opacity,addPixel} = props,
+  {color,opacity,addPixel,history} = props,
   styles = {
       button:{
          color: opacity<0.7 ?'rgba(0, 0, 0, 0.87)':'white' 
@@ -18,7 +18,7 @@ const EditHeader = (props) => {
     }
   },
   moodObj = colors.filter((el,i)=>Object.values(el)[0]===color),
-  mood = Object.keys(moodObj[0])[0]
+  mood = Object.keys(moodObj[0])[0];
   return (
       <div className="EditHeader">
       <AppBar position="static" style={styles.appBar}>
@@ -28,9 +28,12 @@ const EditHeader = (props) => {
       <span style={styles.button}>{color}</span>
       <span style={styles.button}>{mood}</span>
      </editHeader-info>
-      <button style={styles.button} onClick={addPixel}>
+     <editHeader-actions>
+      <Button style={styles.button} onClick={()=>history.push('/home')}>cancel</Button>
+      <Button variant="outlined" style={styles.button} onClick={addPixel}>
         save
-      </button>
+      </Button>
+    </editHeader-actions>
     </div>
   );
 };

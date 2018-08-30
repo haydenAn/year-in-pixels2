@@ -32,7 +32,20 @@
       }
       .Feed_action {
         .Feed_btn {
+          position: relative;
+          @include tablet {
+          }
           button {
+            span {
+              font-size: 1.1em;
+              font-family: "Open Sans", sans-serif;
+              font-weight: lighter;
+            }
+          }
+          .Feed_btn-delete {
+            span {
+              color: red;
+            }
           }
         }
         .Feed_btn_hide {
@@ -56,17 +69,17 @@
         }
       }
     }
-    feed-footer {
-      height: 65px;
-      position: relative;
-      bottom: 0;
-      width: 100vw;
-      display: block;
-    }
-    feed-nopixel {
-      margin: 150px auto;
-      font-family: $hand-writing;
-      font-size: 1.4em;
-    }
+  }
+  feed-footer {
+    height: 65px;
+    position: relative;
+    bottom: 0;
+    width: 100vw;
+    display: block;
+  }
+  feed-nopixel {
+    margin: 150px auto;
+    font-family: $hand-writing;
+    font-size: 1.4em;
   }
 }

@@ -1,28 +1,72 @@
 @import "../../../../../sass/_mixin.scss";
-
-.EditHeader{
-    top: 0;
-    left: auto;
-    right: 0;
-    position: fixed;
-    width: 100vw;
-    transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    z-index: 1100;
-    editHeader-info{
-        position: relative;
-        top:-50px;
-        left:70px;
-        span{
-            color:white;
-            font-weight: bold;
-            font-size: 1.8em;
-            margin:0 10px;
-        }
+@import "../../../../../sass/_media.scss";
+@mixin middle {
+  @media (min-width: 400px) and (max-width: 767px) {
+    @content;
+  }
+}
+.EditHeader {
+  top: 0;
+  left: auto;
+  right: 0;
+  position: fixed;
+  width: 100vw;
+  transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  z-index: 1100;
+  editHeader-info {
+    position: relative;
+    top: -45px;
+    left: 1.5vw;
+    @include middle {
+      left: 15vw;
     }
-    button{
-        position:relative;
-        top:-55px;
-        right: -120px;
-        @include regular-button;
+    @include tablet {
+      left: 70px;
+      top: -50px;
     }
+    @include desktop {
+      left: 17vw;
+      top: -50px;
+    }
+    span {
+      color: white;
+      font-weight: bold;
+      margin: 0 1.5vw;
+      font-size: 1em;
+      @include tablet {
+        font-size: 1.8em;
+      }
+      @include desktop {
+        font-size: 2em;
+      }
+    }
+  }
+  editheader-actions {
+    position: relative;
+    top: -45px;
+    left: 5vw;
+    @include middle {
+      left: 20vw;
+    }
+    @include tablet {
+      left: 25vw;
+      top: -55px;
+    }
+    @include desktop {
+      left: 35vw;
+      top: -60px;
+    }
+    button {
+      padding: 0;
+      font-size: 0.8em;
+      @include tablet {
+        font-size: 1em;
+        padding: 8px 16px;
+      }
+      @include desktop {
+        font-size: 1.2em;
+        padding: 8px 16px;
+      }
+    }
+  }
 }

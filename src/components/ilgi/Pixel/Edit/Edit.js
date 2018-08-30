@@ -60,8 +60,8 @@ class Edit extends Component {
       };
     console.log(body);
     updateMode?
-    updatePixel(body,id).then(()=> history.push(`/pixel/${date}`)):
-    addPixel(body).then(()=> history.push(`/pixel/${date}`));
+    updatePixel(body,id).then(()=> history.push(`/home`)):
+    addPixel(body).then(()=> history.push(`/home`));
   };
  
   render() {

@@ -8,32 +8,53 @@
   z-index: 1100; }
   .EditHeader editHeader-info {
     position: relative;
-    top: -50px;
-    left: 70px; }
+    top: -45px;
+    left: 1.5vw; }
+    @media (min-width: 400px) and (max-width: 767px) {
+      .EditHeader editHeader-info {
+        left: 15vw; } }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .EditHeader editHeader-info {
+        left: 70px;
+        top: -50px; } }
+    @media (min-width: 1024px) {
+      .EditHeader editHeader-info {
+        left: 17vw;
+        top: -50px; } }
     .EditHeader editHeader-info span {
       color: white;
       font-weight: bold;
-      font-size: 1.8em;
-      margin: 0 10px; }
-  .EditHeader button {
+      margin: 0 1.5vw;
+      font-size: 1em; }
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .EditHeader editHeader-info span {
+          font-size: 1.8em; } }
+      @media (min-width: 1024px) {
+        .EditHeader editHeader-info span {
+          font-size: 2em; } }
+  .EditHeader editheader-actions {
     position: relative;
-    top: -55px;
-    right: -120px;
-    color: rgba(0, 0, 0, 0.87);
-    margin: 8px;
-    border: 0;
-    cursor: pointer;
-    padding: 8px 16px;
-    font-size: 0.875rem;
-    min-width: 64px;
-    background-color: transparent;
-    min-height: 36px;
-    box-sizing: border-box;
-    line-height: 1.4em;
-    font-weight: 500;
-    border-radius: 4px;
-    text-transform: uppercase;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; }
-    .EditHeader button:hover {
-      text-decoration: none;
-      background-color: rgba(0, 0, 0, 0.08); }
+    top: -45px;
+    left: 5vw; }
+    @media (min-width: 400px) and (max-width: 767px) {
+      .EditHeader editheader-actions {
+        left: 20vw; } }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .EditHeader editheader-actions {
+        left: 25vw;
+        top: -55px; } }
+    @media (min-width: 1024px) {
+      .EditHeader editheader-actions {
+        left: 35vw;
+        top: -60px; } }
+    .EditHeader editheader-actions button {
+      padding: 0;
+      font-size: 0.8em; }
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .EditHeader editheader-actions button {
+          font-size: 1em;
+          padding: 8px 16px; } }
+      @media (min-width: 1024px) {
+        .EditHeader editheader-actions button {
+          font-size: 1.2em;
+          padding: 8px 16px; } }

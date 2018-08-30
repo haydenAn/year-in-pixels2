@@ -24,6 +24,14 @@
     .Feed .Feed_card .Feed_header span:first-child {
       font-size: 1.8em;
       font-weight: bold; }
+    .Feed .Feed_card .Feed_header .Feed_action .Feed_btn {
+      position: relative; }
+      .Feed .Feed_card .Feed_header .Feed_action .Feed_btn button span {
+        font-size: 1.1em;
+        font-family: "Open Sans", sans-serif;
+        font-weight: lighter; }
+      .Feed .Feed_card .Feed_header .Feed_action .Feed_btn .Feed_btn-delete span {
+        color: red; }
     .Feed .Feed_card .Feed_header .Feed_action .Feed_btn_hide {
       display: none; }
     .Feed .Feed_card .Feed_content {
@@ -37,13 +45,13 @@
         @media (min-width: 768px) and (max-width: 1023px) {
           .Feed .Feed_card .Feed_content h1 {
             font-size: 2em; } }
-    .Feed .Feed_card feed-footer {
-      height: 65px;
-      position: relative;
-      bottom: 0;
-      width: 100vw;
-      display: block; }
-    .Feed .Feed_card feed-nopixel {
-      margin: 150px auto;
-      font-family: "Neucha", cursive;
-      font-size: 1.4em; }
+  .Feed feed-footer {
+    height: 65px;
+    position: relative;
+    bottom: 0;
+    width: 100vw;
+    display: block; }
+  .Feed feed-nopixel {
+    margin: 150px auto;
+    font-family: "Neucha", cursive;
+    font-size: 1.4em; }
