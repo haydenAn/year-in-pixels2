@@ -1,7 +1,12 @@
 @import "../../../../../sass/_mixin.scss";
 @import "../../../../../sass/_media.scss";
+@mixin bigMobile {
+  @media (min-width: 374px) and (max-width: 450px) {
+    @content;
+  }
+}
 @mixin middle {
-  @media (min-width: 400px) and (max-width: 767px) {
+  @media (min-width: 451px) and (max-width: 767px) {
     @content;
   }
 }
@@ -16,56 +21,82 @@
   editHeader-info {
     position: relative;
     top: -45px;
-    left: 1.5vw;
+    left: 5vw;
+    @include bigMobile{
+      left: 7vw;
+    }
     @include middle {
       left: 15vw;
     }
     @include tablet {
-      left: 70px;
+      left: 18vw;
       top: -50px;
     }
     @include desktop {
       left: 17vw;
-      top: -50px;
+      top: -55px;
+    }
+    .EditHeader_hex{
+      text-transform: uppercase;
     }
     span {
       color: white;
       font-weight: bold;
       margin: 0 1.5vw;
-      font-size: 1em;
+      font-size: 1.2em;
+      @include bigMobile{
+        font-size: 1.4em;
+      }
+      @include middle{
+        font-size:1.7em;
+      }
       @include tablet {
-        font-size: 1.8em;
+        font-size: 2em;
       }
       @include desktop {
-        font-size: 2em;
+        font-size: 2.2em;
       }
     }
   }
   editheader-actions {
     position: relative;
     top: -45px;
-    left: 5vw;
+    left: 8vw;
+    font-size: 0.8em;
+    @include bigMobile{
+      left: 10vw;
+      font-size: 1em;
+    }
     @include middle {
+      top:-50px;
       left: 20vw;
     }
     @include tablet {
       left: 25vw;
-      top: -55px;
+      top: -58px;
     }
     @include desktop {
       left: 35vw;
-      top: -60px;
+      top: -62px;
     }
     button {
-      padding: 0;
+      min-height: 10px;
+      min-width: 50px !important;
+      padding: 5px;
+      margin:1px;
       font-size: 0.8em;
-      @include tablet {
+      @include middle{
         font-size: 1em;
         padding: 8px 16px;
       }
-      @include desktop {
+      @include tablet {
         font-size: 1.2em;
         padding: 8px 16px;
+      }
+      @include desktop {
+        font-size: 1.4em;
+        padding: 8px 16px;
+        margin-right:5px;
       }
     }
   }

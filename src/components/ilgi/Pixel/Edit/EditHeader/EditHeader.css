@@ -9,52 +9,77 @@
   .EditHeader editHeader-info {
     position: relative;
     top: -45px;
-    left: 1.5vw; }
-    @media (min-width: 400px) and (max-width: 767px) {
+    left: 5vw; }
+    @media (min-width: 374px) and (max-width: 450px) {
+      .EditHeader editHeader-info {
+        left: 7vw; } }
+    @media (min-width: 451px) and (max-width: 767px) {
       .EditHeader editHeader-info {
         left: 15vw; } }
     @media (min-width: 768px) and (max-width: 1023px) {
       .EditHeader editHeader-info {
-        left: 70px;
+        left: 18vw;
         top: -50px; } }
     @media (min-width: 1024px) {
       .EditHeader editHeader-info {
         left: 17vw;
-        top: -50px; } }
+        top: -55px; } }
+    .EditHeader editHeader-info .EditHeader_hex {
+      text-transform: uppercase; }
     .EditHeader editHeader-info span {
       color: white;
       font-weight: bold;
       margin: 0 1.5vw;
-      font-size: 1em; }
+      font-size: 1.2em; }
+      @media (min-width: 374px) and (max-width: 450px) {
+        .EditHeader editHeader-info span {
+          font-size: 1.4em; } }
+      @media (min-width: 451px) and (max-width: 767px) {
+        .EditHeader editHeader-info span {
+          font-size: 1.7em; } }
       @media (min-width: 768px) and (max-width: 1023px) {
         .EditHeader editHeader-info span {
-          font-size: 1.8em; } }
+          font-size: 2em; } }
       @media (min-width: 1024px) {
         .EditHeader editHeader-info span {
-          font-size: 2em; } }
+          font-size: 2.2em; } }
   .EditHeader editheader-actions {
     position: relative;
     top: -45px;
-    left: 5vw; }
-    @media (min-width: 400px) and (max-width: 767px) {
+    left: 8vw;
+    font-size: 0.8em; }
+    @media (min-width: 374px) and (max-width: 450px) {
       .EditHeader editheader-actions {
+        left: 10vw;
+        font-size: 1em; } }
+    @media (min-width: 451px) and (max-width: 767px) {
+      .EditHeader editheader-actions {
+        top: -50px;
         left: 20vw; } }
     @media (min-width: 768px) and (max-width: 1023px) {
       .EditHeader editheader-actions {
         left: 25vw;
-        top: -55px; } }
+        top: -58px; } }
     @media (min-width: 1024px) {
       .EditHeader editheader-actions {
         left: 35vw;
-        top: -60px; } }
+        top: -62px; } }
     .EditHeader editheader-actions button {
-      padding: 0;
+      min-height: 10px;
+      min-width: 50px !important;
+      padding: 5px;
+      margin: 1px;
       font-size: 0.8em; }
-      @media (min-width: 768px) and (max-width: 1023px) {
+      @media (min-width: 451px) and (max-width: 767px) {
         .EditHeader editheader-actions button {
           font-size: 1em;
           padding: 8px 16px; } }
-      @media (min-width: 1024px) {
+      @media (min-width: 768px) and (max-width: 1023px) {
         .EditHeader editheader-actions button {
           font-size: 1.2em;
           padding: 8px 16px; } }
+      @media (min-width: 1024px) {
+        .EditHeader editheader-actions button {
+          font-size: 1.4em;
+          padding: 8px 16px;
+          margin-right: 5px; } }

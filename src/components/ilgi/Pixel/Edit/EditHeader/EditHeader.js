@@ -25,7 +25,7 @@ const EditHeader = (props) => {
       <span style={{display:'none'}}>blank</span>
     </AppBar>
      <editHeader-info >
-      <span style={styles.button}>{color}</span>
+      <span className="EditHeader_hex" style={styles.button}>{color}</span>
       <span style={styles.button}>{mood}</span>
      </editHeader-info>
      <editHeader-actions>
