@@ -1,0 +1,21 @@
+@import "../../../../sass/_var.scss";
+@import "../../../../sass/_media.scss";
+
+.EventHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    button{
+        margin-bottom:15px;
+    }
+    eventH-date{
+        font-size: 1.7em;
+        font-family: $hand-writing;
+        @include tablet{
+            font-size: 2em;
+        }
+        @include desktop{
+            font-size: 2.5em;
+        }
+    }
+}

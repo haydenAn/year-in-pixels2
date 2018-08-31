@@ -3,13 +3,15 @@ import { withRouter } from "react-router-dom";
 import { addEvent } from "../../../../ducks/event";
 import { connect } from "react-redux";
 import moment from "moment";
-
+import Header from "../../../public/Header/Header"
+import "./AddEvent.css"
 //material ui
 import { DatePicker } from "material-ui-pickers";
-import { TextField, FormControlLabel, Checkbox,Input } from "@material-ui/core";
+import { TextField, FormControlLabel, Checkbox,Input, Card } from "@material-ui/core";
 import EventHeader from "./EventHeader";
 import Favorite from "@material-ui/icons/Favorite";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
+
 class AddEvent extends React.Component {
   state = {
     date:
@@ -49,14 +51,11 @@ class AddEvent extends React.Component {
   };
   render() {
     const { match } = this.props,
-      { important, date } = this.state,
-      styles = {
-        titleInput: {
-          fontSize: "2em"
-        }
-      };
+      { important, date } = this.state;
     return (
-      <div className="AddEvent">
+      <div>
+    <Header />
+      <Card className="AddEvent">
         <EventHeader save={this.addEvent} date={match.params.date} />
         <FormControlLabel
           control={
@@ -85,7 +84,7 @@ class AddEvent extends React.Component {
 
         <addevent-input>
           <Input
-            style={styles.titleInput}
+            className="AddEvent_title"
             placeholder="Event title"
             inputProps={{
               "aria-label": "Description"
@@ -96,6 +95,7 @@ class AddEvent extends React.Component {
             label="location"
             placeholder="ex)129 East Fremont St Las Vegas NV89101"
             margin="normal"
+            fullWidth
             onChange={e => this.setState({ location: e.target.value })}
           />
           <TextField
@@ -103,11 +103,13 @@ class AddEvent extends React.Component {
             label="type event's details"
             placeholder="Going to have a family dinner at Mediano"
             multiline
-            rowsMax='5'
+            fullWidth
+            rowsMax="5"
             margin="normal"
             onChange={e => this.setState({ text: e.target.value })}
           />
         </addevent-input>
+      </Card>
       </div>
     );
   }

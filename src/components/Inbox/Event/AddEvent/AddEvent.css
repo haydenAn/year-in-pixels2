@@ -1,0 +1,21 @@
+.AddEvent {
+  margin: 20vh auto 20px;
+  padding: 50px;
+  width: 85%; }
+  .AddEvent input {
+    margin-top: 5px; }
+  .AddEvent .AddEvent_title {
+    font-size: 1.5em;
+    width: 100%; }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .AddEvent .AddEvent_title {
+        font-size: 2em; } }
+    @media (min-width: 1024px) {
+      .AddEvent .AddEvent_title {
+        font-size: 2em; } }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .AddEvent {
+      width: 50vw; } }
+  @media (min-width: 1024px) {
+    .AddEvent {
+      width: 40vw; } }

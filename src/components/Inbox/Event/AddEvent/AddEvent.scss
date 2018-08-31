@@ -1,0 +1,26 @@
+@import "../../../../sass/_media.scss";
+
+.AddEvent{
+margin:20vh auto 20px;
+padding:50px;
+width:85%;
+input{
+    margin-top:5px;
+}
+.AddEvent_title{
+    font-size: 1.5em;
+    width: 100%;
+    @include tablet{
+        font-size: 2em;
+     }
+     @include desktop{
+     font-size: 2em;
+     }
+}
+@include tablet{
+   width: 50vw;
+}
+@include desktop{
+   width: 40vw;
+}
+}

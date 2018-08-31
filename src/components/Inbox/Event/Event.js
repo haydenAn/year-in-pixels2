@@ -2,7 +2,7 @@ import React from "react";
 import EditEvent from "./EditEvent/EditEvent";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { getEvent } from "../../../ducks/event";
+import { getEvent,deleteEvent } from "../../../ducks/event";
 import moment from "moment";
 import "./Event.css"
 //material ui
@@ -20,8 +20,13 @@ class Event extends React.Component {
     anchorEl: null
   };
   componentDidMount() {
-    const { getEvent, match } = this.props;
-    getEvent(match.params.date);
+   const {getEvent,match} = this.props;
+   getEvent(match.params.date)
+  }
+  componentDidUpdate(preP,preS){
+    const {anchorEl} = this.state,{ getEvent, match } = this.props;
+    anchorEl===null && preS.anchorEl!==anchorEl?
+    getEvent(match.params.date):null
   }
   handleClick = event => {
     this.setState({ anchorEl: event.currentTarget });
@@ -37,6 +42,7 @@ class Event extends React.Component {
     this.handleEditSwitch()
   }
   delete=()=>{
+    this.props.deleteEvent(this.props.event.id)
     this.handleClose()
   }
   render() {
@@ -102,6 +108,6 @@ function mapStateToProps(state) {
 export default withRouter(
   connect(
     mapStateToProps,
-    { getEvent }
+    { getEvent,deleteEvent }
   )(Event)
 );

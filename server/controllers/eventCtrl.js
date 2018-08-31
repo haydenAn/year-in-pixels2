@@ -51,7 +51,7 @@ const getAllEvents = (req, res) => {
 const deleteEvent = (req, res) => {
   console.log("Hit the delete =>/api/event/:id");
   const { id } = req.params;
-    req.app.get("db").updateEvent([id])
+    req.app.get("db").deleteEvent([id])
       .then(event => {
         res.status(200).send(event);
       })

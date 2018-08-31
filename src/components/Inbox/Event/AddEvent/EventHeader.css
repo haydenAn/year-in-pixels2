@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css?family=Neucha");
+.EventHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  .EventHeader button {
+    margin-bottom: 15px; }
+  .EventHeader eventH-date {
+    font-size: 1.7em;
+    font-family: "Neucha", cursive; }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .EventHeader eventH-date {
+        font-size: 2em; } }
+    @media (min-width: 1024px) {
+      .EventHeader eventH-date {
+        font-size: 2.5em; } }
