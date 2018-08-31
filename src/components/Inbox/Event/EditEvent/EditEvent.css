@@ -8,3 +8,10 @@
 .EditEvent .EditEvent_title{
     font-size:2em;
 }
+editevent-btn{
+    display: flex;
+    flex-direction: row;
+}
+editevnet-btn > button {
+    margin-right: 15px !important;
+}

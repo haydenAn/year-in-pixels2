@@ -28,8 +28,9 @@ export function getAllEvents(){
     payload:data
   }
 }
-export function editEvent(id,body){
-  const data = axios.put(`/api/event/${id}`,body).then(res=> {return res.data})
+export function updateEvent(id,body){
+  const data = axios.put(`/api/event/${id}`,body).then(res=> {return res.data[0]})
+  console.log(data)
   return {
     type:UPDATE_EVENT,
     payload:data
@@ -80,12 +81,12 @@ export default function Event(state = initialState, action) {
       case `${UPDATE_EVENT}_FULFILLED`:
       return {
         ...state,
-        events: action.payload
+        event: action.payload
       };
       case `${DELETE_EVENT}_FULFILLED`:
       return {
         ...state,
-        events: action.payload
+        event: action.payload
       };
     default:
       return state;

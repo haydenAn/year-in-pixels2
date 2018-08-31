@@ -42,10 +42,11 @@ class Event extends React.Component {
   render() {
     const { editSwitch, anchorEl } = this.state,
       { event, isLoading, history, match } = this.props;
+      console.log(event)
     return (
       <Card className="Event_Card">
         {editSwitch ? (
-          <EditEvent title={event.title} location={event.location} text={event.text} handleEditSwitch={this.handleEditSwitch} />
+          <EditEvent handleEditSwitch={this.handleEditSwitch} />
         ) : (
           <div>
             {event ? (

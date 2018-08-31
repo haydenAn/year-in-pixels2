@@ -27,17 +27,14 @@ const getEvent = (req, res) => {
 const updateEvent = (req, res) => {
   console.log("Hit the put =>/api/event/:id");
   const { id } = req.params,
-    { title, text, location, important } = req.body,
-    db = req.app.get("db");
-  db.updateEvent([title, text, location, important, id]).then(() => {
-    db.getAllEvents(req.user.id)
-      .then(events => {
-        res.status(200).send(events);
+    { title, text, location, important } = req.body;
+    req.app.get("db").updateEvent([title, text, location, important, id])
+      .then(event => {
+        res.status(200).send(event);
       })
       .catch(() => {
         res.status(500).send();
       });
-  });
 };
 const getAllEvents = (req, res) => {
   console.log("Hit the get =>/api/events");
@@ -53,17 +50,14 @@ const getAllEvents = (req, res) => {
 };
 const deleteEvent = (req, res) => {
   console.log("Hit the delete =>/api/event/:id");
-  const { id } = req.params,
-    db = req.app.get("db");
-  db.deleteEvent([id]).then(() => {
-    db.getAllEvents(req.user.id)
-      .then(events => {
-        res.status(200).send(events);
+  const { id } = req.params;
+    req.app.get("db").updateEvent([id])
+      .then(event => {
+        res.status(200).send(event);
       })
       .catch(() => {
         res.status(500).send();
       });
-  });
 };
 
 module.exports = {

@@ -19,6 +19,6 @@ export default (
     <Route path="/myFeed" component={()=><Feed/>} />
     <Route path="/graph" component={()=><Graph/>} />
     <Route path="/profile" component={()=><Profile />}/>
-    <Route path="/eventFeed" component={()=><EventFeed />}/>
+    <Route path="/event" component={()=><EventFeed />}/>
      </Switch>
 );
