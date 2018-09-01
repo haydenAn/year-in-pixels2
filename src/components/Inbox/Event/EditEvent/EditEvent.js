@@ -1,38 +1,54 @@
 import React from "react";
-import { TextField, Input, Button } from "@material-ui/core";
+import { TextField, Input, Button,FormControlLabel,Checkbox } from "@material-ui/core";
 import { updateEvent } from "../../../../ducks/event";
 import { connect } from "react-redux";
 import "./EditEvent.css";
-
+import Favorite from "@material-ui/icons/Favorite";
+import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 class EditEvent extends React.Component {
   state = {
     title: "",
     text: "",
-    location: ""
+    location: "",
+    important:false
   };
   componentDidMount() {
     const { event } = this.props;
     this.setState(() => ({
       text: event.text,
       title: event.title,
-      location: event.location
+      location: event.location,
+      import:event.important
     }));
   }
   save = () => {
-    const { text, title, location } = this.state,
+    const { text, title, location,important } = this.state,
       { handleEditSwitch, event, updateEvent } = this.props,
       body = {
         text,
         title,
-        location
+        location,
+        important
       };
     updateEvent(event.id, body);
     handleEditSwitch();
   };
   render() {
-    const { text, title, location } = this.state;
+    const { text, title, location,important } = this.state;
     return (
       <div className="EditEvent">
+       <FormControlLabel
+          control={
+            <Checkbox
+            checked={important}
+              icon={<FavoriteBorder />}
+              checkedIcon={<Favorite />}
+              value="checkedE"
+            />
+          }
+          label="Important event"
+          onClick={() => this.setState(() => ({ important: !important }))}
+        />
         <Input
           label="Event title"
           placeholder="Event title"

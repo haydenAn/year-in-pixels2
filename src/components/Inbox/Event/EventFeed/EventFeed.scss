@@ -1,0 +1,42 @@
+@import "../../../../sass/_var.scss";
+@import "../../../../sass/_mixin.scss";
+@import "../../../../sass/_media.scss";
+.EventFeed {
+  margin: 100px auto 30px;
+  width: 90vw;
+  @include tablet {
+    width: 70vw;
+  }
+  @include desktop {
+    width: 50vw;
+  }
+  events-display {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .EF_card {
+      margin: 25px auto 0;
+      display: block;
+      padding: 20px;
+      text-align: center;
+      width: 85%;
+      @include tablet {
+        width: 45%;
+      }
+      @include desktop {
+        width: 45%;
+      }
+      h1{
+        font-family: $hand-writing;
+      }
+      h3{
+         opacity: 0.6;
+         font-weight: lighter;
+      }
+      span {
+        margin-right:80%;
+        color: #3f51b5;
+      }
+    }
+  }
+}

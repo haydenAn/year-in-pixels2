@@ -39,8 +39,7 @@ class AddEvent extends React.Component {
       };
     addEvent(body).then(() => {
       if (match.params.date === "custom") {
-        // history.push('/events')
-        console.log("add route for the event collection component");
+        history.push('/event')
       } else {
         history.push(`/pixel/${match.params.date}`);
       }

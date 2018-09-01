@@ -5,12 +5,21 @@ const GET_EVENT = "GET_EVENT",
 ADD_EVENT ="ADD_EVENT",
 GET_ALL_EVENTS="GET_ALL_EVENTS",
 UPDATE_EVENT="UPDATE_EVENT",
+GET_IMPORTANTS="GET_IMPORTANTS",
 DELETE_EVENT="DELETE_EVENT";
 export function getEvent(date) {
   const data = axios.get(`/api/event/${date}`).then(res=> {
     return res.data})
   return {
     type: GET_EVENT,
+    payload:data
+  };
+}
+export function getImportants() {
+  const data = axios.get(`/api/event/important`).then(res=> {
+    return res.data})
+  return {
+    type: GET_IMPORTANTS,
     payload:data
   };
 }
@@ -36,6 +45,7 @@ export function updateEvent(id,body){
     payload:data
   }
 }
+
 export function deleteEvent(id){
   const data = axios.delete(`/api/event/${id}`).then(res=> {return res.data})
   return {
@@ -61,6 +71,11 @@ export default function Event(state = initialState, action) {
         ...state,
         isLoading:false,
         event: action.payload
+      };
+    case `${GET_IMPORTANTS}_FULFILLED`:
+      return {
+        ...state,
+        events: action.payload
       };
     case `${GET_ALL_EVENTS}_PENDING`:
     return {
