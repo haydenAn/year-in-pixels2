@@ -1,48 +1,54 @@
 @import "../../../../sass/_mixin.scss";
 @import "../../../../sass/_media.scss";
 .GraphHeader {
-  width: 100vw;
-  margin-top:80px;
+  width: 90vw;
+      
+  @include tablet {
+    width: 70vw;
+  }
+  @include desktop {
+     width: 60vw;
+  }
+  margin:100px auto 5px;
   .GH_form {
     display: block;
-    margin: 30px 0 30px 30px;
+    margin: 30px 0 30px 10px;
     label {
       font-size: 1.7em;
-    }
-    
-    @include tablet {
-      margin : 50px 0 30px 15vw;
-    }
-    @include desktop {
-      margin : 50px 0 30px 25vw;
     }
   }
 
   graphHeader-month {
     display: block;
+    margin:0 auto;
     text-align: center;
     div {
       background-color: #cfd8dc;
       opacity: 0.5;
       display: inline-block;
-      width: 6vw;
-      height: 6vw;
+      width: 12vw;
+      height: 12vw;
       margin: 1vw;
       @include boxshadow-hover-effect;
 
       @include tablet {
-        width: 5vw;
-        height: 5vw;
+        width: 6vw;
+        height: 6vw;
       }
       @include desktop {
         width: 4vw;
         height: 4vw;
+        margin:0.5vw;
       }
       span {
         display: block;
+        font-size: 1.4em;
+        position: relative;
+        top:10%;
         @include tablet {
           margin-top:5px;
-          font-size: 1.3em;
+          font-size: 1.5em;
+          top:8%;
         }
         @include desktop {
           margin-top:5px;

@@ -60,7 +60,6 @@ class FeedHeader extends React.Component {
               }
               onClick={() => this.changeMonth(i)}
             >
-              {moment().month(i-1).format('MMM')}
               <span>{i}</span>
             </div>
           );

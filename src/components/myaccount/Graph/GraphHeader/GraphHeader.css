@@ -1,26 +1,27 @@
 .GraphHeader {
-  width: 100vw;
-  margin-top: 80px; }
+  width: 90vw;
+  margin: 100px auto 5px; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .GraphHeader {
+      width: 70vw; } }
+  @media (min-width: 1024px) {
+    .GraphHeader {
+      width: 60vw; } }
   .GraphHeader .GH_form {
     display: block;
-    margin: 30px 0 30px 30px; }
+    margin: 30px 0 30px 10px; }
     .GraphHeader .GH_form label {
       font-size: 1.7em; }
-    @media (min-width: 768px) and (max-width: 1023px) {
-      .GraphHeader .GH_form {
-        margin: 50px 0 30px 15vw; } }
-    @media (min-width: 1024px) {
-      .GraphHeader .GH_form {
-        margin: 50px 0 30px 25vw; } }
   .GraphHeader graphHeader-month {
     display: block;
+    margin: 0 auto;
     text-align: center; }
     .GraphHeader graphHeader-month div {
       background-color: #cfd8dc;
       opacity: 0.5;
       display: inline-block;
-      width: 6vw;
-      height: 6vw;
+      width: 12vw;
+      height: 12vw;
       margin: 1vw;
       box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
       border-radius: 5px;
@@ -42,18 +43,23 @@
         opacity: 1; }
       @media (min-width: 768px) and (max-width: 1023px) {
         .GraphHeader graphHeader-month div {
-          width: 5vw;
-          height: 5vw; } }
+          width: 6vw;
+          height: 6vw; } }
       @media (min-width: 1024px) {
         .GraphHeader graphHeader-month div {
           width: 4vw;
-          height: 4vw; } }
+          height: 4vw;
+          margin: 0.5vw; } }
       .GraphHeader graphHeader-month div span {
-        display: block; }
+        display: block;
+        font-size: 1.4em;
+        position: relative;
+        top: 10%; }
         @media (min-width: 768px) and (max-width: 1023px) {
           .GraphHeader graphHeader-month div span {
             margin-top: 5px;
-            font-size: 1.3em; } }
+            font-size: 1.5em;
+            top: 8%; } }
         @media (min-width: 1024px) {
           .GraphHeader graphHeader-month div span {
             margin-top: 5px;

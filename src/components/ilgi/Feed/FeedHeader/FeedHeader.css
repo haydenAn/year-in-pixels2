@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Neucha");
 .FeedHeader {
   margin-top: 80px;
   width: 100vw; }
@@ -71,23 +72,23 @@
         opacity: 1; }
       @media (min-width: 768px) and (max-width: 1023px) {
         .FeedHeader feedheader-month div {
-          width: 9vw;
-          height: 9vw; } }
+          width: 5.5vw;
+          margin: 0.5vw;
+          height: 5.5vw; } }
       @media (min-width: 1024px) {
         .FeedHeader feedheader-month div {
-          width: 6vw;
-          height: 6vw; } }
+          width: 3vw;
+          height: 3vw;
+          margin: 0.5vw; } }
       .FeedHeader feedheader-month div span {
-        display: none; }
-        @media (min-width: 400px) and (max-width: 767px) {
-          .FeedHeader feedheader-month div span {
-            font-size: 1.3em;
-            display: block; } }
+        font-family: "Neucha", cursive;
+        font-size: 1.6em;
+        position: relative;
+        top: 15%; }
         @media (min-width: 768px) and (max-width: 1023px) {
           .FeedHeader feedheader-month div span {
-            font-size: 1.3em;
-            display: block; } }
+            font-size: 1.6em;
+            top: 15%; } }
         @media (min-width: 1024px) {
           .FeedHeader feedheader-month div span {
-            display: block;
-            font-size: 1.8em; } }
+            font-size: 1.6em; } }
