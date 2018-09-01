@@ -60,10 +60,37 @@ const deleteEvent = (req, res) => {
       });
 };
 
+const getImportantEvents = (req,res)=>{
+  console.log('Hit the get => /api/events/important')
+  req.app
+    .get("db")
+    .getImportantEvents([req.user.id])
+    .then(events => {
+      res.status(200).send(events);
+    })
+    .catch(() => {
+      res.status(500).send();
+    });
+}
+const getEventsByMonth = (req,res)=>{
+  console.log('Hit the get => /api/events/byMonth/:month')
+  const {month} = req.params;
+  req.app
+    .get("db")
+    .getEventsByMonth([req.user.id,month])
+    .then(events => {
+      res.status(200).send(events);
+    })
+    .catch(() => {
+      res.status(500).send();
+    });
+}
 module.exports = {
   addEvent,
   getEvent,
   getAllEvents,
   deleteEvent,
-  updateEvent
+  updateEvent,
+  getImportantEvents,
+  getEventsByMonth
 };

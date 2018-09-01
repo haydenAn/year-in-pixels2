@@ -6,6 +6,7 @@ ADD_EVENT ="ADD_EVENT",
 GET_ALL_EVENTS="GET_ALL_EVENTS",
 UPDATE_EVENT="UPDATE_EVENT",
 GET_IMPORTANTS="GET_IMPORTANTS",
+GET_EVENT_MONTH="GET_EVENT_MONTH",
 DELETE_EVENT="DELETE_EVENT";
 export function getEvent(date) {
   const data = axios.get(`/api/event/${date}`).then(res=> {
@@ -16,10 +17,18 @@ export function getEvent(date) {
   };
 }
 export function getImportants() {
-  const data = axios.get(`/api/event/important`).then(res=> {
+  const data = axios.get(`/api/events/important`).then(res=> {
     return res.data})
   return {
     type: GET_IMPORTANTS,
+    payload:data
+  };
+}
+export function getEventsByMonth(month) {
+  const data = axios.get(`/api/events/byMonth/${month}`).then(res=> {
+    return res.data})
+  return {
+    type: GET_EVENT_MONTH,
     payload:data
   };
 }
@@ -73,6 +82,11 @@ export default function Event(state = initialState, action) {
         event: action.payload
       };
     case `${GET_IMPORTANTS}_FULFILLED`:
+      return {
+        ...state,
+        events: action.payload
+      };
+    case `${GET_EVENT_MONTH}_FULFILLED`:
       return {
         ...state,
         events: action.payload

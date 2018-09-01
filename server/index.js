@@ -26,7 +26,9 @@ const { strat, logout, getUser } = require(`${__dirname}/controllers/authCtrl`),
     getEvent,
     getAllEvents,
     updateEvent,
-    deleteEvent
+    deleteEvent,
+    getImportantEvents,
+    getEventsByMonth
   } = require(`${__dirname}/controllers/eventCtrl`),
   {
     addTodo,
@@ -146,6 +148,8 @@ app.delete("/api/todo/:id/:date", deleteTodo);
 //EVENT
 app.post("/api/event", addEvent);
 app.get("/api/event/:date", getEvent);
+app.get('/api/events/important',getImportantEvents);
+app.get('/api/events/byMonth/:month',getEventsByMonth)
 app.put("/api/event/:id", updateEvent);
 app.get("/api/events", getAllEvents);
 app.delete("/api/event/:id", deleteEvent);

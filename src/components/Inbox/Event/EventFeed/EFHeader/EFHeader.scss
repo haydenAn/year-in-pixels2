@@ -1,0 +1,41 @@
+@import "../../../../../sass/_var.scss";
+@import "../../../../../sass/_mixin.scss";
+@import "../../../../../sass/_media.scss";
+EFheader-month {
+    margin-top:20px;
+    display: block;
+    text-align: center;
+    div {
+      background-color: #cfd8dc;
+      opacity: 0.5;
+      display: inline-block;
+      width: 12vw;
+      height: 12vw;
+      margin: 1vw;
+      @include boxshadow-hover-effect;
+
+      @include tablet {
+        width: 7vw;
+        height: 7vw;
+      }
+      @include desktop {
+        width: 3vw;
+        height: 3vw;
+        margin:0.5vw;
+      }
+      span{
+          font-family: $hand-writing;
+          font-size: 1.4em;
+          position: relative;
+          top:15%;
+          @include tablet{
+            font-size: 1.6em;
+            top:20%;
+          }
+          @include desktop{
+            font-size: 1.6em;
+
+        }
+      }
+    }
+  }

@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getAllEvents,getImportants } from "../../../../../ducks/event";
+import { getAllEvents,getImportants,getEventsByMonth } from "../../../../../ducks/event";
 import { FormControl, InputLabel, Select } from "@material-ui/core";
 import moment from "moment";
+import "./EFHeader.css"
 
 class EFHeader extends React.Component {
   state = {
@@ -20,7 +21,7 @@ class EFHeader extends React.Component {
   }
   changeMonth = month => {
     this.setState({ month: month });
-    this.props.getPixelsByDate(month);
+    this.props.getEventsByMonth(month);
   };
   handleSelection = e => {
     this.setState({ selection: e.target.value });
@@ -61,7 +62,7 @@ class EFHeader extends React.Component {
           </Select>
         </FormControl>
         {selection === "month" ? (
-          <graphHeader-month>{monthBoxes()}</graphHeader-month>
+          <EFHeader-month>{monthBoxes()}</EFHeader-month>
         ) : null}
       </div>
     );
@@ -74,5 +75,5 @@ const mapStateToProps = state => {
 };
 export default connect(
   mapStateToProps,
-  { getAllEvents,getImportants }
+  { getAllEvents,getImportants,getEventsByMonth }
 )(EFHeader);

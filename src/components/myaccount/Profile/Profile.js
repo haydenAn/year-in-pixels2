@@ -3,6 +3,7 @@ import "./Profile.css";
 import { Card, CardMedia } from "@material-ui/core";
 import person from "../../../sass/images/person.jpg";
 import CountUp from "react-countup";
+import {getUser} from "../../../ducks/user"
 import axios from "axios";
 import {connect} from "react-redux";
 import moment from "moment";
@@ -13,6 +14,7 @@ class Profile extends React.Component {
     num: 56
   };
   componentDidMount(){
+      this.props.getUser()
       axios.get('/api/count/pixels').then(res=> 
         this.setState({num:res.data[0].count}))
   }
@@ -56,4 +58,4 @@ const mapStateToProps=(state)=>{
  }
 }
 
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps,{getUser})(Profile);
