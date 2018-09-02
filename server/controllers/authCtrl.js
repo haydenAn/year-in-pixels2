@@ -16,16 +16,16 @@ const strat = new Auth0Strategy(
 
 const getUser = (req, res) => {
   if (!req.user) {
-    res.redirect(`${FRONT_END_URL}#/`)
+     res.redirect(`${FRONT_END_URL}#/`)
   } else {
-    res.status(200).json(req.user);
+    return res.status(200).json(req.user);
   }
 };
 
 const logout = (req, res) => {
-  req.session.destroy(() => {
-    res.redirect(`${FRONT_END_URL}#/`);
-  });
+  console.log('logout')
+  req.logOut();
+  return res.redirect(`${FRONT_END_URL}#/`);
 };
 
 module.exports = {
