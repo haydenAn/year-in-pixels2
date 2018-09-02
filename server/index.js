@@ -1,14 +1,22 @@
 require("dotenv").config();
 const express = require("express"),
-  path = require("path"),
   bodyParser = require("body-parser"),
   session = require("express-session"),
   massive = require("massive"),
   cors = require("cors"),
+  Auth0Strategy = require("passport-auth0"),
   passport = require("passport");
 
-const { strat, logout, getUser } = require(`${__dirname}/controllers/authCtrl`),
- {FRONT_END_URL} = process.env,
+const { logout, getUser } = require(`${__dirname}/controllers/authCtrl`),
+  {
+    FRONT_END_URL,
+    CONNECTION_STRING,
+    SESSION_SECRET,
+    AUTH_CLIENT_ID,
+    AUTH_CALLBACK,
+    AUTH_DOMAIN,
+    AUTH_CLIENT_SECRET
+  } = process.env,
   {
     getOnePixelFullInfo,
     addPixel,
@@ -54,15 +62,12 @@ const { strat, logout, getUser } = require(`${__dirname}/controllers/authCtrl`),
   } = require(`${__dirname}/controllers/filteredPixelCtrl`);
 const app = express();
 
-massive(process.env.CONNECTION_STRING)
-  .then(db => app.set("db", db))
-  .catch(err => console.log(err));
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(cors());
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -74,44 +79,54 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 // app.use(express.static(path.join(__dirname, "../build")));
-passport.use(strat);
+massive(CONNECTION_STRING)
+  .then(db => app.set("db", db))
+  .catch(err => console.log(err));
+
+passport.use(
+  new Auth0Strategy(
+    {
+      clientID: AUTH_CLIENT_ID,
+      clientSecret: AUTH_CLIENT_SECRET,
+      domain: AUTH_DOMAIN,
+      scope: "openid profile",
+      callbackURL: AUTH_CALLBACK
+    },
+    function(accessToken, refreshToken, extraParams, profile, done) {
+      const db = app.get("db");
+      db.getUserByAuthid([profile.user_id]).then(user => {
+        if (user[0]) {
+          return done(null, { id: user[0].id });
+        } else {
+          db.addUserByAuthid([
+            profile.user_id,
+            profile.displayName,
+            profile.picture,
+            profile.nickname
+          ]).then(user => {
+            return done(null, { id: user[0].id });
+          });
+        }
+      });
+    }
+  )
+);
 passport.serializeUser((user, done) => {
-  app
-    .get("db")
-    .getUserByAuthid(user.id)
-    .then(response => {
-      if (!response[0]) {
-        app
-          .get("db")
-          .addUserByAuthid([
-            user.id,
-            user.displayName,
-            user.picture,
-            `${user.nickname}'s ilgi`
-          ])
-          .then(res => {
-            return done(null, res[0]);
-          })
-          .catch(err => console.log(err));
-      } else {
-        return done(null, response[0]);
-      }
-    })
-    .catch(err => console.log(err));
+  done(null, user);
 });
 passport.deserializeUser((user, done) => {
-  app.get('db').getUserById([user.id])
-  .then( user => {
+  const db = app.get("db");
+  db.getUserById([user.id]).then(user => {
     return done(null, user[0]);
-  })
+  });
 });
 
 //AUTH
 app.get(
   "/auth",
   passport.authenticate("auth0", {
-    successRedirect: `${FRONT_END_URL}/#/home`,
-    failureRedirect: `${FRONT_END_URL}/#/`
+    successRedirect: `${FRONT_END_URL}#/home`,
+    failureRedirect: `${FRONT_END_URL}#/`
   })
 );
 app.get("/auth/logout", logout);
@@ -152,8 +167,8 @@ app.delete("/api/todo/:id/:date", deleteTodo);
 //EVENT
 app.post("/api/event", addEvent);
 app.get("/api/event/:date", getEvent);
-app.get('/api/events/important',getImportantEvents);
-app.get('/api/events/byMonth/:month',getEventsByMonth)
+app.get("/api/events/important", getImportantEvents);
+app.get("/api/events/byMonth/:month", getEventsByMonth);
 app.put("/api/event/:id", updateEvent);
 app.get("/api/events", getAllEvents);
 app.delete("/api/event/:id", deleteEvent);
