@@ -8,6 +8,7 @@ const express = require("express"),
   passport = require("passport");
 
 const { strat, logout, getUser } = require(`${__dirname}/controllers/authCtrl`),
+ {FRONT_END_URL} = process.env,
   {
     getOnePixelFullInfo,
     addPixel,
@@ -99,15 +100,18 @@ passport.serializeUser((user, done) => {
     .catch(err => console.log(err));
 });
 passport.deserializeUser((user, done) => {
-  return done(null, user);
+  app.get('db').getUserById([user.id])
+  .then( user => {
+    return done(null, user[0]);
+  })
 });
 
 //AUTH
 app.get(
   "/auth",
   passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3000/#/home",
-    failureRedirect: "http://localhost:3000/#/"
+    successRedirect: `${FRONT_END_URL}/#/home`,
+    failureRedirect: `${FRONT_END_URL}/#/`
   })
 );
 app.get("/auth/logout", logout);
