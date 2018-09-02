@@ -18,6 +18,9 @@
       padding: 20px;
       text-align: center;
       width: 85%; }
+      .EventFeed events-display .EF_card ef-icons {
+        display: flex;
+        justify-content: space-between; }
       @media (min-width: 768px) and (max-width: 1023px) {
         .EventFeed events-display .EF_card {
           width: 45%; } }
@@ -29,6 +32,3 @@
       .EventFeed events-display .EF_card h3 {
         opacity: 0.6;
         font-weight: lighter; }
-      .EventFeed events-display .EF_card span {
-        margin-right: 80%;
-        color: #3f51b5; }

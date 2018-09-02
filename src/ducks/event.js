@@ -7,6 +7,7 @@ GET_ALL_EVENTS="GET_ALL_EVENTS",
 UPDATE_EVENT="UPDATE_EVENT",
 GET_IMPORTANTS="GET_IMPORTANTS",
 GET_EVENT_MONTH="GET_EVENT_MONTH",
+PUSH_EVENT_EDIT="PUSH_EVENT_EDIT",
 DELETE_EVENT="DELETE_EVENT";
 export function getEvent(date) {
   const data = axios.get(`/api/event/${date}`).then(res=> {
@@ -14,6 +15,12 @@ export function getEvent(date) {
   return {
     type: GET_EVENT,
     payload:data
+  };
+}
+export function pushEventToEdit(event) {
+  return {
+    type: PUSH_EVENT_EDIT,
+    payload:event
   };
 }
 export function getImportants() {
@@ -70,6 +77,11 @@ const initialState = {
 
 export default function Event(state = initialState, action) {
   switch (action.type) {
+    case PUSH_EVENT_EDIT:
+    return {
+      ...state,
+      event:action.payload
+    };
     case `${GET_EVENT}_PENDING`:
     return {
       ...state,
