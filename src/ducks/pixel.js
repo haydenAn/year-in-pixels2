@@ -94,8 +94,7 @@ const initialState = {
   pixel: {},
   pixels: [],
   pixelsForFeed: [],
-  isLoading: false,
-  pixelOnEditStage: {}
+  isLoading: false
 };
 
 export default function pixel(state = initialState, action) {
@@ -168,7 +167,7 @@ export default function pixel(state = initialState, action) {
     case PUSH_PIXEL_EDIT:
       return {
         ...state,
-        pixelOnEditStage: action.payload
+        pixel: action.payload
       };
     default:
       return state;

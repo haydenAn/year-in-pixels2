@@ -20,16 +20,12 @@ import colors from "../Pixel/models/colors";
 import FeedHeader from "./FeedHeader/FeedHeader";
 import Header from "../../public/Header/Header";
 import { withRouter } from "react-router-dom";
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 class Feed extends React.Component {
-  state = {
-    open: false
-  };
   componentDidMount() {
     this.props.getFullPixels();
   }
-  toggle = () => {
-    this.setState(() => ({ open: !this.state.open }));
-  };
   edit = body => {
     const { pushPixelToEdit, history } = this.props;
     pushPixelToEdit(body);
@@ -41,7 +37,6 @@ class Feed extends React.Component {
 
   render() {
     const { pixels, isLoading } = this.props,
-      { open } = this.state,
       hexToRGBArray = hex => hex.match(/[A-Za-z0-9]{2}/g).map(v => parseInt(v, 16)).join(','),
       fullPixelDisplay = pixels[0] ? (
         pixels.map((el, i) => {
@@ -57,13 +52,8 @@ class Feed extends React.Component {
                 subheader={el.colorvalue}
                 action={
                   <div className="Feed_action">
-                    <IconButton onClick={this.toggle}>
-                      <MoreVertIcon />
-                    </IconButton>
-                    <div className={open?`Feed_btn`:'Feed_btn_hide'}>
-                      <Button onClick={() => this.edit(el)}>Edit</Button>
-                      <Button className="Feed_btn-delete" onClick={() => this.delete(el.id)}>Delete</Button>
-                    </div>
+                      <IconButton onClick={() => this.edit(el)}><EditIcon/></IconButton>
+                      <IconButton className="Feed_btn-delete" onClick={() => this.delete(el.id)}><DeleteOutlineIcon /></IconButton>
                   </div>
                 }
                 />

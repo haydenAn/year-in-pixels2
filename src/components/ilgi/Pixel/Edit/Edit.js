@@ -111,7 +111,7 @@ class Edit extends Component {
 
 function mapStateToProps(state) {
   return {
-    p: state.pixel.pixelOnEditStage
+    p: state.pixel.pixel
   };
 }
 
