@@ -20,6 +20,7 @@
     "moment": "^2.22.2",
     "passport": "^0.4.0",
     "passport-auth0": "^1.0.0",
+    "path": "^0.12.7",
     "react": "^16.4.2",
     "react-chartjs-2": "^2.7.4",
     "react-countup": "^4.0.0-alpha.6",

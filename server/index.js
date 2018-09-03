@@ -3,6 +3,7 @@ const express = require("express"),
   bodyParser = require("body-parser"),
   session = require("express-session"),
   massive = require("massive"),
+  path=require('path'),
   cors = require("cors"),
   Auth0Strategy = require("passport-auth0"),
   passport = require("passport");
