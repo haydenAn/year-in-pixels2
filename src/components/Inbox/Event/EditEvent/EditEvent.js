@@ -1,8 +1,14 @@
 import React from "react";
-import { TextField, Input, Button,FormControlLabel,Checkbox } from "@material-ui/core";
+import {
+  TextField,
+  Input,
+  Button,
+  FormControlLabel,
+  Checkbox
+} from "@material-ui/core";
 import { updateEvent } from "../../../../ducks/event";
 import { connect } from "react-redux";
-import "./EditEvent.css";
+import "./Edit.Event.css";
 import Favorite from "@material-ui/icons/Favorite";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 class EditEvent extends React.Component {
@@ -10,7 +16,7 @@ class EditEvent extends React.Component {
     title: "",
     text: "",
     location: "",
-    important:false
+    important: false
   };
   componentDidMount() {
     const { event } = this.props;
@@ -18,11 +24,11 @@ class EditEvent extends React.Component {
       text: event.text,
       title: event.title,
       location: event.location,
-      import:event.important
+      import: event.important
     }));
   }
   save = () => {
-    const { text, title, location,important } = this.state,
+    const { text, title, location, important } = this.state,
       { handleEditSwitch, event, updateEvent } = this.props,
       body = {
         text,
@@ -34,13 +40,13 @@ class EditEvent extends React.Component {
     handleEditSwitch();
   };
   render() {
-    const { text, title, location,important } = this.state;
+    const { text, title, location, important } = this.state;
     return (
       <div className="EditEvent">
-       <FormControlLabel
+        <FormControlLabel
           control={
             <Checkbox
-            checked={important}
+              checked={important}
               icon={<FavoriteBorder />}
               checkedIcon={<Favorite />}
               value="checkedE"
@@ -67,7 +73,7 @@ class EditEvent extends React.Component {
         />
         <TextField
           id="textarea"
-          label="Event Details"
+          label="details"
           multiline
           rowsMax="5"
           value={text}
@@ -78,7 +84,11 @@ class EditEvent extends React.Component {
           <Button variant="contained" color="primary" onClick={this.save}>
             SAVE
           </Button>
-          <Button variant="contained" onClick={this.props.handleEditSwitch}>
+          <Button
+            style={{ marginLeft: "10px" }}
+            variant="contained"
+            onClick={this.props.handleEditSwitch}
+          >
             CANCEL
           </Button>
         </editevnet-btn>{" "}

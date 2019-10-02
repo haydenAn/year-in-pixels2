@@ -3,7 +3,7 @@ const express = require("express"),
   bodyParser = require("body-parser"),
   session = require("express-session"),
   massive = require("massive"),
-  path=require('path'),
+  path = require("path"),
   cors = require("cors"),
   Auth0Strategy = require("passport-auth0"),
   passport = require("passport");
@@ -136,7 +136,7 @@ app.get("/auth/me", getUser);
 // PIXEL
 app.get("/api/pixel/:date", getOnePixelFullInfo);
 app.post("/api/pixel", addPixel);
-app.get("/api/pixels", getPixels);
+app.get("/api/pixels/byYear/:year", getPixels);
 app.get("/api/pixels/feed", getFullPixels);
 app.get("/api/count/pixels", countPixels);
 app.put("/api/pixel/:id", updatePixel);

@@ -1,39 +1,35 @@
 .PixelHeader {
-  top: 0;
-  left: auto;
-  right: 0;
-  position: fixed;
   width: 100%;
   transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   z-index: 1100; }
-  .PixelHeader pixelHeader-info {
-    position: relative;
-    top: -50px;
-    left: 70px; }
-    .PixelHeader pixelHeader-info span {
-      color: white;
-      font-weight: bold;
-      font-size: 1.8em;
-      margin: 0 10px; }
+  .PixelHeader .AppBar_tool {
+    display: flex;
+    justify-content: space-evenly; }
+    @media (max-width: 601px) {
+      .PixelHeader .AppBar_tool {
+        justify-content: space-around; } }
+  .PixelHeader pixelHeader-info span {
+    color: white;
+    font-weight: bold;
+    margin: 0 1.5vw;
+    font-size: 1.25em; }
+    @media (min-width: 601px) and (max-width: 767px) {
+      .PixelHeader pixelHeader-info span {
+        font-size: 1.8em; } }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .PixelHeader pixelHeader-info span {
+        font-size: 2em; } }
+    @media (min-width: 1024px) {
+      .PixelHeader pixelHeader-info span {
+        font-size: 2.2em; } }
   .PixelHeader button {
-    position: relative;
-    top: -55px;
-    right: -120px;
-    color: rgba(0, 0, 0, 0.87);
-    margin: 8px;
-    border: 0;
-    cursor: pointer;
-    padding: 8px 16px;
-    font-size: 0.875rem;
-    min-width: 64px;
-    background-color: transparent;
-    min-height: 36px;
-    box-sizing: border-box;
-    line-height: 1.4em;
-    font-weight: 500;
-    border-radius: 4px;
-    text-transform: uppercase;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; }
-    .PixelHeader button:hover {
-      text-decoration: none;
-      background-color: rgba(0, 0, 0, 0.08); }
+    font-size: 1em;
+    min-height: 10px;
+    min-width: 50px !important; }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .PixelHeader button {
+        font-size: 1.2em; } }
+    @media (min-width: 1024px) {
+      .PixelHeader button {
+        font-size: 1.4em;
+        margin-right: 5px; } }

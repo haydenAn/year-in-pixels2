@@ -1,33 +1,44 @@
 @import "../../../../sass/_media.scss";
 
-.Edit{
-    edit-textarea{
-       width: 65vw;
-       display: block;
-       margin: 10px auto;  
-       @include tablet {
-           width: 55vw;
-         }
-         @include desktop {
-           width: 35vw;
-         }
-         h3{
-            .edit_penicon{
-                margin: 0 10px 0 0;
-            }
-         }
-}
-.Edit_savebtn{
-    width: 65vw;
+.Edit {
+  edit-journal {
+    width: 80%;
     display: block;
-    padding:20px 0;
-    margin: 30px auto 100px;  
+    margin: 10px auto;
+    @include medium {
+      width: 70%;
+    }
     @include tablet {
-        width: 55vw;
+      width: 50%;
+    }
+    @include desktop {
+      width: 38%;
+    }
+    h1,
+    p {
+      color: #2b2b32;
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.5em;
+      margin: 0;
+      @include tablet {
+        font-size: 2em;
       }
+    }
+    p {
+      margin-top: 0;
+      letter-spacing: -0.5px;
+      color: darkgray;
+    }
+    .Edit_savebtn {
+      width: 100%;
+      display: block;
+      padding: 20px 0;
+      margin: 20px auto 20%;
       @include desktop {
-        width: 35vw;
+        margin-bottom: 50%;
       }
-}
-
+    }
+  }
 }

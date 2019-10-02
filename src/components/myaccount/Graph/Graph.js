@@ -6,12 +6,10 @@ import {
   getColorRatioByMonth,
   getColorRatio
 } from "../../../ducks/graph";
+import { Card } from "@material-ui/core";
 import GraphHeader from "./GraphHeader/GraphHeader";
-import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
 import PieChart from "./body/PieChart";
-import LineGraph from "./body/LineGraph";
 import moment from "moment";
-import Header from "../../public/Header/Header"
 
 class Graph extends React.Component {
   state = {
@@ -26,12 +24,11 @@ class Graph extends React.Component {
   }
   componentDidUpdate(prevProps, prevState) {
     const { selection, naviValue } = this.state,
-      { getPixelsGraph,getColorRatio } = this.props;
+      { getPixelsGraph, getColorRatio } = this.props;
     if (prevState.selection !== selection && selection === "all") {
       if (naviValue === 0) {
         getPixelsGraph();
-      }
-      else if(naviValue===1){
+      } else if (naviValue === 1) {
         getColorRatio();
       }
     }
@@ -45,15 +42,14 @@ class Graph extends React.Component {
   changeMonth = month => {
     this.setState({ month: month });
     if (this.state.naviValue === 1) {
-      this.props.getColorRatioByMonth(month)
+      this.props.getColorRatioByMonth(month);
     } else {
     }
   };
   render() {
-    const { selection, naviValue, month} = this.state;
+    const { selection, naviValue, month } = this.state;
     return (
-      <div className="Graph">
-      <Header/>
+      <Card className="Graph">
         <GraphHeader
           selection={selection}
           handleSelection={this.handleSelection}
@@ -61,18 +57,9 @@ class Graph extends React.Component {
           changeMonth={this.changeMonth}
         />
         <graph-body>
-          {naviValue === 0 ? (
-            <LineGraph />
-          ) : (
-            <PieChart
-            />
-          )}
+          <PieChart />
         </graph-body>
-        <BottomNavigation className="Graph_nav" value={naviValue} onChange={this.navigate} showLabels>
-          <BottomNavigationAction label="line graph" />
-          <BottomNavigationAction label="color chart" />
-        </BottomNavigation>
-      </div>
+      </Card>
     );
   }
 }

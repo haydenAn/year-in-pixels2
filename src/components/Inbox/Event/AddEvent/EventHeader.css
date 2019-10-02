@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Neucha");
+@import url("https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap");
 .EventHeader {
   display: flex;
   flex-direction: row;
@@ -7,7 +7,7 @@
     margin-bottom: 15px; }
   .EventHeader eventH-date {
     font-size: 1.7em;
-    font-family: "Neucha", cursive; }
+    font-family: "Reenie Beanie", cursive; }
     @media (min-width: 768px) and (max-width: 1023px) {
       .EventHeader eventH-date {
         font-size: 2em; } }

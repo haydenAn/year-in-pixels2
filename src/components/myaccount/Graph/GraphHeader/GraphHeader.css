@@ -1,17 +1,22 @@
 .GraphHeader {
-  width: 90vw;
-  margin: 100px auto 5px; }
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .GraphHeader {
-      width: 70vw; } }
-  @media (min-width: 1024px) {
-    .GraphHeader {
-      width: 60vw; } }
+  text-align: left; }
+  .GraphHeader h1 {
+    font-size: 1em;
+    margin: 0;
+    margin-bottom: 2px; }
+  .GraphHeader hr {
+    margin: 0;
+    height: 1px;
+    border: none;
+    background-color: lightgrey;
+    width: 50%; }
   .GraphHeader .GH_form {
-    display: block;
-    margin: 30px 0 30px 10px; }
+    margin: 20px;
+    display: block; }
     .GraphHeader .GH_form label {
-      font-size: 1.7em; }
+      font-size: 1.2em; }
+    .GraphHeader .GH_form .selection {
+      font-size: 0.75rem; }
   .GraphHeader graphHeader-month {
     display: block;
     margin: 0 auto;
@@ -20,10 +25,10 @@
       background-color: #cfd8dc;
       opacity: 0.5;
       display: inline-block;
-      width: 12vw;
-      height: 12vw;
-      margin: 1vw;
-      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+      width: 12%;
+      height: 12%;
+      margin: 1%;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11);
       border-radius: 5px;
       position: relative;
       cursor: pointer; }
@@ -43,13 +48,13 @@
         opacity: 1; }
       @media (min-width: 768px) and (max-width: 1023px) {
         .GraphHeader graphHeader-month div {
-          width: 6vw;
-          height: 6vw; } }
+          width: 6%;
+          height: 6%; } }
       @media (min-width: 1024px) {
         .GraphHeader graphHeader-month div {
-          width: 4vw;
-          height: 4vw;
-          margin: 0.5vw; } }
+          width: 4%;
+          height: 4%;
+          margin: 0.5%; } }
       .GraphHeader graphHeader-month div span {
         display: block;
         font-size: 1.4em;

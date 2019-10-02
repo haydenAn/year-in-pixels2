@@ -1,32 +1,57 @@
 .ImgAdder {
-  width: 80vw;
-  margin: 20px auto; }
+  width: 80%;
+  margin: 0 auto; }
+  @media (max-width: 601px) {
+    .ImgAdder {
+      padding: 18% 0 14%; } }
+  @media (min-width: 601px) and (max-width: 767px) {
+    .ImgAdder {
+      width: 70%;
+      padding: 14% 0; } }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .ImgAdder {
+      width: 50%; } }
+  @media (min-width: 1024px) {
+    .ImgAdder {
+      width: 38%;
+      padding: 12% 0; } }
   .ImgAdder search-results .ImgAdder_showSearch .ImgAdder_search-results {
     height: 80vh;
     overflow: scroll; }
-  .ImgAdder imgadder-buttons {
-    width: 60vw;
-    display: block;
-    margin: 0 auto; }
+  .ImgAdder h1,
+  .ImgAdder p {
+    color: #2b2b32;
+    text-align: center; }
+  .ImgAdder h1 {
+    margin: 0; }
     @media (min-width: 768px) and (max-width: 1023px) {
-      .ImgAdder imgadder-buttons {
-        width: 45vw; } }
-    @media (min-width: 1024px) {
-      .ImgAdder imgadder-buttons {
-        width: 30vw; } }
-    .ImgAdder imgadder-buttons .ImgAdder_button {
+      .ImgAdder h1 {
+        font-size: 2em; } }
+  .ImgAdder p {
+    margin-top: 0;
+    letter-spacing: -0.5px;
+    color: darkgray; }
+  .ImgAdder imgadder_btns {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto; }
+    .ImgAdder imgadder_btns .ImgAdder_button {
       padding: 15px 50px;
       margin: 5px 7px 0 7px; }
-    .ImgAdder imgadder-buttons .ImgAdder_search {
-      display: block;
-      margin: 10px auto; }
+  .ImgAdder .ImgAdder_search {
+    display: block;
+    width: 80%;
+    margin: 10px auto 30px; }
   .ImgAdder img {
-    width: 65vw;
+    width: 100%;
     display: block;
     margin: 10px auto; }
-    @media (min-width: 768px) and (max-width: 1023px) {
-      .ImgAdder img {
-        width: 55vw; } }
-    @media (min-width: 1024px) {
-      .ImgAdder img {
-        width: 35vw; } }
+
+hr {
+  border: none;
+  border-top: 1px dotted #3b7fc7;
+  color: #fff;
+  background-color: #fff;
+  height: 1px;
+  width: 90%; }

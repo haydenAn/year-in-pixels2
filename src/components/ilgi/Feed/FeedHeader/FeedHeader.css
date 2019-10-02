@@ -1,12 +1,13 @@
-@import url("https://fonts.googleapis.com/css?family=Neucha");
+@import url("https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap");
 .FeedHeader {
-  margin-top: 80px;
   width: 100vw; }
   .FeedHeader .FH_form {
     display: block;
-    margin: 10px 0 30px 40px; }
+    margin: 10px 20px 0; }
     .FeedHeader .FH_form label {
-      font-size: 1.7em; }
+      font-size: 1.2em; }
+    .FeedHeader .FH_form .selection {
+      font-size: 1em; }
   .FeedHeader feedheader-color {
     display: block;
     text-align: center; }
@@ -16,7 +17,7 @@
       width: 7.5vw;
       height: 7.5vw;
       margin: 1vw;
-      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11);
       border-radius: 5px;
       position: relative;
       cursor: pointer; }
@@ -52,7 +53,7 @@
       width: 13vw;
       height: 13vw;
       margin: 1vw;
-      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11);
       border-radius: 5px;
       position: relative;
       cursor: pointer; }
@@ -81,7 +82,7 @@
           height: 3vw;
           margin: 0.5vw; } }
       .FeedHeader feedheader-month div span {
-        font-family: "Neucha", cursive;
+        font-family: "Reenie Beanie", cursive;
         font-size: 1.6em;
         position: relative;
         top: 15%; }

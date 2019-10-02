@@ -1,0 +1,26 @@
+@import "../../../../sass/media";
+@import "../../../../sass/var";
+.EditEvent {
+  background-color: $bg_color;
+
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  margin-top: 15px;
+}
+.EditEvent > div {
+  margin: 0;
+}
+.EditEvent .EditEvent_title {
+  font-size: 1.25em;
+  margin-bottom: 15px;
+  @include desktop {
+    font-size: 2em;
+  }
+}
+.EditEvent editevnet-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 10px;
+}

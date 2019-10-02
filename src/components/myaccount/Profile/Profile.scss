@@ -1,60 +1,165 @@
 @import "../../../sass/_media.scss";
+$profile_height: 250px;
 @import "../../../sass/_var.scss";
-
+@import "../../../sass/mixin";
+.Profile-wrapper {
+  background-color: $bg_color;
+  height: 100%;
+  width: 100%;
+  .countdays {
+    color: #2196f3;
+    -webkit-animation: mymove 3s;
+    animation: mymove 3s;
+  }
+}
 .Profile {
-  div {
-    width: 85vw;
-    margin: 80px auto 20px;
-    padding: 20px;
-    @include tablet {
-      width: 60vw;
-      padding: 40px;
-    }
-    @include desktop {
-      width: 50vw;
-      padding: 40px;
-    }
-    .Profile_count {
-      color: #2196f3;
-      font-size: 5em;
-      font-weight: bold;
-      margin-right: 20px;
-      display: block;
-      font-family: $hand-writing;
-      -webkit-animation: mymove 3s; 
-      animation: mymove 3s;
-    }
-    @-webkit-keyframes mymove {
-        50% {font-size: 8em;}
-    }
-    @keyframes mymove {
-        50% {font-size: 8em;}
+  display: flex;
+  justify-content: center;
+  width: 65%;
+  margin: 64px auto 0;
+  @include mobile {
+    flex-direction: column;
+  }
+  @include belowTablet {
+    width: 100%;
+  }
+  @include tablet {
+    width: 90%;
+  }
+  .Profile_left-mdlg {
+    @include afterMobile {
+      width: 35%;
     }
   }
-  .Profile_card {
-    width: 85vw;
-    margin: 20px auto;
-    padding: 20px;
-    @include tablet {
-      width: 60vw;
-      padding: 40px;
+  .Profile_right-mdlg {
+    @include afterMobile {
+      width: 65%;
     }
-    @include desktop {
-      width: 50vw;
-      padding: 40px;
+  }
+  .card_needHelp,
+  .card_profile,
+  .card_detailedPf {
+    @include boxshadow-lightGrey;
+  }
+  .card_detailedPf,
+  .card_needHelp {
+    padding: 30px;
+  }
+  .card_needHelp {
+    text-align: center;
+    article {
+      padding-bottom: 30px;
+      .forumicon {
+        width: 2em;
+        height: 2em;
+        fill: lightgrey;
+      }
+      h1 {
+        margin: 0;
+        color: $font_color-bold;
+      }
+      p {
+        font-size: 0.75rem;
+        color: grey;
+      }
     }
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    profile-userInfo {
-      text-align: center;
-      font-family: $hand-writing;
+    button {
+      @include primary-button;
+      width: 80%;
     }
-    .Profile_img{
-        margin-left:20px;
-      width: 50%;
-      max-width: 50%;
-      height: 50%;
+  }
+  .card_profile {
+    text-align: center;
+    height: $profile_height;
+
+    article,
+    .card_bg {
+      height: 100%;
     }
+    article {
+      position: relative;
+      top: -($profile_height + 5px);
+      background-color: rgb(0, 0, 0); /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
+      color: white;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .Profile_img {
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+      }
+    }
+    .card_bg {
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      filter: blur(8px);
+      -webkit-filter: blur(8px);
+    }
+  }
+  .card_detailedPf {
+    font-weight: bold;
+    color: $font_color-bold;
+    p {
+      font-size: 0.75rem;
+      color: grey;
+      font-weight: normal;
+    }
+    .userSince {
+      text-align: right;
+      font-weight: normal;
+    }
+  }
+}
+
+// margin
+.card_detailedPf {
+  margin: $margin_mobile;
+  @include medium {
+    margin: $margin_desktop $margin_desktop $margin_tablet $margin_tablet;
+  }
+  @include tablet {
+    margin: $margin_desktop 0 $margin_tablet $margin_tablet;
+  }
+  @include desktop {
+    margin: 40px 0 0 $margin_desktop;
+  }
+}
+.card_profile {
+  margin: $margin_mobile;
+  @include medium {
+    margin: $margin_desktop $margin_tablet 0 $margin_desktop;
+  }
+  @include tablet {
+    margin: $margin_desktop $margin_tablet 0 0;
+  }
+  @include desktop {
+    margin: 40px $margin_desktop 0 0;
+  }
+}
+.card_needHelp {
+  margin: $margin_mobile;
+  @include medium {
+    margin: $margin_desktop $margin_tablet 0 $margin_desktop;
+  }
+  @include tablet {
+    margin: $margin_desktop $margin_tablet 0 0;
+  }
+  @include desktop {
+    margin: 40px $margin_desktop 0 0;
+  }
+}
+@-webkit-keyframes mymove {
+  50% {
+    font-size: 1.5em;
+  }
+}
+@keyframes mymove {
+  50% {
+    font-size: 1.5em;
   }
 }

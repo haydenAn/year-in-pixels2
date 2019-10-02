@@ -1,28 +1,39 @@
 .EditColor {
-  margin-top: 80px !important;
-  margin: 20px auto;
-  width: 80%; }
+  padding-top: 80px !important;
+  margin: 0px auto;
+  width: 90%; }
+  @media (min-width: 601px) and (max-width: 767px) {
+    .EditColor {
+      width: 80%; } }
   @media (min-width: 768px) and (max-width: 1023px) {
     .EditColor {
       width: 60%; } }
   @media (min-width: 1024px) {
     .EditColor {
       width: 40%; } }
-  .EditColor h3 {
-    text-align: left;
-    margin-left: 10%; }
-    .EditColor h3 .edit_smileicon {
-      margin: 0 10px 0 0; }
+  .EditColor h1,
+  .EditColor p {
+    color: #2b2b32;
+    text-align: center; }
+  .EditColor h1 {
+    margin: 0; }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .EditColor h1 {
+        font-size: 2em; } }
+  .EditColor p {
+    margin-top: 0;
+    letter-spacing: -0.5px;
+    color: darkgray; }
   .EditColor editColor-colors {
     display: block;
     text-align: center; }
     .EditColor editColor-colors div {
       opacity: 0.5;
       display: inline-block;
-      width: 20vw;
-      height: 20vw;
+      width: 25vw;
+      height: 25vw;
       margin: 1vw;
-      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11);
       border-radius: 5px;
       position: relative;
       cursor: pointer; }
@@ -40,6 +51,10 @@
         transition: opacity 0.3s ease-in-out; }
       .EditColor editColor-colors div:hover::after {
         opacity: 1; }
+      @media (min-width: 601px) and (max-width: 767px) {
+        .EditColor editColor-colors div {
+          width: 20vw;
+          height: 20vw; } }
       @media (min-width: 768px) and (max-width: 1023px) {
         .EditColor editColor-colors div {
           width: 17vw;
@@ -48,3 +63,23 @@
         .EditColor editColor-colors div {
           width: 10vw;
           height: 10vw; } }
+  .EditColor section {
+    padding: 10% 0; }
+    @media (min-width: 601px) and (max-width: 767px) {
+      .EditColor section {
+        padding: 8% 0; } }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .EditColor section {
+        padding: 12% 0; } }
+    @media (min-width: 1024px) {
+      .EditColor section {
+        padding: 8% 0; } }
+  @media (max-width: 601px) {
+    .EditColor .EditColor_btm {
+      padding: 18% 0 14%; } }
+  @media (min-width: 601px) and (max-width: 767px) {
+    .EditColor .EditColor_btm {
+      padding: 14% 0; } }
+  @media (min-width: 1024px) {
+    .EditColor .EditColor_btm {
+      padding: 12% 0; } }

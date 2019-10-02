@@ -1,22 +1,28 @@
 .Home .Home_containerBackground {
-  width: 100vw;
-  margin: 50px 15px;
+  width: 100%;
+  margin: 75px 15px 5px;
   padding: 0; }
+  @media (min-width: 768px) {
+    .Home .Home_containerBackground {
+      margin: 75px auto; } }
   @media (min-width: 768px) and (max-width: 1023px) {
     .Home .Home_containerBackground {
-      width: 80vw;
-      margin: 50px auto; } }
+      width: 80%; } }
+  @media (min-width: 1024px) and (max-width: 1124px) {
+    .Home .Home_containerBackground {
+      width: 70% !important; } }
   @media (min-width: 1024px) {
     .Home .Home_containerBackground {
-      width: 60vw;
-      margin: 50px auto; } }
+      width: 50%;
+      margin-top: 90px; } }
   .Home .Home_containerBackground .grid-container {
     padding: 0;
     display: grid;
     width: 100%;
+    height: 100%;
     justify-content: center;
     font-size: 0.6em;
-    grid-template-columns: 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw; }
+    grid-template-columns: 8% 8% 8% 8% 8% 8% 8% 8% 8% 8% 8% 8% 8%; }
     @media (min-width: 768px) and (max-width: 1023px) {
       .Home .Home_containerBackground .grid-container {
         font-size: 1em;
@@ -26,12 +32,18 @@
         font-size: 1em;
         grid-template-columns: 8% 8% 8% 8% 8% 8% 8% 8% 8% 8% 8% 8% 8%; } }
     .Home .Home_containerBackground .grid-container .grid-item {
-      text-align: center; }
+      text-align: center;
+      height: 100%; }
       .Home .Home_containerBackground .grid-container .grid-item .daysIndicator {
-        height: 8vw;
+        height: 8%;
         border-bottom: 1px solid #d7e1e5;
         border-right: 1px solid #d7e1e5;
-        padding-top: 2vw; }
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center; }
+        .Home .Home_containerBackground .grid-container .grid-item .daysIndicator .daysIndicator_day {
+          padding-top: 2%; }
         @media (min-width: 768px) and (max-width: 1023px) {
           .Home .Home_containerBackground .grid-container .grid-item .daysIndicator {
             height: 60px; } }
@@ -39,19 +51,22 @@
           .Home .Home_containerBackground .grid-container .grid-item .daysIndicator {
             height: 57px; } }
       .Home .Home_containerBackground .grid-container .grid-item .grid-item-custom {
-        height: 8vw;
+        height: 8%;
         cursor: pointer;
         border-bottom: 1px solid #d7e1e5;
         border-right: 1px solid #d7e1e5; }
         @media (min-width: 768px) and (max-width: 1023px) {
           .Home .Home_containerBackground .grid-container .grid-item .grid-item-custom {
             height: 60px; } }
+        @media (min-width: 1024px) and (max-width: 1124px) {
+          .Home .Home_containerBackground .grid-container .grid-item .grid-item-custom {
+            height: 50px; } }
         @media (min-width: 1024px) {
           .Home .Home_containerBackground .grid-container .grid-item .grid-item-custom {
             height: 57px; } }
       .Home .Home_containerBackground .grid-container .grid-item .grid-item-disabled {
         background-color: #d7e1e5;
-        height: 8vw; }
+        height: 8%; }
         @media (min-width: 768px) and (max-width: 1023px) {
           .Home .Home_containerBackground .grid-container .grid-item .grid-item-disabled {
             height: 60px; } }

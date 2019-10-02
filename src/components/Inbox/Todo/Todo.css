@@ -1,22 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap");
 .Todo {
-  width: 85vw;
-  margin: 20px auto;
-  padding: 50px; }
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .Todo {
-      width: 80vw;
-      padding: 50px 80px; } }
+  text-align: center;
+  min-height: 200px;
+  max-height: 450px;
+  height: auto;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  width: 100%;
+  background: linear-gradient(148deg, rgba(35, 165, 213, 0.37) 30%, rgba(252, 171, 203, 0.39) 100%);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-y: scroll;
+  overflow: scroll !important; }
   @media (min-width: 1024px) {
     .Todo {
-      width: 60vw;
-      padding: 50px 100px; } }
+      width: 98%; } }
+  .Todo .Todo_list {
+    margin: 0 auto;
+    padding-left: 10px; }
+    @media (max-width: 767px) {
+      .Todo .Todo_list {
+        width: 96%; } }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .Todo .Todo_list {
+        width: 80%; } }
+    @media (min-width: 1024px) {
+      .Todo .Todo_list {
+        border-left: 10px #90caf9 solid;
+        width: 60%; } }
+    .Todo .Todo_list li {
+      margin-bottom: 4px;
+      background-color: white; }
+      .Todo .Todo_list li div {
+        padding: 0; }
+        .Todo .Todo_list li div .item-text {
+          font-size: 1em;
+          font-weight: lighter; }
+    .Todo .Todo_list .deleteIcon,
+    .Todo .Todo_list .checkbox {
+      opacity: 0.5; }
+    .Todo .Todo_list li .deleteIcon {
+      width: 38px;
+      height: 38px; }
+  .Todo .todo-header {
+    padding: 25px 0 10px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%; }
+    .Todo .todo-header h1 {
+      font-size: 1.25em;
+      margin: 0; }
+      @media (min-width: 1024px) {
+        .Todo .todo-header h1 {
+          font-size: 1.5em; } }
+    .Todo .todo-header p {
+      margin-top: 0;
+      letter-spacing: -0.5px;
+      opacity: 0.5; }
   .Todo todo-add {
+    margin: 0 auto;
     display: flex;
     flex-direction: row; }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .Todo todo-add {
+        width: 80%; } }
+    @media (min-width: 1024px) {
+      .Todo todo-add {
+        width: 70% !important; } }
     .Todo todo-add i {
-      font-size: 2em;
+      font-size: 1.5em;
       margin: 15px; }
+      @media (max-width: 601px) {
+        .Todo todo-add i {
+          margin-right: 5px; } }
     .Todo todo-add .Todo_input {
       width: 80%;
-      margin: 5px;
-      font-size: 2em; }
+      margin: 0 auto;
+      font-size: 1.25em;
+      margin: 5px; }
+      @media (min-width: 768px) {
+        .Todo todo-add .Todo_input {
+          width: 100%;
+          margin-bottom: 20px; } }
+
+.Todo::-webkit-scrollbar {
+  display: none; }

@@ -1,0 +1,29 @@
+.Reminder_bg {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100vw;
+  position: absolute;
+  top: -13px;
+  height: 250%; }
+
+.Reminder {
+  border-radius: 5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  width: 50%;
+  z-index: 100;
+  position: relative;
+  top: 30vh;
+  left: 25%;
+  height: 30vh; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .Reminder {
+      width: 40%; } }
+  @media (min-width: 1024px) {
+    .Reminder {
+      width: 30%; } }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .Reminder {
+      left: 30%; } }
+  @media (min-width: 1024px) {
+    .Reminder {
+      left: 35%; } }

@@ -2,49 +2,118 @@
 @import "../../../sass/_var.scss";
 
 .Pixel {
+  padding-bottom: 10%;
+  // background-color: whitesmoke;
+
   .Pixel_img {
-    margin: 80px auto 40px;
+    background-color: $bg_color;
+    margin: 64px auto 40px;
     width: 100%;
-    @include tablet {
-      width: 80vw;
-    }
-    @include desktop {
-      width: 60vw;
-    }
+    text-align: center;
     img {
       width: 100%;
-    }
-  }
-  .Pixel_editBtn{
-    margin: 20px auto 50px;
-    display: block;
-  }
-  pixel-bottom {
-    display: flex;
-    flex-direction: column;
-    width: 85vw;
-    margin: 20px auto;
-    @include tablet {
-      width: 80vw;
-      flex-direction: row;
-    }
-    @include desktop {
-      width: 60vw;
-      flex-direction: row;
-    }
-
-    .Pixel_text {
-      font-family: $hand-writing;
-      padding: 40px;
-      margin: 20px auto;
-      overflow-y: scroll;
-      width: 85vw;
       @include tablet {
-        width: 60%;
+        width: 80%;
       }
       @include desktop {
         width: 60%;
       }
     }
+  }
+  .Pixel_main {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    @include medium {
+      width: 60%;
+    }
+    @include tablet {
+      width: 60%;
+    }
+
+    @include desktop {
+      width: 55%;
+    }
+    .Pixel_main-actions {
+      display: flex;
+      margin-top: 20px;
+      justify-content: flex-end;
+      button:first-child {
+        margin-right: 20px;
+        padding: 12px 35px;
+      }
+      button {
+        padding: 12px 25px;
+      }
+    }
+    .Pixel_main-content {
+      display: flex;
+      flex-direction: column;
+      .content-top {
+        width: 100%;
+        & > div {
+          height: 300px;
+          margin-bottom: 15px;
+        }
+        @include desktop {
+          display: flex;
+          margin: 0 auto;
+          justify-content: center;
+          flex-direction: row;
+          justify-content: space-around;
+          & > div {
+            width: 48%;
+          }
+        }
+        .content_journal {
+          background-color: $bg_color;
+          font-family: $hand-writing;
+          overflow-y: scroll;
+          overflow: scroll !important;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          -ms-overflow-style: none; // IE 10+
+          scrollbar-width: none; // Firefox
+          h1 {
+            display: table;
+            font-size: 2em;
+            padding: 0;
+            margin: 0 auto;
+            border-bottom: 3px double crimson;
+            text-align: center;
+            letter-spacing: 4px;
+          }
+        }
+        .content_journal {
+          article {
+            font-size: 1.6em;
+            margin: 15px auto 0;
+            width: 90%;
+          }
+        }
+      }
+      .content_journal::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+  pixel-notext {
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    p {
+      margin: 0;
+      padding: 0;
+      // font-size: 1em;
+      font-family: "Open Sans", sans-serif;
+    }
+    button {
+      margin-top: 20px !important;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }

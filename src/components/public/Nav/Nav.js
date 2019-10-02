@@ -7,7 +7,8 @@ import {
   ListItemText,
   Collapse,
   Drawer,
-  ListItemIcon
+  ListItemIcon,
+  Hidden
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import ExpandLess from "@material-ui/icons/ExpandLess";
@@ -17,7 +18,7 @@ import Person from "@material-ui/icons/Person";
 import SpeakerNotes from "@material-ui/icons/SpeakerNotes";
 import Event from "@material-ui/icons/Event";
 import { Link } from "react-router-dom";
-import "./Nav.css"
+import "./Nav.css";
 class Nav extends React.Component {
   state = {
     open: false,
@@ -50,11 +51,7 @@ class Nav extends React.Component {
                     <ListItemText inset primary="Profile" />
                   </ListItem>
                 </Link>
-                <Link to={"/graph"}>
-                  <ListItem button onClick={this.toggleDrawer(false)}>
-                    <ListItemText inset primary="Graphs" />
-                  </ListItem>
-                </Link>
+
                 <a href={process.env.REACT_APP_LOGOUT}>
                   <ListItem button onClick={this.toggleDrawer(false)}>
                     <ListItemText inset primary="sign out" />
@@ -94,13 +91,15 @@ class Nav extends React.Component {
       );
     return (
       <div className="Nav">
-        <IconButton
-          color="inherit"
-          aria-label="Open drawer"
-          onClick={this.toggleDrawer(true)}
-        >
-          <MenuIcon />
-        </IconButton>
+        <Hidden mdUp>
+          <IconButton
+            color="inherit"
+            aria-label="Open drawer"
+            onClick={this.toggleDrawer(true)}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Hidden>
         <Drawer anchor="right" open={open} onClose={this.toggleDrawer(false)}>
           {navList}
         </Drawer>

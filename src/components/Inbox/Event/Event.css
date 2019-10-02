@@ -1,16 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Neucha");
+@import url("https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap");
 .Event_Card {
-  width: 85vw;
-  margin: 20px auto;
-  padding: 60px; }
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .Event_Card {
-      width: 50%;
-      margin: 20px; } }
-  @media (min-width: 1024px) {
-    .Event_Card {
-      width: 50%;
-      margin: 20px; } }
+  background-color: #f4f4f5; }
   .Event_Card .Event_content {
     text-align: center; }
     .Event_Card .Event_content span {
@@ -18,8 +8,8 @@
       left: 30%; }
     .Event_Card .Event_content h1 {
       margin-top: 0;
-      color: #3F51B5;
+      color: #3f51b5;
       text-transform: uppercase;
-      font-family: "Neucha", cursive; }
+      font-family: "Reenie Beanie", cursive; }
     .Event_Card .Event_content h3 {
       font-weight: lighter; }

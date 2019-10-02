@@ -2,20 +2,22 @@
 @import "../../../../sass/_mixin.scss";
 @import "../../../../sass/_media.scss";
 .EventFeed {
-  margin: 100px auto 30px;
+  margin: 80px 20px;
   width: 90vw;
   @include tablet {
     width: 70vw;
+    margin: 100px auto 30px;
   }
   @include desktop {
     width: 50vw;
+    margin: 100px auto 30px;
   }
   events-display {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     .EF_card {
-      ef-icons{
+      ef-icons {
         display: flex;
         justify-content: space-between;
       }
@@ -30,13 +32,18 @@
       @include desktop {
         width: 45%;
       }
-      h1{
+      h1 {
         font-family: $hand-writing;
       }
-      h3{
-         opacity: 0.6;
-         font-weight: lighter;
+      h3 {
+        opacity: 0.6;
+        font-weight: lighter;
       }
     }
+  }
+  feed-noevent {
+    text-align: center;
+    margin: 150px auto;
+    font-size: 1em;
   }
 }

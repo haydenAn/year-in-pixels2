@@ -15,10 +15,10 @@ class FeedHeader extends React.Component {
     color: "#DBDBDB",
     month: moment().format("M")
   };
-  componentDidUpdate(prevProps,prevState){
-      const {selection} = this.state;
-    if(prevState.selection!==selection && selection==="all"){
-        this.props.getFullPixels()
+  componentDidUpdate(prevProps, prevState) {
+    const { selection } = this.state;
+    if (prevState.selection !== selection && selection === "all") {
+      this.props.getFullPixels();
     }
   }
   handleSelection = e => {
@@ -40,7 +40,7 @@ class FeedHeader extends React.Component {
             key={i}
             style={
               color === el
-                ? {backgroundColor: el,opacity: 1,transition: "0.2s"}
+                ? { backgroundColor: el, opacity: 1, transition: "0.2s" }
                 : { backgroundColor: el }
             }
             onClick={() => this.changeColor(el)}
@@ -53,11 +53,7 @@ class FeedHeader extends React.Component {
           arr.push(
             <div
               key={i}
-              style={
-                month === i
-                  ? {  opacity: 1,transition: "0.2s"}
-                  : null
-              }
+              style={month === i ? { opacity: 1, transition: "0.2s" } : null}
               onClick={() => this.changeMonth(i)}
             >
               <span>{i}</span>
@@ -72,6 +68,7 @@ class FeedHeader extends React.Component {
           <InputLabel htmlFor="filter-native-simple">Filter</InputLabel>
           <Select
             native
+            className="selection"
             value={selection}
             onChange={this.handleSelection}
             inputProps={{
@@ -79,9 +76,7 @@ class FeedHeader extends React.Component {
               id: "filter-native-simple"
             }}
           >
-            <option value="all">
-              All Pixels
-            </option>
+            <option value="all">All Pixels</option>
             <option value="color">By Color</option>
             <option value="month">By Months</option>
           </Select>

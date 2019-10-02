@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import * as moment from "moment";
 ///action types
 const GET_PIXEL = "GET_PIXEL",
   ADD_PIXEL = "ADD_PIXEL",
@@ -8,8 +8,9 @@ const GET_PIXEL = "GET_PIXEL",
   GET_PIXELS_BYCOLOR = "GET_PIXELS_BYCOLOR",
   GET_PIXELS_BYDATE = "GET_PIXELS_BYDATE",
   PUSH_PIXEL_EDIT = "PUSH_PIXEL_EDIT",
-  UPDATE_PIXEL="UPDATE_PIXEL",
-  DELETE_PIXEL ="DELETE_PIXEL";
+  UPDATE_PIXEL = "UPDATE_PIXEL",
+  RELOAD_YEAR = "RELOAD_YEAR",
+  DELETE_PIXEL = "DELETE_PIXEL";
 export function getPixel(date) {
   const data = axios.get(`/api/pixel/${date}`).then(res => {
     return res.data;
@@ -28,7 +29,7 @@ export function addPixel(body) {
     payload: data
   };
 }
-export function updatePixel(body,id) {
+export function updatePixel(body, id) {
   const data = axios.put(`/api/pixel/${id}`, body).then(res => {
     return res.data;
   });
@@ -46,8 +47,8 @@ export function deletePixel(id) {
     payload: data
   };
 }
-export function getPixels() {
-  const data = axios.get(`/api/pixels`).then(res => {
+export function getPixels(year) {
+  const data = axios.get(`/api/pixels/byYear/${year}`).then(res => {
     return res.data;
   });
   return {
@@ -89,12 +90,19 @@ export function pushPixelToEdit(body) {
     payload: body
   };
 }
+export function reloadYear(newYear) {
+  return {
+    type: RELOAD_YEAR,
+    payload: newYear
+  };
+}
 
 const initialState = {
   pixel: {},
   pixels: [],
   pixelsForFeed: [],
-  isLoading: false
+  isLoading: false,
+  year: moment().year()
 };
 
 export default function pixel(state = initialState, action) {
@@ -127,7 +135,7 @@ export default function pixel(state = initialState, action) {
         isLoading: false,
         pixelsForFeed: action.payload
       };
-      case `${DELETE_PIXEL}_FULFILLED`:
+    case `${DELETE_PIXEL}_FULFILLED`:
       return {
         ...state,
         pixelsForFeed: action.payload
@@ -168,6 +176,11 @@ export default function pixel(state = initialState, action) {
       return {
         ...state,
         pixel: action.payload
+      };
+    case RELOAD_YEAR:
+      return {
+        ...state,
+        year: action.payload
       };
     default:
       return state;

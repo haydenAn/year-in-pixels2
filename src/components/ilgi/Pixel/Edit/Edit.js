@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addPixel,updatePixel } from "../../../../ducks/pixel";
+import { addPixel, updatePixel } from "../../../../ducks/pixel";
 import EditHeader from "./EditHeader/EditHeader";
 import EditColor from "./EditColor/EditColor";
 import ImgAdder from "./ImgAdder/ImgAdder";
@@ -18,7 +18,7 @@ class Edit extends Component {
     img_url: defaultImg,
     text: "",
     updateMode: false,
-    id:0
+    id: 0
   };
   componentDidMount() {
     const { p } = this.props;
@@ -29,7 +29,7 @@ class Edit extends Component {
           img_url: p.img_url,
           text: p.text,
           updateMode: true,
-          id:p.pixel_id
+          id: p.pixel_id
         }))
       : null;
   }
@@ -43,12 +43,12 @@ class Edit extends Component {
     this.setState(() => ({ img_url: url }));
   };
   addPixel = () => {
-    const { addPixel, match,updatePixel,history} = this.props,
-      { colorvalue, opacity, text, img_url,updateMode,id } = this.state,
+    const { addPixel, match, updatePixel, history } = this.props,
+      { colorvalue, opacity, text, img_url, updateMode, id } = this.state,
       boolObj = colorBool.filter(el => Object.keys(el)[0] === colorvalue),
       positive = Object.values(boolObj[0])[0],
       color_data = opacity * 10 * (positive ? 1 : -1),
-      date=match.params.date,
+      date = match.params.date,
       body = {
         date,
         colorvalue,
@@ -59,13 +59,13 @@ class Edit extends Component {
         img_url
       };
     console.log(body);
-    updateMode?
-    updatePixel(body,id).then(()=> history.push(`/home`)):
-    addPixel(body).then(()=> history.push(`/home`));
+    updateMode
+      ? updatePixel(body, id).then(() => history.push(`/home`))
+      : addPixel(body).then(() => history.push(`/home`));
   };
- 
+
   render() {
-    const { opacity, colorvalue, img_url,text } = this.state;
+    const { opacity, colorvalue, img_url, text } = this.state;
     return (
       <div className="Edit">
         <EditHeader
@@ -80,30 +80,28 @@ class Edit extends Component {
           changeOpacity={this.changeOpacity}
         />
         <ImgAdder imgUrl={img_url} changeImg={this.changeImg} />
-
-        <edit-textarea>
-          <h3>
-            <i className="fas fa-pen edit_penicon" />
-            Through out the day...
-          </h3>
+        <edit-journal>
+          <h1>Write it all down</h1>
+          <p>write anything you want that'd be the journal for today</p>
           <TextField
-            label="write down anything you want"
+            style={{ backgroundColor: "#f4f4f575" }}
+            label="Through out the day..."
             multiline
             rows="7"
-            placeholder="I had a really good taco today"
+            placeholder="I had a really good taco mucho deliciosa"
             fullWidth
             value={text}
             onChange={e => this.setState({ text: e.target.value })}
           />
-        </edit-textarea>
-        <Button
-          className="Edit_savebtn"
-          variant="contained"
-          color="primary"
-          onClick={this.addPixel}
-        >
-          Save changes
-        </Button>
+          <Button
+            className="Edit_savebtn"
+            variant="contained"
+            color="primary"
+            onClick={this.addPixel}
+          >
+            Save changes
+          </Button>
+        </edit-journal>
       </div>
     );
   }
@@ -118,6 +116,6 @@ function mapStateToProps(state) {
 export default withRouter(
   connect(
     mapStateToProps,
-    { addPixel,updatePixel }
+    { addPixel, updatePixel }
   )(Edit)
 );

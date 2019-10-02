@@ -3,13 +3,16 @@
 @import "../../../../sass/_var.scss";
 
 .FeedHeader {
-  margin-top: 80px;
   width: 100vw;
   .FH_form {
     display: block;
-    margin: 10px 0 30px 40px;
+    margin: 10px 20px 0;
+
     label {
-      font-size: 1.7em;
+      font-size: 1.2em;
+    }
+    .selection {
+      font-size: 1em;
     }
   }
   feedheader-color {
@@ -47,7 +50,7 @@
 
       @include tablet {
         width: 5.5vw;
-        margin:0.5vw;
+        margin: 0.5vw;
         height: 5.5vw;
       }
       @include desktop {

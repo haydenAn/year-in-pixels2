@@ -5,7 +5,7 @@ import { FormControl, InputLabel, Select } from "@material-ui/core";
 
 class GraphHeader extends React.Component {
   render() {
-    const {selection,handleSelection,month,changeMonth} = this.props,
+    const { selection, handleSelection, month, changeMonth } = this.props,
       monthBoxes = () => {
         let arr = [];
         for (let i = 1; i < 13; i++) {
@@ -23,9 +23,12 @@ class GraphHeader extends React.Component {
       };
     return (
       <div className="GraphHeader">
+        <h1>color analysis</h1>
+        <hr></hr>
         <FormControl className="GH_form">
           <InputLabel htmlFor="filter_GraphHeader">Filter</InputLabel>
           <Select
+            className="selection"
             native
             value={selection}
             onChange={handleSelection}
@@ -40,9 +43,7 @@ class GraphHeader extends React.Component {
         </FormControl>
         {selection === "month" ? (
           <graphHeader-month>{monthBoxes()}</graphHeader-month>
-        ) : 
-          null
-        }
+        ) : null}
       </div>
     );
   }

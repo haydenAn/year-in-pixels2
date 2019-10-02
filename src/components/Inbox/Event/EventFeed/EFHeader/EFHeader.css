@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Neucha");
+@import url("https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap");
 EFheader-month {
   margin-top: 20px;
   display: block;
@@ -10,7 +10,7 @@ EFheader-month {
     width: 12vw;
     height: 12vw;
     margin: 1vw;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11);
     border-radius: 5px;
     position: relative;
     cursor: pointer; }
@@ -38,7 +38,7 @@ EFheader-month {
         height: 3vw;
         margin: 0.5vw; } }
     EFheader-month div span {
-      font-family: "Neucha", cursive;
+      font-family: "Reenie Beanie", cursive;
       font-size: 1.4em;
       position: relative;
       top: 15%; }

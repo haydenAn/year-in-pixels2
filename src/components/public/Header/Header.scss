@@ -1,4 +1,5 @@
 @import "../../../sass/_media.scss";
+
 @font-face {
   font-family: "LLPixel";
   font-style: normal;
@@ -12,24 +13,32 @@ bar-logo h1 {
   margin: 0 0 4px 10px;
   padding: 0;
 }
+.AppBar {
+  background: rgb(35, 213, 171);
+  background: linear-gradient(
+    148deg,
+    rgba(35, 166, 213, 1) 50%,
+    rgba(140, 149, 198, 1) 65%,
+    rgba(252, 132, 182, 1) 90%,
+    rgba(252, 171, 204, 1) 100%
+  );
+}
 .AppBar_tool {
-  width: 100vw;
+  width: 100%;
   margin: 0 auto;
-  @include tablet {
-    width: 75vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  toolbar-left {
+    display: flex;
   }
   @include desktop {
-    width: 60vw;
+    justify-content: space-around;
   }
-  .Header_home {
-    position: relative;
-    right: -50vw;
+  a {
     text-decoration: none;
-    @include tablet{
-        right: -45vw;
-    }
-    @include desktop{
-        right: -40vw;
-    }
+    color: white;
+    text-transform: capitalize;
+    font-size: 1.1em;
   }
 }

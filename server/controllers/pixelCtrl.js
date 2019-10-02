@@ -46,11 +46,19 @@ const addPixel = (req, res) => {
 };
 
 const getPixels = (req, res) => {
-  console.log("Hit the get => /api/pixels");
+  console.log("Hit the get => /api/pixels/byYear/:year");
+  const { year } = req.params;
   req.app
     .get("db")
-    .getPixels(req.user.id)
+    .getPixels(req.user.id, year)
     .then(pixels => {
+      //default color is grey
+      pixels.map(p => {
+        if (p.colorvalue == null) {
+          p.colorvalue = "#BDBDBD";
+          p.opacity = "0.5";
+        }
+      });
       console.log(pixels);
       res.status(200).send(pixels);
     })
@@ -64,6 +72,12 @@ const getFullPixels = (req, res) => {
     .get("db")
     .getFullPixels(req.user.id)
     .then(pixels => {
+      pixels.map(p => {
+        if (p.colorvalue == null) {
+          p.colorvalue = "#BDBDBD";
+          p.opacity = "0.5";
+        }
+      });
       console.log(pixels);
       res.status(200).send(pixels);
     })
@@ -98,6 +112,7 @@ const countPixels = (req, res) => {
     });
 };
 const deletePixel = (req, res) => {
+  console.log("hit api/pixel/:id");
   const { id } = req.params,
     db = req.app.get("db");
   db.deletePixel(id).then(

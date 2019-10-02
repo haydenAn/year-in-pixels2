@@ -1,59 +1,56 @@
-@import url("https://fonts.googleapis.com/css?family=Neucha");
+@import url("https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap");
 .Quote {
   margin-top: 100px;
   width: 100vw;
   text-align: center; }
-  .Quote quote-display {
-    font-family: "Neucha", cursive; }
-    .Quote quote-display h1 {
-      margin: 10px auto;
-      width: 80vw;
-      font-style: italic;
-      font-weight: lighter;
-      opacity: 0.6;
-      font-size: 1.2em; }
-      @media (min-width: 768px) and (max-width: 1023px) {
-        .Quote quote-display h1 {
-          font-size: 1.6em;
-          width: 50vw; } }
-      @media (min-width: 1024px) {
-        .Quote quote-display h1 {
-          font-size: 1.8em;
-          width: 35vw; } }
-    .Quote quote-display p {
-      color: #3f51b5;
-      opacity: 0.8; }
-    .Quote quote-display .quote_menu {
-      position: relative;
-      right: -34vw; }
-      @media (min-width: 768px) and (max-width: 1023px) {
-        .Quote quote-display .quote_menu {
-          right: -25vw; } }
-      @media (min-width: 1024px) {
-        .Quote quote-display .quote_menu {
-          right: -17vw; } }
-    .Quote quote-display .Quote_dq {
-      font-size: 30px;
-      color: #3f51b5;
-      position: relative;
-      left: -27vw; }
-      @media (min-width: 768px) and (max-width: 1023px) {
-        .Quote quote-display .Quote_dq {
-          left: -23vw;
-          font-size: 37px; } }
-      @media (min-width: 1024px) {
-        .Quote quote-display .Quote_dq {
-          left: -15vw;
-          font-size: 40px; } }
+  .Quote quote-display h1 {
+    margin: 10px auto;
+    width: 80vw;
+    font-style: italic;
+    font-weight: lighter;
+    opacity: 0.6;
+    font-size: 1em; }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .Quote quote-display h1 {
+        font-size: 1.4em;
+        width: 50vw; } }
+    @media (min-width: 1024px) {
+      .Quote quote-display h1 {
+        font-size: 1.6em;
+        width: 35vw; } }
+  .Quote quote-display p {
+    color: #3f51b5;
+    opacity: 0.8; }
+  .Quote quote-display .quote_menu {
+    position: relative;
+    right: -34vw; }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .Quote quote-display .quote_menu {
+        right: -25vw; } }
+    @media (min-width: 1024px) {
+      .Quote quote-display .quote_menu {
+        right: -17vw; } }
+  .Quote quote-display .Quote_dq {
+    font-size: 30px;
+    color: #3f51b5;
+    position: relative;
+    left: -27vw; }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .Quote quote-display .Quote_dq {
+        left: -23vw;
+        font-size: 37px; } }
+    @media (min-width: 1024px) {
+      .Quote quote-display .Quote_dq {
+        left: -15vw;
+        font-size: 40px; } }
   .Quote quote-addPanel {
     margin-left: 40px;
     width: 90%;
-    letter-spacing: 1px;
-    font-family: "Neucha", cursive; }
+    letter-spacing: 1px; }
     .Quote quote-addPanel button {
       letter-spacing: 1px;
       margin-left: 45px;
-      font-family: "Neucha", cursive; }
+      font-family: "Reenie Beanie", cursive; }
     @media (min-width: 768px) and (max-width: 1023px) {
       .Quote quote-addPanel {
         margin-left: 0; }

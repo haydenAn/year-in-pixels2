@@ -1,8 +1,22 @@
 @import "../../../../../sass/_media.scss";
 
 .ImgAdder {
-  width: 80vw;
-  margin: 20px auto;
+  @include mobile {
+    padding: 18% 0 14%;
+  }
+  @include medium {
+    width: 70%;
+    padding: 14% 0;
+  }
+  @include tablet {
+    width: 50%;
+  }
+  @include desktop {
+    width: 38%;
+    padding: 12% 0;
+  }
+  width: 80%;
+  margin: 0 auto;
   search-results {
     .ImgAdder_showSearch {
       .ImgAdder_stepper {
@@ -13,34 +27,48 @@
       }
     }
   }
-  imgadder-buttons {
-    width: 60vw;
-    display: block;
-    margin: 0 auto;
+  h1,
+  p {
+    color: #2b2b32;
+    text-align: center;
+  }
+  h1 {
+    margin: 0;
     @include tablet {
-      width: 45vw;
+      font-size: 2em;
     }
-    @include desktop {
-      width: 30vw;
-    }
+  }
+  p {
+    margin-top: 0;
+    letter-spacing: -0.5px;
+    color: darkgray;
+  }
+  imgadder_btns {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto;
     .ImgAdder_button {
       padding: 15px 50px;
       margin: 5px 7px 0 7px;
     }
-    .ImgAdder_search {
-      display: block;
-      margin: 10px auto;
-    }
+  }
+  .ImgAdder_search {
+    display: block;
+    width: 80%;
+    margin: 10px auto 30px;
   }
   img {
-    width: 65vw;
+    width: 100%;
     display: block;
     margin: 10px auto;
-    @include tablet {
-      width: 55vw;
-    }
-    @include desktop {
-      width: 35vw;
-    }
   }
+}
+hr {
+  border: none;
+  border-top: 1px dotted #3b7fc7;
+  color: #fff;
+  background-color: #fff;
+  height: 1px;
+  width: 90%;
 }

@@ -1,0 +1,32 @@
+@import "../../../../sass/media";
+
+.Reminder_bg {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100vw;
+  position: absolute;
+  top: -13px;
+  height: 250%;
+}
+.Reminder {
+  border-radius: 5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  width: 50%;
+  @include tablet {
+    width: 40%;
+  }
+  @include desktop {
+    width: 30%;
+  }
+  z-index: 100;
+  position: relative;
+  top: 30vh;
+  left: 25%;
+  @include tablet {
+    left: 30%;
+  }
+  @include desktop {
+    left: 35%;
+  }
+  height: 30vh;
+}

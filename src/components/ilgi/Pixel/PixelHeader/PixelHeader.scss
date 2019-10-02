@@ -1,28 +1,56 @@
 @import "../../../../sass/_mixin.scss";
+@import "../../../../sass/_media.scss";
 
-.PixelHeader{
-    top: 0;
-    left: auto;
-    right: 0;
-    position: fixed;
-    width: 100%;
-    transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    z-index: 1100;
-    pixelHeader-info{
-        position: relative;
-        top:-50px;
-        left:70px;
-        span{
-            color:white;
-            font-weight: bold;
-            font-size: 1.8em;
-            margin:0 10px;
-        }
+@mixin bigMobile {
+  @media (min-width: 374px) and (max-width: 450px) {
+    @content;
+  }
+}
+@mixin middle {
+  @media (min-width: 451px) and (max-width: 767px) {
+    @content;
+  }
+}
+.PixelHeader {
+  width: 100%;
+  transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  z-index: 1100;
+
+  .AppBar_tool {
+    display: flex;
+    justify-content: space-evenly;
+    @include mobile {
+      justify-content: space-around;
     }
-    button{
-        position:relative;
-        top:-55px;
-        right: -120px;
-        @include regular-button;
+  }
+  pixelHeader-info {
+    span {
+      color: white;
+      font-weight: bold;
+      margin: 0 1.5vw;
+      font-size: 1.25em;
+      @include medium {
+        font-size: 1.8em;
+      }
+      @include tablet {
+        font-size: 2em;
+      }
+      @include desktop {
+        font-size: 2.2em;
+      }
     }
+  }
+
+  button {
+    font-size: 1em;
+    @include tablet {
+      font-size: 1.2em;
+    }
+    @include desktop {
+      font-size: 1.4em;
+      margin-right: 5px;
+    }
+    min-height: 10px;
+    min-width: 50px !important;
+  }
 }

@@ -11,22 +11,23 @@ bar-logo h1 {
   margin: 0 0 4px 10px;
   padding: 0; }
 
+.AppBar {
+  background: #23d5ab;
+  background: linear-gradient(148deg, #23a6d5 50%, #8c95c6 65%, #fc84b6 90%, #fcabcc 100%); }
+
 .AppBar_tool {
-  width: 100vw;
-  margin: 0 auto; }
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .AppBar_tool {
-      width: 75vw; } }
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline; }
+  .AppBar_tool toolbar-left {
+    display: flex; }
   @media (min-width: 1024px) {
     .AppBar_tool {
-      width: 60vw; } }
-  .AppBar_tool .Header_home {
-    position: relative;
-    right: -50vw;
-    text-decoration: none; }
-    @media (min-width: 768px) and (max-width: 1023px) {
-      .AppBar_tool .Header_home {
-        right: -45vw; } }
-    @media (min-width: 1024px) {
-      .AppBar_tool .Header_home {
-        right: -40vw; } }
+      justify-content: space-around; } }
+  .AppBar_tool a {
+    text-decoration: none;
+    color: white;
+    text-transform: capitalize;
+    font-size: 1.1em; }

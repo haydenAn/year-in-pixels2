@@ -2,7 +2,7 @@ import React from "react";
 import "./ImgAdder.css";
 import axios from "axios";
 //matrial ui
-import {TextField,Button,MobileStepper} from "@material-ui/core";
+import { TextField, Button, MobileStepper } from "@material-ui/core";
 class ImgAdder extends React.Component {
   state = {
     searchSwitch: false,
@@ -67,7 +67,7 @@ class ImgAdder extends React.Component {
       searchResultsDisplay = searchResults.map((el, i) => {
         return (
           <img
-          alt="searched_photo"
+            alt="searched_photo"
             key={i}
             src={el.urls.regular}
             width="400"
@@ -76,73 +76,86 @@ class ImgAdder extends React.Component {
         );
       });
     return (
-      <div className="ImgAdder">
-        <imgadder-buttons>
-          <input
-            accept="image/*"
-            id="outlined-button-file"
-            multiple
-            type="file"
-            style={{ display: "none" }}
-            onChange={this.fileChangedHandler}
-          />
-          <label htmlFor="outlined-button-file">
-            <Button
-              variant="outlined"
-              component="span"
-              className="ImgAdder_button"
-            >
-              Upload
-            </Button>
-          </label>
-          <Button
-            variant="outlined"
-            className="ImgAdder_button"
-            onClick={this.random}
-          >
-            Random
-          </Button>
-          <TextField
-            label="Search images..."
-            className="ImgAdder_search"
-            fullWidth
-            onKeyDown={this.search}
-          />
-          <search-results>
-            {searchSwitch ? (
-              <div className="ImgAdder_showSearch">
-                <MobileStepper
-                  variant="dots"
-                  steps={6}
-                  position="static"
-                  className="ImgAdder_stepper"
-                  activeStep={activeStep}
-                  nextButton={
-                    <Button
-                      onClick={this.handleNext}
-                      disabled={activeStep === 5}
-                    >
-                      Next
-                    </Button>
-                  }
-                  backButton={
-                    <Button
-                      onClick={this.handleBack}
-                      disabled={activeStep === 0}
-                    >
-                      Back
-                    </Button>
-                  }
-                />
-                <div className="ImgAdder_search-results">
-                  {searchResultsDisplay}
+      <imgadder-wrapper>
+        <hr />
+        <div className="ImgAdder">
+          <section className="ImgAdder_header">
+            <h1>Make it more memorable</h1>
+            <p>
+              upload photos from your devices, search relavant photos or just
+              simply click random button!
+            </p>
+          </section>
+
+          <imgadder-actions>
+            <input
+              accept="image/*"
+              id="outlined-button-file"
+              multiple
+              type="file"
+              style={{ display: "none" }}
+              onChange={this.fileChangedHandler}
+            />
+            <imgadder_btns>
+              <label htmlFor="outlined-button-file">
+                <Button
+                  variant="outlined"
+                  component="span"
+                  className="ImgAdder_button"
+                >
+                  Upload
+                </Button>
+              </label>
+              <Button
+                variant="outlined"
+                className="ImgAdder_button"
+                onClick={this.random}
+              >
+                Random
+              </Button>
+            </imgadder_btns>
+            <TextField
+              label="Search images..."
+              className="ImgAdder_search"
+              fullWidth
+              onKeyDown={this.search}
+            />
+            <search-results>
+              {searchSwitch ? (
+                <div className="ImgAdder_showSearch">
+                  <MobileStepper
+                    variant="dots"
+                    steps={6}
+                    position="static"
+                    className="ImgAdder_stepper"
+                    activeStep={activeStep}
+                    nextButton={
+                      <Button
+                        onClick={this.handleNext}
+                        disabled={activeStep === 5}
+                      >
+                        Next
+                      </Button>
+                    }
+                    backButton={
+                      <Button
+                        onClick={this.handleBack}
+                        disabled={activeStep === 0}
+                      >
+                        Back
+                      </Button>
+                    }
+                  />
+                  <div className="ImgAdder_search-results">
+                    {searchResultsDisplay}
+                  </div>
                 </div>
-              </div>
-            ) : null}
-          </search-results>
-        </imgadder-buttons>
-        <img alt="default img" src={imgUrl} />
-      </div>
+              ) : null}
+            </search-results>
+          </imgadder-actions>
+          <img alt="default img" src={imgUrl} />
+        </div>
+      </imgadder-wrapper>
     );
   }
 }

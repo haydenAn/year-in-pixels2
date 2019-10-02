@@ -1,21 +1,17 @@
-.Graph graph-body {
-  width: 95vw;
-  display: block;
-  margin: 0 auto; }
+@import url("https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap");
+.Graph {
+  padding: 20px 30px;
+  margin: 10px 3px 3px;
+  box-shadow: 0 1px 1px rgba(128, 128, 128, 0.3) !important; }
+  @media (min-width: 601px) and (max-width: 767px) {
+    .Graph {
+      margin: 20px 20px 0 10px; } }
   @media (min-width: 768px) and (max-width: 1023px) {
-    .Graph graph-body {
-      width: 80vw; } }
+    .Graph {
+      margin: 20px 0 0 10px; } }
   @media (min-width: 1024px) {
-    .Graph graph-body {
-      width: 50vw; } }
-
-.Graph .Graph_nav {
-  margin-top: 20px; }
-  .Graph .Graph_nav button span span {
-    font-size: 1.4em; }
-    @media (min-width: 768px) and (max-width: 1023px) {
-      .Graph .Graph_nav button span span {
-        font-size: 1.8em; } }
-    @media (min-width: 1024px) {
-      .Graph .Graph_nav button span span {
-        font-size: 2.2em; } }
+    .Graph {
+      margin: 40px 0 0 20px; } }
+  .Graph graph-body {
+    display: block;
+    margin: 0 auto; }

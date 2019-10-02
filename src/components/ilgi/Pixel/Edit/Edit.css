@@ -1,24 +1,35 @@
-.Edit edit-textarea {
-  width: 65vw;
+.Edit edit-journal {
+  width: 80%;
   display: block;
   margin: 10px auto; }
+  @media (min-width: 601px) and (max-width: 767px) {
+    .Edit edit-journal {
+      width: 70%; } }
   @media (min-width: 768px) and (max-width: 1023px) {
-    .Edit edit-textarea {
-      width: 55vw; } }
+    .Edit edit-journal {
+      width: 50%; } }
   @media (min-width: 1024px) {
-    .Edit edit-textarea {
-      width: 35vw; } }
-  .Edit edit-textarea h3 .edit_penicon {
-    margin: 0 10px 0 0; }
-
-.Edit .Edit_savebtn {
-  width: 65vw;
-  display: block;
-  padding: 20px 0;
-  margin: 30px auto 100px; }
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .Edit .Edit_savebtn {
-      width: 55vw; } }
-  @media (min-width: 1024px) {
-    .Edit .Edit_savebtn {
-      width: 35vw; } }
+    .Edit edit-journal {
+      width: 38%; } }
+  .Edit edit-journal h1,
+  .Edit edit-journal p {
+    color: #2b2b32;
+    text-align: center; }
+  .Edit edit-journal h1 {
+    font-size: 1.5em;
+    margin: 0; }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .Edit edit-journal h1 {
+        font-size: 2em; } }
+  .Edit edit-journal p {
+    margin-top: 0;
+    letter-spacing: -0.5px;
+    color: darkgray; }
+  .Edit edit-journal .Edit_savebtn {
+    width: 100%;
+    display: block;
+    padding: 20px 0;
+    margin: 20px auto 20%; }
+    @media (min-width: 1024px) {
+      .Edit edit-journal .Edit_savebtn {
+        margin-bottom: 50%; } }
