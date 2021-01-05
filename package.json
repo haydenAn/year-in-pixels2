@@ -7,7 +7,7 @@
     "@material-ui/icons": "^2.0.3",
     "@material-ui/lab": "^1.0.0-alpha.10",
     "aos": "^2.3.3",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "body-parser": "^1.18.3",
     "chart.js": "^2.7.2",
     "cors": "^2.8.4",
